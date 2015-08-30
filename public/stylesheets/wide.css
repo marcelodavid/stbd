@@ -1,0 +1,70 @@
+/* header */
+
+
+/* menu de navegacion primario*/
+ul{
+	background-color: #F5F5F5;
+	padding-left: 1%;
+	padding-right: 1%;
+	list-style-type: none;
+	height: 36px;
+	clear: both;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #E0E0E0;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #E0E0E0;
+}
+
+li{
+	display: inline;
+}
+
+a{
+	display: block;
+	height: 35px;
+	float: left;
+	text-decoration: none;
+	padding-top: 7px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #757575;
+	margin-right: 10px;
+}
+
+a:hover{
+	text-decoration: none;
+	color:#757575;
+}
+
+#primary-nav ul li form {
+	display: inline-block;
+	float: left;
+	padding: 3px;
+}
+
+form label span{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
+	color: #757575; 
+
+}
+form input#buscar{
+	background-color:white;
+	border-style: none;
+	border-radius: 3px 3px 3px 3px;
+	min-width: 200px;
+	color: #455A64;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	border-style: solid;
+	border-color: #E0E0E0;
+}

@@ -4,15 +4,27 @@
 		<meta charset="utf-8">
 		<title>Sistema de Telemedida</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/wide.css">
 	</head>
 
 	<body>
 		<div id="page-wrap">
 			<header class="main" id="h1">
-				<h1>Sistema de Telemedida orientada a la etapa de Distribucion</h1>
+				<h1>ANDE</h1>
 			</header>
 
 			<nav class="main" id="primary-nav" role="navigation">
+				<ul>
+					<li>
+						<form accept-charset="utf-8" method="get" action="/usuario">
+							<label for="buscar"><span>Buscar</span></label>
+							<input id="buscar" type="search" name="usuario" value="" placeholder="usuario">
+						</form>
+					</li>
+					<li><a href="/mapa" title="mapa">mapa</a></li>
+					<li><a href="/zonas" title="zonas">zonas</a></li>
+
+				</ul>
 			</nav>
 
 			<section class="main">
