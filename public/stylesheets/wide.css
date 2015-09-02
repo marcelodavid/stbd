@@ -1,20 +1,11 @@
-/* header */
-
-
 /* menu de navegacion primario*/
 ul{
-	background-color: #F5F5F5;
-	padding-left: 1%;
-	padding-right: 1%;
 	list-style-type: none;
-	height: 36px;
-	clear: both;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-top-color: #E0E0E0;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-color: #E0E0E0;
+	height: 30px;
+	background-color: #F5F5F5;
+	border-style: solid;
+	border-color: #E0E0E0;
+	border-width: 1px;
 }
 
 li{
@@ -23,48 +14,45 @@ li{
 
 a{
 	display: block;
-	height: 35px;
+	height: 30px;
 	float: left;
 	text-decoration: none;
-	padding-top: 7px;
-	padding-left: 10px;
-	padding-right: 10px;
+	text-align: center;
 	color: #757575;
-	margin-right: 10px;
+	width: 150px;
+	padding: 5px;
 }
 
-a:hover{
+a:visited, a:hover{
 	text-decoration: none;
-	color:#757575;
+	color: #212121;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #212121;
 }
 
 #primary-nav ul li form {
 	display: inline-block;
 	float: left;
-	padding: 3px;
+	background-color:red;
 }
 
-form label span{
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-top: 1px;
-	padding-bottom: 1px;
-	margin-top: 1px;
-	margin-bottom: 1px;
-	border-bottom-left-radius: 3px;
-	border-top-left-radius: 3px;
-	color: #757575; 
-
-}
 form input#buscar{
-	background-color:white;
+	height: 28px;
 	border-style: none;
-	border-radius: 3px 3px 3px 3px;
-	min-width: 200px;
-	color: #455A64;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #E0E0E0;
+	min-width: 249px;
+	color: #212121;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 5px;
-	border-style: solid;
-	border-color: #E0E0E0;
+	padding-left: 20px;
+	-moz-transition: all 0.6s;
+
+}
+
+form input#buscar:focus{
+	background-color: #e3f2fd;
+	color: #212121;
 }

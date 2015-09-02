@@ -1,18 +1,54 @@
 *{
-	padding: 0px;
 	margin: 0px;
+	padding: 0px;
 }
-body{
+html, body{
 	background-color: #FFFFFF !important;
 }
-header{
-	height: 50px;
-	padding-left: 10px;
-	text-align: center;
-	background-color: #6d4c41;
+header#header{
+	height: 48px;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #0d47a1;
 }
 
-header#h1 h1{
+header#header h2{
 	margin: 0px !important;
 	color:white;
+}
+
+aside{
+	width: 250px;
+	border-right-style: solid;
+	border-right-color: #E0E0E0;
+	border-right-width: 1px;
+	position: absolute;
+	top:78px;
+	bottom: 0px;
+}
+
+section.main{
+	position: absolute;
+	top:78px;
+	left: 250px;
+	bottom: 0px;
+	right: 0px;
+	overflow-y: auto;
+	overflow-x:none;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+#googleMap{
+	height: 400px;
+	margin-bottom: 20px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #cfd8dc;
+}
+
+.clear{
+	clear: both;
 }
