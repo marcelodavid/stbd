@@ -16,7 +16,7 @@ var registar = function(db, data){
 		function(err, success){
 			assert.equal(err, null, ['error al insertar los datos']);
 			assert.equal(1, success.result.n);
-			console.log('datos insertados correctamente');
+			db.close();
 		}
 	);
 };
@@ -30,10 +30,11 @@ var actualizar_medicion = function(db, data, callback){
 	);
 
 	callback(data.meterid);
+	db.close();
 };
 
-var buscar = function(db, lat, lng, radio, callback){
-	var collection = db.collection('home');
+var buscar_mapa = function(db, lat, lng, radio, callback){
+	var collection = db.collection('abonados');
 
 	collection.find({
 		localidad:{
@@ -52,6 +53,17 @@ var buscar = function(db, lat, lng, radio, callback){
 	});	
 };
 
+var buscar_abonado = function(db, generico, callback){
+	var collection = db.collection('abonados');
+
+	collection.find({$or:[{nombre: generico}, {ci:generico}, {NIS: generico}]})
+		.toArray(function(err, docs){
+			callback(docs);
+			db.close();
+		});
+}
+
 exports.registar = registar;
 exports.actualizar_medicion = actualizar_medicion;
-exports.buscar = buscar;
+exports.buscar_mapa = buscar_mapa;
+exports.buscar_abonado = buscar_abonado;
