@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
 
-var routes = require('./routes/index');
+var index = require('./routes/index');
+var mapa = require('./routes/mapa');
 
 var app = express();
 
@@ -23,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', index);
+app.use('/mapa', mapa);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

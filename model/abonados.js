@@ -25,11 +25,11 @@ var actualizar_medicion = function(db, data, callback){
 	var collection = db.collection('abonados');
 
 	collection.update(	
-		{meterid: data.meterid},
+		{serial: data.serial},
 		{$set:{meassure: data.meassure}}
 	);
 
-	callback(data.meterid);
+	callback(data.serial);
 	db.close();
 };
 
@@ -56,7 +56,7 @@ var buscar_mapa = function(db, lat, lng, radio, callback){
 var buscar_abonado = function(db, generico, callback){
 	var collection = db.collection('abonados');
 
-	collection.find({$or:[{nombre: generico}, {ci:generico}, {NIS: generico}]})
+	collection.find({$or:[{usuario: generico}, {ci:generico}, {NIS: generico}]})
 		.toArray(function(err, docs){
 			callback(docs);
 			db.close();

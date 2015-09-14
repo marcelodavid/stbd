@@ -1,0 +1,27 @@
+<div id="googleMap"></div>	
+<div class="table-responsive">
+	<table class="table table-hover ">
+		<caption>Parametros de importancia de la red hogar</caption>
+		<thead>
+			<tr>
+				<th>Energia Activa</th>
+				<th>Demanda Maxima</th>
+				<th>Corriente L1</th>
+				<th>Corriente L2</th>
+				<th>Corriente L3</th>
+				<th>Fecha</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="data in mc.abonados"
+			ng-mouseover="mc.markerOnMap(data.localidad.coordinates)">
+				<td>{{ data.parametros["Energia Activa"] }}</td>
+				<td>{{ data.parametros["Demanda Maxima"] }}</td>
+				<td>{{ data.parametros["Corriente L1"] }}</td>
+				<td>{{ data.parametros["Corriente L2"] }}</td>
+				<td>{{ data.parametros["Corriente L3"] }}</td>
+				<td>{{ data.parametros["Fecha"] | date:'dd/MM/yyyy @ h:mm a' }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

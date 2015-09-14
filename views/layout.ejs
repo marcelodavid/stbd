@@ -9,7 +9,6 @@
 
 		<!-- Twitter Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="bootstrap/css/bootstrap-switch.min.css">
 
 		 <!-- Material Design for Bootstrap --> 
 	    <link href="bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
@@ -22,7 +21,8 @@
 	</head>
 
 	<body>
-		<div id="page-wrap" ng-controller="restController as restCtrl">
+		<div id="page-wrap" ng-controller="MainController as mc
+		">
 			<header class="main" id="header">
 				<h2>ANDE</h2>
 			</header>
@@ -39,17 +39,19 @@
 
 				</ul>
 			</nav>
+
 			<div class="clear">	
 					<aside></aside>
 					<section class="main" id="scrollbar">
 						<%- body %>
 					</section>
 			</div>
+
 			<footer class="main">
 			</footer>
 		</div>
-
-		 <!--google maps api-->
+	<!--scripts-->
+		<!--google maps api-->
 	   	<script src="http://maps.googleapis.com/maps/api/js"></script>
 
 	   	<!--jquery necesary for boostrap must load first to angular-->
@@ -58,16 +60,20 @@
 	    <!--angular-->
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 
-		<!--own source-->
-		<script type="text/javascript" src="javascripts/api-rest.js"></script>
-		<script type="text/javascript" src="javascripts/google-maps-angular-api.js"></script>
-		<script type="text/javascript" src="javascripts/table.js"></script>
+		<!--modulo-->
+		<script type="text/javascript" src="javascripts/app.js"></script>
+
+		<!--controllers-->
+		<script src="javascripts/controllers/maincontroller.js" type="text/javascript" charset="utf-8" async defer></script>
+
+		<!--services-->
+		<script src="/javascripts/services/mediciones.js" type="text/javascript" charset="utf-8" async defer></script>
 
 		<!-- Material Design for Bootstrap -->
 	    <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
 	    <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
 	    <script>
-	      $.material.init();
+	    	$.material.init();
 	    </script>
 	</body>
 </html>
