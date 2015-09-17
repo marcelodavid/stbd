@@ -10,7 +10,7 @@
 	* argumento de la funcion anonima introducida como 4to 
 	* parametro. 
 	*/
-	var app = angular.module('Services',[]);
+	var app = angular.module('mediciones',[]);
 
 	app.factory('$mediciones', ['$http', function($http){
 		return function(radio, lat, lng, callback){
