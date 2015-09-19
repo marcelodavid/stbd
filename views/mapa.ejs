@@ -1,5 +1,26 @@
-<div id="googleMap"></div>	
-<div class="table-responsive">
+<div class="tarjeta">
+	<div id="googleMap"></div>
+	<form name="centro" class="form-horizontal">
+		<div class="form-group">
+			<div>
+				<label class="col-md-1">Radio</label>
+				<div class="col-md-3">
+					<input circle-radio class="form-control" type="text" name="radio" placeholder="longitud en metros" ng-model="mc.circle.radius">
+				</div>
+				<label class="col-md-1">Lat</label>
+				<div class="col-md-3">
+					<input lat-lng coord="latitud" class="form-control" type="text" placeholder="latitud" ng-model="mc.lat">
+				</div>
+				<label class="col-md-1">Lng</label>
+				<div class="col-md-3">
+					<input lat-lng  coord="longitud" class="form-control" type="text" placeholder="longitud" ng-model="mc.lng">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>	
+
+<div class="table-responsive tarjeta">
 	<table class="table table-hover ">
 		<caption>Parametros de importancia de la red hogar</caption>
 		<thead>
@@ -13,8 +34,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="data in mc.abonados"
-			ng-mouseover="mc.markerOnMap(data.localidad.coordinates)">
+			<tr ng-repeat="data in mc.abonados" ng-mouseover="mc.markerOnMap(data.localidad.coordinates)" ng-class="{info:mc.info($index)}">
 				<td>{{ data.parametros["Energia Activa"] }}</td>
 				<td>{{ data.parametros["Demanda Maxima"] }}</td>
 				<td>{{ data.parametros["Corriente L1"] }}</td>
