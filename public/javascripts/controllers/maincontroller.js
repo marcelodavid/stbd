@@ -1,11 +1,7 @@
 (function(){
 	var app = angular.module('Controllers', []);
 
-	google.maps.event.addDomListener(window, 'load', function(){
-		angular.bootstrap(document, ['teleApp']);
-	});
-
-	app.controller('MainController',["$mediciones","$timeout", function($mediciones,$timeout){
+	app.controller('MainController',["$mediciones","$timeout","$zonas", function($mediciones,$timeout,$zonas){
 		var	_image = 'images/map-marker.png';
 
 		var _options = {
@@ -23,12 +19,51 @@
             draggable: false
 		});
 
-		this.markerOnMap = function(coordenandas){
+		this.markerOnMap = function(coordenadas){
 			var LatLng = new google.maps
-			.LatLng(coordenandas[1], coordenandas[0]);
+			.LatLng(coordenadas[1], coordenadas[0]);
 			marker.setPosition(LatLng);
 		};
 
+		this.above = function(index, coordenadas){
+			if (coordenadas)
+				this.markerOnMap(coordenadas);
+			this.row = index;
+		};
+
+		this.info = function(index){
+			return this.row === index;
+		};
+
+		this.active = function(){
+			return true;
+		}
+
+		// logica de las mini tarjetas
+		this.selectCard = function(index){
+			this.card = index;
+		};
+
+		this.extend = function(index){
+			return this.card === index;
+		};
+
+		this.hidden = function(index){
+			return this.card === index;
+		};
+
+		this.infoCard = function(index){
+			if(this.card == index)
+				return "completa";
+			else
+				return "minima"
+		};
+
+		this.color = function(index){
+			return "color-" + (index % 4);
+		};
+
+		
 		var self = this;
 	    self.circle = new google.maps.Circle({
             map:_map,
@@ -50,7 +85,8 @@
 
 			// creamos un objeto LatLng para cambiar de centro
 			self.LatLng = new google.maps.LatLng(self.lat, self.lng);
-	        self.circle.setCenter(self.LatLng); 
+	        self.circle.setCenter(self.LatLng);
+	        // se muestra la tabla el clickear el mapa
 		};
 
 		var mediciones; 	// el servicio que nos traera los datos de la DB
@@ -64,7 +100,7 @@
 				mediciones? mediciones.clearInterval(): null;
 				mediciones = $mediciones(self.circle.radius, self.lat, self.lng, result);
 				mediciones.getOne();
-				mediciones.setInterval(5000);			
+				mediciones.setInterval(300000);			
 			});
 		};
 

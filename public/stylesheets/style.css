@@ -2,15 +2,13 @@
 	margin: 0px;
 	padding: 0px;
 }
-html, body{
-	background-color: #FFFFFF !important;
-}
+
 header#header{
 	height: 48px;
 	padding-left: 15px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	background-color: #1565c0;
+	background-color: lightblue;
 }
 
 header#header h2{
@@ -28,6 +26,125 @@ aside{
 	bottom: 0px;
 }
 
+h5 span.enfasis, h4 span.enfasis{
+	color: #757575;
+	text-align: center;
+	display: block;
+	transition: all 0.4s;
+	cursor: pointer;
+}
+
+h5 span.enfasis.info{ 
+	font-size: medium;
+}
+
+h4 span.enfasis.info{
+	font-size: x-large;
+}
+
+.tarjeta{
+	-webkit-box-shadow: 0 2px 4px 1px #D1D1D1;
+	box-shadow: 0 2px 8px 2px #D1D1D1;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	border-radius: 2px 2px 2px 2px;
+	background-color: white;
+	margin: 5px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+	position: relative;
+}
+
+aside div.tarjeta{
+	height: 100px;
+	overflow-y:hidden;
+	transition: height 0.3s;
+}
+
+aside div.tarjeta icon{
+	font-size: 18px;
+	color: #1a237e;
+	margin-right: 10px;
+}
+
+aside div.tarjeta.extender{
+	height: 240px;
+}
+
+a i.mdi-navigation-chevron-right{
+	background-color: #eee;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	border-radius: 50%;
+}
+
+a i.mdi-navigation-chevron-right:hover{
+	-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+
+.tarjeta h5{
+	color: #BDBDBD;
+}
+
+.tarjeta a.more{
+	text-decoration: none;
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	font-size: 12px;
+	color: #1a237e;
+}
+
+.tarjeta a.more:hover{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+div.separador{
+	width: 65px;
+	margin-left: calc(50% - 35px);
+	height: 2px;
+	z-index: 10;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+/*verde*/
+.color-0{
+	background-color: #4CAF50;
+}
+/*amarillo*/
+.color-1{
+	background-color: #FFEB3B;
+}
+/*rojo*/
+.color-2{
+	background-color: #F44336;
+}
+/*ligthblue*/
+.color-3{
+	background-color: #03A9F4;
+}
+
+aside ul{
+	list-style-type: none;
+}
+
+aside ul li {
+	margin-bottom: 6px;
+}
+
+li span.enfasis{
+	color: #757575;
+}
+
+.abonados-wrap{
+	padding: 2px;
+	overflow-y:auto;
+}
+
 section.main{
 	position: absolute;
 	top:78px;
@@ -42,11 +159,11 @@ section.main{
 }
 
 #googleMap{
-	height: 400px;
-	margin-bottom: 20px;
+	height: 350px;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #cfd8dc;
+	margin-bottom: 15px;
 }
 
 .clear{
