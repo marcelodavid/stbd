@@ -1,47 +1,116 @@
 <div class="tarjeta">
 	<div id="googleMap"></div>
-	<form name="centro" class="form-horizontal">
+	<!--radio y coordenadas del centro de la cia del mapa-->
+	<form ng-show="mc.visibility" name="centro" class="form-horizontal">
 		<div class="form-group">
 			<div>
-				<label class="col-md-1">Radio</label>
+				<label class="col-md-1 color-0">Radio</label>
 				<div class="col-md-3">
 					<input circle-radio class="form-control" type="text" name="radio" placeholder="longitud en metros" ng-model="mc.circle.radius">
 				</div>
-				<label class="col-md-1">Lat</label>
+				<label class="col-md-1 color-0">Lat</label>
 				<div class="col-md-3">
 					<input lat-lng coord="latitud" class="form-control" type="text" placeholder="latitud" ng-model="mc.lat">
 				</div>
-				<label class="col-md-1">Lng</label>
+				<label class="col-md-1 color-0">Lng</label>
 				<div class="col-md-3">
 					<input lat-lng  coord="longitud" class="form-control" type="text" placeholder="longitud" ng-model="mc.lng">
 				</div>
 			</div>
 		</div>
 	</form>
-</div>	
-
-<div class="table-responsive tarjeta">
-	<table class="table table-hover ">
-		<caption>Parametros de importancia de la red hogar</caption>
-		<thead>
-			<tr>
-				<th>Energia Activa</th>
-				<th>Demanda Maxima</th>
-				<th>Corriente L1</th>
-				<th>Corriente L2</th>
-				<th>Corriente L3</th>
-				<th>Fecha</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="data in mc.abonados" ng-mouseover="mc.markerOnMap(data.localidad.coordinates)" ng-class="{info:mc.info($index)}">
-				<td>{{ data.parametros["Energia Activa"] }}</td>
-				<td>{{ data.parametros["Demanda Maxima"] }}</td>
-				<td>{{ data.parametros["Corriente L1"] }}</td>
-				<td>{{ data.parametros["Corriente L2"] }}</td>
-				<td>{{ data.parametros["Corriente L3"] }}</td>
-				<td>{{ data.parametros["Fecha"] | date:'dd/MM/yyyy @ h:mm a' }}</td>
-			</tr>
-		</tbody>
-	</table>
+</div>
+<!-- barra de navegacion secundaria -->
+<div>
+	<nav class="secondary-nav">
+		<ul>
+			<li class="inline"><i ng-click="mc.clickClose()" ng-mouseover="mc.hoverClose()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showClose" class="mdi-navigation-close color-0 icon"></i></li>
+			<li class="inline"><i ng-click="mc.clickMore(1)" ng-mouseover="mc.hoverMore()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showOthers" class="mdi-navigation-more-vert color-0 icon"></i></li>
+			<li class="inline">
+				<form name ="submit" accept-charset="utf-8" ng-submit="guardar.$valid && mc.send()">
+						<button ng-mouseover="mc.hoverSend(guardar.$valid)" ng-mouseleave="mc.defaultIconName()" class="icon" ng-show="mc.showSend" type="submit">
+							<i class="mdi-content-send {{ mc.valid(guardar.$valid) }}"></i>
+						</button>
+				</form>
+			</li>
+			<li class="inline"><i ng-click="mc.toggleVisibility()" ng-mouseover="mc.hoverVisibility()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showOthers" class="{{ mc.visibilityClass }} color-0 icon"></i></li>
+			<li class="inline"><i ng-click="mc.clickEdit(2)" ng-mouseover="mc.hoverEdit()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showEdit" class="mdi-content-create color-0 icon"></i></li>
+			<li class="inline"><i ng-click="mc.clickSave(2)" ng-mouseover="mc.hoverSave()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showSave" class="mdi-content-save color-0 icon"></i></li>
+		</ul>
+	</nav>
+</div>
+<!-- Formulario para guardar el perfil de la zona -->
+<div ng-show="mc.tabs(2)">
+	<div ng-mouseover="mc.above(-2)">
+		<div class="separador {{ mc.color(3) }}"></div>
+		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-2)}">{{  mc.tabs(2) && mc.iconName || "Zona puesta bajo seguimiento" }}</span></h5>
+	</div>
+	<div class="tarjeta">
+		<div class="infographics">
+			<img src="images/map.svg" alt="">
+		</div>
+		<div class="enfasis">
+			<form name="guardar" class="form-horizontal"
+			ng-submit="mc.send()" novalidate>
+				<fieldset>
+					<legend class="color-1">Perfil de la Zona</legend>
+					<div class="form-group">
+						<label class="col-md-2 color-0">Nombre</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" name="name" ng-model="mc.nombre" placeholder="Ingrese un nombre para la zona" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 color-0" for="description">Descripcion</label>
+						<div class="col-md-10">
+							<textarea class="form-control" ng-model="mc.descripcion" name="description" required></textarea>
+							<span class="help-block">Puede identificar mas facilmente la zona, el area que cubre o el comportamiento, etc</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 color-0">Departamento</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" name="name" ng-model="mc.departamento" placeholder="Indique el departamento al que pertenece" required>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--Tabla de Datos del abonado -->
+<div ng-show="mc.showTable">
+	<div ng-mouseover="mc.above(-3)">
+		<div class="separador {{ mc.color(4) }}"></div>
+		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-3)}">{{ !mc.tabs(2) && mc.iconName || mc.nombre || mc.altNombre }}</span></h5>
+		<blockquote ng-show="mc.visibility">
+			<p>{{mc.descripcion || mc.altDescripcion }}</p>
+		</blockquote>
+	</div>
+	<div class="table-responsive tarjeta">
+		<table class="table table-hover ">
+			<caption>Parametros de importancia de la red hogar</caption>
+			<thead>
+				<tr>
+					<th>Energia Activa</th>
+					<th>Demanda Maxima</th>
+					<th>Corriente L1</th>
+					<th>Corriente L2</th>
+					<th>Corriente L3</th>
+					<th>Fecha</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="data in mc.abonados" ng-mouseover="mc.markerOnMap(data.localidad.coordinates)" ng-class="{info:mc.info($index)}">
+					<td>{{ data.parametros["Energia Activa"] }}</td>
+					<td>{{ data.parametros["Demanda Maxima"] }}</td>
+					<td>{{ data.parametros["Corriente L1"] }}</td>
+					<td>{{ data.parametros["Corriente L2"] }}</td>
+					<td>{{ data.parametros["Corriente L3"] }}</td>
+					<td>{{ data.parametros["Fecha"] | date:'dd/MM/yyyy @ h:mm a' }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>

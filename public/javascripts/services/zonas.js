@@ -12,39 +12,49 @@
 	var app = angular.module('zonas',[]);
 
 	app.factory('$zonas',['$http',function($http){
-		return function(form, callback){
-			var _req1 = {
+		return function(form){
+			var _req1 = form? {
 				method: 'POST',
-				url: '/zona',
+				url: '/zona/nueva',
 				data: form,
 				headers: {
 		        	'Content-Type': 'application/json'
 		    	}
-			};
+			}: undefined;
 			var _req2 = {
 				method: 'GET',
 				url: '/zona/todas'
+			};
+			var _req3 = {
+				method: 'PUT',
+				url:'/zona/',
+				data: form,
+				headers: {
+					'Content-Type': 'application/json'
+				}
 			};			
 			return {
-				save: function(){
+				save: function(callback){
 					$http(_req1).success(function(data){
 						callback(data);
 					});					
 				},
-				all: function(){
+				update: function(params){
+					_req3.url += params;
+					$http(_req3);
+				},
+				all: function(callback){
 					$http(_req2).success(function(data){
 						callback(data);
 					});	
 				},
-				name: function(name){
+				name: function(name, callback){
 					_req2.url = '/zona/'+name;
 					$http(_req2).success(function(data){
 						callback(data);
 					});	
 				}
-
 			}
-
 		};
 	}]);
 })();
