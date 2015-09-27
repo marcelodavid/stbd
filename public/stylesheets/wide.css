@@ -1,67 +1,8 @@
 /* menu de navegacion primario*/
-nav ul{
-	list-style-type: none;
-}
-
-nav.primary-nav ul{
-	height: 30px;
-	background-color: #F5F5F5;
-	border-style: solid;
-	border-color: #E0E0E0;
-	border-width: 1px;
-}
-
-nav li{
-	display: inline;
-}
-
-nav a{
-	display: block;
-	height: 30px;
-	float: left;
-	text-decoration: none;
-	text-align: center;
-	color: #757575;
-	width: 150px;
-	padding: 5px;
-}
-
-nav a:hover{
-	text-decoration: none;
-	color: #212121;
-	border-bottom-style: solid;
-	border-bottom-width: 2px;
-	border-bottom-color: #212121;
-}
-
-#primary-nav ul li form {
-	display: inline-block;
-	float: left;
-	background-color:red;
-}
-
-form input#buscar{
-	height: 28px;
-	border-style: none;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-right-color: #E0E0E0;
-	min-width: 249px;
-	color: #212121;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-left: 20px;
-	-moz-transition: all 0.6s;
-}
-
-form input#buscar:focus{
-	background-color: #e3f2fd;
-	color: #212121;
-}
 textarea.form-control{
 	height: 34px;
 }
-
+/* formulario para guardar la zona */
 div.enfasis{
 	float: left;
 	width: 75%;
@@ -69,21 +10,30 @@ div.enfasis{
 	padding-top: 25px;
 	padding-right: 10%;
 }
-
 .infographics{
 	display: block;
 	height: 270px;
 	float: left;
 	width: 25%;
 }
-
 .infographics img{
 	padding: 10px;
 	width: 150px;
 	margin-left: 25%;
 	margin-top: 50px;
 }
+/* menu secundario */
 .secondary-nav ul li.inline icon{
 	margin-right: 15px;
 	right: 50px;
+}
+
+/* aside y main*/
+aside{
+	display: block;
+	z-index: 1;
+}
+section.main{
+	margin-left: 250px;
+	margin-right: 250px;
 }

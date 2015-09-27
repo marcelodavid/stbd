@@ -8,64 +8,40 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Twitter Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
 		 <!-- Material Design for Bootstrap --> 
-	    <link href="bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
-	    <link href="bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
-	    <link href="bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+	    <link href="/bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
+	    <link href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
+	    <link href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
 
 		<link rel="icon" href="/images/radio-tower.png" type="image/x-icon">
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link rel="stylesheet" type="text/css" media="only screen and (min-width:1300px) and (min-device-width:1080px)" href="/stylesheets/wide.css">
+		<link rel="stylesheet" type="text/css"  href="/stylesheets/scrollbar/jquery.mCustomScrollbar.css">
 	</head>
 
 	<body ng-app="teleApp">
-		<div id="page-wrap" ng-controller="MainController as mc">
-			<header class="main" id="header">
-				<h2>ANDE</h2>
+		<div id="page-wrap" ng-controller="mainController as mc">
+			<header class="main" id="header" ng-controller="navController as nav">
+				<img class="{{ nav.color }}" ng-class="{active: mc.active()}" ng-src="{{ nav.image }}">
+				<form ng-class={hidden:nav.hidden} ng-submit="mc.buscar()" class="inline" accept-charset="utf-8">
+					<input ng-class="{active:mc.active()}" ng-model="mc.query" id="buscar" type="search" value="" placeholder="buscar">
+					<div class="clear"></div>
+				</form>
+				<nav id="primary-nav" role="navigation">
+					<ul>
+						<li class="inline"><a ng-class="{brcolor0:mc.active(), visited:nav.visited(1)}" href="/" title="Pagina principal">Pagina principal</a></li>
+						<li class="inline"><a ng-class="{brcolor1:mc.active(), visited: nav.visited(2)}" href="/mapa/" title="mapa">mapa</a></li>
+						<li class="inline"><a ng-class="{brcolor2:mc.active(), visited:nav.visited(3)}" href="/zonas/" title="zonas">zonas</a></li>
+						<li class="inline"><a ng-class="{brcolor3:mc.active(), visited:nav.visited(4)}" href="/abonados/" title="abonados">abonados</a></li>
+						<div class="clear"></div>
+					</ul>
+				</nav>
 			</header>
-
-			<nav class="main" id="primary-nav" role="navigation">
-				<ul class="clear">
-					<li>
-							<form accept-charset="utf-8" method="get" action="/usuario">
-								<input id="buscar" type="search" name="usuario" value="" placeholder="usuario">
-							</form>
-					</li>
-					<li><a href="/mapa" title="mapa">mapa</a></li>
-					<li><a href="/zonas" title="zonas">zonas</a></li>
-
-				</ul>
-			</nav>
-
-			<div class="clear">	
-					<aside>
-						<div class="abonados-wrap">
-							<div ng-mouseover="mc.above($index, abonado.localidad.coordinates)" ng-repeat="abonado in mc.abonados">
-								<div class="separador {{ mc.color($index) }}"></div>
-							    <h5><span ng-class="{enfasis:mc.active(), info:mc.info($index)}">{{ abonado.nombre}}</span></h5>
-								<div ng-class="{tarjeta:mc.active(), extender:mc.extend($index)}">
-									<h5><icon class="mdi-action-info-outline"></icon>Informacion <span>{{ mc.infoCard($index) }}</span></h5>    
-								    <ul>
-								    	<li><span class="enfasis">NIS</span> {{ abonado.NIS }}</li>
-								    	<li><span class="enfasis">C.I.</span> {{ abonado.ci }}</li>
-								    	<li><span class="enfasis">Direccion</span> {{ abonado.direccion }}</li>
-								    	<li><span class="enfasis">Tel</span> {{ abonado.telefono }}</li>
-								    	<li><span class="enfasis">mail</span> {{ abonado.mail }}</li>
-								    	<li><span class="enfasis">RUC</span> {{ abonado.ruc }} </li>
-								    	<li><span class="enfasis">Equipo</span> {{ abonado.serial }}</li>
-								    </ul>
-								    <a ng-click="mc.selectCard($index)" ng-class="{more:mc.active(), hidden:mc.hidden($index)}"><i class="mdi-navigation-chevron-right"></i></a>
-								</div>
-							</div>
-						</div>
-					</aside>
-					<section class="main" id="scrollbar">
-						<%- body %>
-					</section>
-			</div>
-
+			<main class="mCustomScrollbar" data-mcs-theme="light-thick">
+				<%- body %>
+			</main>	
 			<footer class="main">
 			</footer>
 		</div>
@@ -74,16 +50,19 @@
 	   	<script src="http://maps.googleapis.com/maps/api/js"></script>
 
 	   	<!--jquery necesary for boostrap must load first to angular-->
-	    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 
 	    <!--angular-->
-		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
 
 		<!--modulo-->
-		<script type="text/javascript" src="javascripts/app.js"></script>
+		<script type="text/javascript" src="/javascripts/app.js"></script>
 
 		<!--controllers-->
-		<script src="javascripts/controllers/maincontroller.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="/javascripts/controllers/controllers.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="/javascripts/controllers/maincontroller.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="/javascripts/controllers/minicardscontroller.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="/javascripts/controllers/navcontroller.js" type="text/javascript" charset="utf-8" async defer></script>
 
 		<!--services-->
 		<script src="/javascripts/services/services.js" type="text/javascript" charset="utf-8" async defer></script>
@@ -98,10 +77,13 @@
 		<script src="/javascripts/directives/centro.js" type="text/javascript" charset="utf-8" async defer></script>
 
 		<!-- Material Design for Bootstrap -->
-	    <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
-	    <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+	    <script src="/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+	    <script src="/bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
 	    <script>
 	    	$.material.init();
 	    </script>
+
+	     <!--customScrollbar-->
+	    <script src="/javascripts/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8" async defer></script>
 	</body>
 </html>

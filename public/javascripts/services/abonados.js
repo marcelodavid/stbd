@@ -11,32 +11,31 @@
 	var app = angular.module('abonados',[]);
 
 	app.factory('$abonados', ['$http', function($http){
-		return function(form,callback){
+		return function(form){
 			var _req1 = {
 				method: 'GET'
 			};
-			var _req2 = {
+			var _req2 = form? {
 				method: 'POST',
 				url: '/abonados/nuevo',
 				data: form,
 				headers: {
 		        	'Content-Type': 'application/json'
 		    	}
-			};
+			}: null;
 			return {
-				buscar: function(generico){
-					_req1.url = '/abonados/'+'?generico='+generico;
+				buscar: function(generico, callback){
+					_req1.url = '/abonados/buscar'+'?generico='+generico;
 					$http(_req1).success(function(data){
 						callback(data);
 					});	
 				},
-
-				add: function(){
+				add: function(callback){
 					$http(_req2).success(function(data){
 						callback(data);
 					});
 				}
 			};
 		};
-	}])
+	}]);
 })();
