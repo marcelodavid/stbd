@@ -12,27 +12,40 @@
 	*/
 	var app = angular.module('mediciones',[]);
 
-	app.factory('$mediciones', ['$http', function($http){
-		return function(radio, lat, lng, callback){
+	app.factory('$mediciones', ['$http', '$interval', function($http, $interval){
+		return function(){
 				var _temp;
-				var _req = {
-				 method: 'GET',
-				 url: '/mapa/mediciones?radio='+radio
-					+'&lat='+lat+'&lng='+lng,
+				var _methods = function(_req, callback){ 
+					return {
+						getOne: function(){
+							$http(_req).success(function(docs){
+								callback(docs);
+							});
+						},
+						setInterval: function(arg){
+							var time = arg || 60000;
+							_temp = $interval(this.getOne,time);
+						},	
+						clearInterval: function(){
+							$interval.cancel(_temp);
+						},
+					};
 				};
 				return {
-					getOne: function(){
-						$http(_req).success(function(docs){
-							callback(docs);
-						});
-
+					mapa: function(radio, lat, lng, callback){
+						var _req = {
+							method: 'GET',
+							url: '/mapa/mediciones?radio='+radio
+								+'&lat='+lat+'&lng='+lng,
+						};
+						return _methods(_req, callback);
 					},
-					setInterval: function(arg){
-						var time = arg || 60000;
-						_temp = setInterval(this.getOne,time);
-					},	
-					clearInterval: function(){
-						clearInterval(_temp);
+					abonado : function(id, callback) {
+						var _req = {
+							method:'GET',
+							url: '/abonados/'+id+'/mediciones',
+						}
+						return _methods(_req, callback);
 					},
 				};
 			};	

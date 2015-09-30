@@ -1,3 +1,3 @@
 (function(){
-	var app = angular.module('controllers', ['maincontroller', 'minicardscontroller', 'navcontroller']);
+	var app = angular.module('controllers', ['maincontroller', 'minicardscontroller', 'navcontroller', 'usercontroller']);
 })();

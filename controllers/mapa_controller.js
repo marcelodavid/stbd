@@ -13,7 +13,7 @@ var mediciones = function(req, res){
 	var array = [
 		{
 			"NIS": "123abc",
-			"usuario": "Marcelo David Arevalos",
+			"nombre": "Marcelo David Arevalos",
 			"ci" : "2.909.678",
 			"localidad": {
 				"type": "Point",
@@ -34,7 +34,7 @@ var mediciones = function(req, res){
 		},
 		{
 			"NIS": "456abc",
-			"usuario": "Eduardo Ramon Medina Casco",
+			"nombre": "Eduardo Ramon Medina Casco",
 			"ci" : "3.123.456",
 			"localidad": {
 				"type": "Point",
@@ -52,6 +52,27 @@ var mediciones = function(req, res){
 				"Corriente L3": "1.5*Amp",
 				"Fecha": new Date(2015,1,12).getTime()
 			}
+		},
+		{
+			"NIS": "123456",
+			"nombre": "Pedro Daniel Aquino",
+			"ci" : "2.123.456",
+			"localidad": {
+				"type": "Point",
+				"coordinates": [-27, -57]
+			},
+			"mail": "pedro77@gmail.com",
+			"ruc": "2123456",
+			"telefono": "021 640-181",
+			"serial": "123456",
+			"parametros": {
+				"Energia Activa": "250*Kwh",
+				"Demanda Maxima": "100*Kwh",
+				"Corriente L1": "1.6*Amp",
+				"Corriente L2": "2.8*Amp",
+				"Corriente L3": "0.5*Amp",
+				"Fecha": new Date(2015,3,12).getTime()
+			}
 		}
 	];
 	res.json(array);
@@ -62,11 +83,11 @@ var mediciones = function(req, res){
 	mongoClient.connect(url, {server: {poolSize: 1}}, function(err, db){
 		assert.equal(err, null, ["can't connect to db"]);
 
-		modelo.abonados.buscar_mapa(db, lat, lng, radio, function(docs){
+		modelo.abonados.area(db, lat, lng, radio, function(docs){
+			db.close();
 			res.json(docs);
 		});
 	});*/
 };
-
 exports.mapa = mapa;
 exports.mediciones = mediciones;

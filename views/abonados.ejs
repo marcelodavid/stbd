@@ -1,12 +1,31 @@
-<div class="tarjeta">
-	<%= abonado.nombre %>
-	<ul>
-		<li><span class="enfasis">NIS</span> <%= abonado.NIS %></li>
-		<li><span class="enfasis">C.I.</span> <%= abonado.ci %></li>
-		<li><span class="enfasis">Direccion</span> <%= abonado.direccion %></li>
-		<li><span class="enfasis">Tel</span> <%= abonado.telefono %></li>
-		<li><span class="enfasis">mail</span> <%= abonado.mail %></li>
-		<li><span class="enfasis">RUC</span> <%= abonado.ruc %> </li>
-		<li><span class="enfasis">Equipo</span> <%= abonado.serial %></li>
-	</ul>
-</div>
+<section class="main" ng-controller="userController as user">
+	<div ng-mouseover="mc.above(-5)">	
+		<div class="separador {{ mc.color(1) }}"></div>
+		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-5)}">Informe General</span></h5>
+	</div>
+	
+	<div class="tarjeta1">
+		<div>
+			<div class="titulo">
+				<div><i class="mdi-action-settings-remote" ></i><span>Acceso a los datos</span></div>
+				<h2><%= abonado.nombre %></h2>
+			</div>
+			<div class="contenido">
+				<ul>
+					<li id='NIS'><span class="enfasis">NIS</span> <%= abonado.NIS %></li>
+					<li><span class="enfasis">C.I.</span> <%= abonado.ci %></li>
+					<li><span class="enfasis">Direccion</span> <%= abonado.direccion %></li>
+					<li><span class="enfasis">Tel</span> <%= abonado.telefono %></li>
+					<li><span class="enfasis">mail</span> <%= abonado.mail %></li>
+					<li><span class="enfasis">RUC</span> <%= abonado.ruc %> </li>
+					<li><span class="enfasis">Equipo</span> <%= abonado.serial %></li>
+				</ul>
+			</div>
+			<div class="extra">
+				<div class="{{ user.fadeIn }}">
+					<span>{{ user.key }}</span><span class="corner-right">{{ user.parametro }}</span>	
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

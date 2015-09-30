@@ -6,13 +6,11 @@ textarea.form-control{
 div.enfasis{
 	float: left;
 	width: 75%;
-	height: 270px;
 	padding-top: 25px;
 	padding-right: 10%;
 }
 .infographics{
 	display: block;
-	height: 270px;
 	float: left;
 	width: 25%;
 }

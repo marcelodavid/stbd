@@ -140,7 +140,7 @@
         self.abonados = [];
         this.buscar = function(){
             $abonados().buscar(this.query, function(data){
-                self.abonados.splice(0,0, data);
+                console.log(data);
             });
         };
 	    // manejadores de eventos del mapa
@@ -165,9 +165,9 @@
 			// manejador que responde al cambio del centro como del radio
 			$timeout(function(){
 				mediciones? mediciones.clearInterval(): null;
-				mediciones = $mediciones(self.circle.radius, self.lat, self.lng, result);
+				mediciones = $mediciones().mapa(self.circle.radius, self.lat, self.lng, result);
 				mediciones.getOne();
-				mediciones.setInterval(300000);
+				mediciones.setInterval(3000);
                 //reseteamos los campos del formulario para guardar zonas y sus opciones
                 //de navegacion
 				self.showSave = true;

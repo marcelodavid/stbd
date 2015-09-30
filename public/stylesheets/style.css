@@ -107,7 +107,7 @@ h5 span.enfasis.info, h4 span.enfasis.info{
 	max-width: 230px;
 }
 /***************Estilos de la tarjeta y su contenido*******************/
-.tarjeta{
+.tarjeta, .tarjeta1{
 	-webkit-box-shadow: 0px 0px 2px 1px #D1D1D1;
 	box-shadow: 0px 0px 2px 1px #D1D1D1;
 	-webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
@@ -119,6 +119,9 @@ h5 span.enfasis.info, h4 span.enfasis.info{
 	padding-right: 15px;
 	padding-bottom: 1px;
 	position: relative;
+}
+.tarjeta1{
+	padding: 0px;
 }
 aside div.tarjeta{
 	height: 100px;
@@ -147,9 +150,6 @@ aside div.tarjeta.extender{
 .tarjeta a.more:hover{
 	text-decoration: none;
 	cursor: pointer;
-}
-aside ul{
-	list-style-type: none;
 }
 aside ul li {
 	margin-bottom: 6px;
@@ -252,7 +252,7 @@ div.separador + h5 + blockquote{
 }
 /* ligthblue */
 .bcolor-3{
-	background-color: #03A9F4;
+	background-color: #81D4FA;
 }
 /* verde */
 .brcolor0{
@@ -266,8 +266,9 @@ div.separador + h5 + blockquote{
 .brcolor2{
 	border-color: #F44336;
 }
+/* light blue */
 .brcolor3{
-	border-color: #03A9F4;
+	border-color: #81D4FA;
 }
 /* gris 700 */
 .color-0{
@@ -317,6 +318,52 @@ main{
 section.main{
 	padding-left: 15px;
 	padding-right: 15px;
+}
+/* Titulo contenido y extras*/
+.titulo{
+	padding-top: 15px;
+	padding-left: 20px;
+}
+.titulo h2{
+	color: #757575;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.contenido{
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+.contenido ul li{
+	margin-bottom: 5px;
+}
+.extra{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 20px;
+	border-top-style:solid;
+	border-top-width:2px;
+	border-top-color: #eee;
+	background-color:#81D4FA;
+	color: #757575;
+}
+.extra > div{
+	opacity: 0;
+	-webkit-transition: opacity 0.8s;
+	transition: opacity 0.8s;
+	color: white;
+}
+.extra > div.fadeIn{
+	opacity: 1;
+}
+.corner-right{
+	position: absolute;
+	right: 20px;
+}
+i.mdi-action-settings-remote{
+	color: #81D4FA;
+	margin: 0px;
+	padding: 0px;
+	margin-right: 10px;
 }
 #googleMap{
 	height: 350px;

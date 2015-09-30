@@ -7,6 +7,7 @@ var partials = require('express-partials');
 
 var index = require('./routes/index');
 var mapa = require('./routes/mapa');
+var abonados = require('./routes/abonados');
 var zonas = require('./routes/zonas');
 
 var app = express();
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/mapa', mapa);
 app.use('/zona', zonas);
+app.use('/abonados', abonados);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
