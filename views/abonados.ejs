@@ -7,24 +7,46 @@
 	<div class="tarjeta1">
 		<div>
 			<div class="titulo">
-				<div><i class="mdi-action-settings-remote" ></i><span>Acceso a los datos</span></div>
-				<h2><%= abonado.nombre %></h2>
+				<div><i class="icon mdi-action-settings-remote color-9" ></i><span>Acceso a los datos</span></div>
+				<h3><%= abonado.nombre %></h3>
 			</div>
 			<div class="contenido">
 				<ul>
-					<li id='NIS'><span class="enfasis">NIS</span> <%= abonado.NIS %></li>
+					<li><span class="enfasis">NIS</span> <%= abonado.NIS %></li>
 					<li><span class="enfasis">C.I.</span> <%= abonado.ci %></li>
 					<li><span class="enfasis">Direccion</span> <%= abonado.direccion %></li>
 					<li><span class="enfasis">Tel</span> <%= abonado.telefono %></li>
 					<li><span class="enfasis">mail</span> <%= abonado.mail %></li>
 					<li><span class="enfasis">RUC</span> <%= abonado.ruc %> </li>
-					<li><span class="enfasis">Equipo</span> <%= abonado.serial %></li>
+					<li id='serial'><span class="enfasis">Equipo</span> <%= abonado.serial %></li>
 				</ul>
 			</div>
-			<div class="extra">
-				<div class="{{ user.fadeIn }}">
+			<div class="extra bcolor-4 border-top1">
+				<div id="random" class="{{ user.fadeIn }}">
 					<span>{{ user.key }}</span><span class="corner-right">{{ user.parametro }}</span>	
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-mouseover="mc.above(-6)">	
+		<div class="separador {{ mc.color(2) }}"></div>
+		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-6)}">Resumen de los ultimos {{ user.slider1 }} dias</span></h5>
+	</div>
+	<!--charts de google-->
+	<div class="tarjeta1">
+		<div>
+			<div class="titulo">
+				<div><i class="icon mdi-action-trending-down color-10" ></i><span>Infografia del consumo</span></div>
+				<h3>Tendencia de los ultimos dias</h3>
+			</div>
+			<div class="contenido">
+				<div id="chart" style="width:700px"></div>
+			</div>
+			<div class="control border-top1 bcolor-5">
+				<span class="enfasis">2</span>
+				<div class="slider shor" id="slider1"></div>
+				<span class="enfasis">30</span>
 			</div>
 		</div>
 	</div>

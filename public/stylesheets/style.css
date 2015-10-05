@@ -254,6 +254,12 @@ div.separador + h5 + blockquote{
 .bcolor-3{
 	background-color: #81D4FA;
 }
+.bcolor-4{
+	background-color: #fff3e0;
+}
+.bcolor-5{
+	background-color: #E0F2F1;
+}
 /* verde */
 .brcolor0{
 	border-color: #4CAF50;
@@ -305,6 +311,13 @@ div.separador + h5 + blockquote{
 .color-8{
 	color: #3F51B5;
 }
+/* darkorange*/
+.color-9{
+	color: darkorange;
+}
+.color-10{
+	color: #009688;
+}
 /**************** main **********************/
 main{
 	position: absolute;
@@ -319,12 +332,12 @@ section.main{
 	padding-left: 15px;
 	padding-right: 15px;
 }
-/* Titulo contenido y extras*/
+/* Titulo contenido control y extras*/
 .titulo{
 	padding-top: 15px;
 	padding-left: 20px;
 }
-.titulo h2{
+.titulo h3{
 	color: #757575;
 	margin-top: 10px;
 	margin-bottom: 20px;
@@ -340,30 +353,59 @@ section.main{
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 20px;
+}
+.border-top1{
 	border-top-style:solid;
 	border-top-width:2px;
 	border-top-color: #eee;
-	background-color:#81D4FA;
-	color: #757575;
 }
-.extra > div{
+.extra > div#random{
 	opacity: 0;
 	-webkit-transition: opacity 0.8s;
 	transition: opacity 0.8s;
-	color: white;
+	color: darkorange;
 }
-.extra > div.fadeIn{
+.extra > div#random.fadeIn{
 	opacity: 1;
+}
+.control{
+	padding-left: 70px;
+	padding-right: 70px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: relative;
+}
+.control .enfasis{
+	position: absolute;
+	top: 15px;
+}
+.control > .enfasis:first-child{
+	left: 40px;
+}
+.control > .enfasis:last-child{
+	right: 39px;
+}
+.slider{
+	width: 60;
 }
 .corner-right{
 	position: absolute;
 	right: 20px;
 }
-i.mdi-action-settings-remote{
-	color: #81D4FA;
+i.icon{
 	margin: 0px;
 	padding: 0px;
 	margin-right: 10px;
+}
+.f-left{
+	float: left;
+}
+.flexbox-container {
+  display: flex;
+  justify-content: center;
+}
+.control span.enfasis{
+	color: #757575;
 }
 #googleMap{
 	height: 350px;

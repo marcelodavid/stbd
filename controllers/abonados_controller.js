@@ -3,7 +3,6 @@ var	assert = require('assert');
 var modelo = require('../model/model');
 var url = 'mongodb://localhost:27017/data';
 var abonado = function(req, res){
-	console.log(req.params.id);
 	var abonado = {
 			"NIS": "123abc",
 			"nombre": "Marcelo David Arevalos",
