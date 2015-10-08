@@ -2,7 +2,29 @@ var mongoClient = require('mongodb').MongoClient;
 var	assert = require('assert');
 var modelo = require('../model/model');
 var url = 'mongodb://localhost:27017/data';
-var abonado = function(req, res){
+var getForm = function(req, res){
+	res.render('registrar', {});
+};
+var registrar = function(req, res){
+	console.log(req.body);
+	var user = req.body;
+
+	/*mongoClient.connect(url, {server: {poolSize: 1}}, function(err, db){
+		assert.equal(err, null, ["can't connect to db"]);
+		modelo.abonados.registrar(db, user, function(){
+			db.close();
+		})
+	});*/
+}
+var informe = function(req, res){
+	var id = req.params.id;
+	/*mongoClient.connect(url, {server: {poolSize: 1}}, function(err, db){
+		assert.equal(err, null, ["can't connect to db"]);
+		modelo.abonados.buscar(db, id, function(docs){
+			db.close();
+			res.json(docs);
+		})
+	});*/
 	var abonado = {
 			"NIS": "123abc",
 			"nombre": "Marcelo David Arevalos",
@@ -25,7 +47,7 @@ var abonado = function(req, res){
 			}
 		};
 	res.render('abonados', {abonado: abonado});
-} ;
+};
 var buscar = function(req, res){
 	var generico = req.query.generico;
 	res.json({
@@ -65,8 +87,7 @@ var mediciones = function(req, res){
 			db.close();
 			res.json(docs);
 		})
-	});
-	*/
+	});*/
 	res.json([{
 			"Energia Activa": "300*Kwh",
 			"Demanda Maxima": "560*Kwh",
@@ -76,6 +97,8 @@ var mediciones = function(req, res){
 			"Fecha": new Date(2015,2,16).getTime()
 	}]);
 }
-exports.abonado = abonado;
+exports.informe = informe;
 exports.buscar = buscar;
 exports.mediciones = mediciones;
+exports.getForm = getForm;
+exports.registrar = registrar;

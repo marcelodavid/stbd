@@ -34,12 +34,12 @@
 						<li class="inline"><a ng-class="{brcolor0:mc.active(), visited:nav.visited(1)}" href="/" title="Pagina principal">Pagina principal</a></li>
 						<li class="inline"><a ng-class="{brcolor1:mc.active(), visited: nav.visited(2)}" href="/mapa/" title="mapa">mapa</a></li>
 						<li class="inline"><a ng-class="{brcolor2:mc.active(), visited:nav.visited(3)}" href="/zonas/" title="zonas">zonas</a></li>
-						<li class="inline"><a ng-class="{brcolor3:mc.active(), visited:nav.visited(4)}" href="/abonados/" title="abonados">abonados</a></li>
+						<li class="inline"><a ng-class="{brcolor3:mc.active(), visited:nav.visited(4)}" href="/abonados/registrar" title="abonados">abonados</a></li>
 						<div class="clear"></div>
 					</ul>
 				</nav>
 			</header>
-			<main class="mCustomScrollbar" data-mcs-theme="light-thick">
+			<main class="mCustomScrollbar" data-mcs-theme="minimal-dark">
 				<%- body %>
 			</main>	
 			<footer class="main">
@@ -49,24 +49,11 @@
 		<!--google maps api-->
 	   	<script src="http://maps.googleapis.com/maps/api/js"></script>
 
-	   	<!--google charts-->
-	   	<script type="text/javascript" src="https://www.google.com/jsapi?autoload={
-            'modules':[{
-              'name':'visualization',
-              'version':'1.1',
-              'packages':['line', 'corechart']
-            }]}">
-	   	</script>
-
 	   	<!--jquery necesary for boostrap must load first to angular-->
 	    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 
 	    <!--angular-->
 		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
-
-		 <!--Slider-->
-	    <script src="/javascripts/slider/nouislider.min.js" type="text/javascript" charset="utf-8" async defer></script>
-	    <!--script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js" type="text/javascript"></script-->
 
 		<!--modulo-->
 		<script type="text/javascript" src="/javascripts/app.js"></script>
@@ -77,6 +64,8 @@
 		<script src="/javascripts/controllers/minicardscontroller.js" type="text/javascript" charset="utf-8" async defer></script>
 		<script src="/javascripts/controllers/navcontroller.js" type="text/javascript" charset="utf-8" async defer></script>
 		<script src="/javascripts/controllers/usercontroller.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="/javascripts/controllers/usercontroller2.js" type="text/javascript" charset="utf-8" async defer></script>
+
 
 		<!--services-->
 		<script src="/javascripts/services/services.js" type="text/javascript" charset="utf-8" async defer></script>

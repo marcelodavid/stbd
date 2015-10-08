@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('maincontroller', []);
 	app.controller('mainController', ["$mediciones","$timeout","$zonas", "$abonados", function($mediciones, $timeout, $zonas, $abonados){
-        var	_image = 'images/map-marker-radius.png';
+        var	_image = '/images/map-marker-radius.png';
 		var _options = {
 			center:new google.maps.LatLng(-25.25463261974944, -57.513427734375),
 			zoom:12,
@@ -187,5 +187,21 @@
             google.maps.event.addListener(self.circle, 'radius_changed', circleEventsHandler);
             google.maps.event.addListener(self.circle, 'center_changed', circleEventsHandler);
         }
+
+        //manejar el evento scroll
+        window.onload  = function(){
+            $timeout(function(){
+                var $scroll = angular.element('#mCSB_1_container');
+                var $header = angular.element('#header');
+                $scroll.on("wheel", function(event){
+                    if(event.originalEvent.deltaY > 0){
+                        $scroll.hasClass('mCS_no_scrollbar_y') ? undefined: $header.addClass('shadow');
+                    }else if(parseInt($scroll.css("top")) > -5){
+                        $header.removeClass('shadow');
+                    }
+                });
+            });
+        };
+
 	}]);
 })();

@@ -80,6 +80,14 @@ form input#buscar{
 form input#buscar.active{
 	opacity: 1;
 }
+#adduser .form-control:focus, #adduser .form-control.focus{
+	background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2) !important;
+}
+.shadow{
+	-webkit-box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15) !important;;
+	box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15) !important;
+	z-index: 4;
+}
 /****************** aside y tarjetas de usuario ************************/
 aside{
 	display: none;
@@ -108,8 +116,6 @@ h5 span.enfasis.info, h4 span.enfasis.info{
 }
 /***************Estilos de la tarjeta y su contenido*******************/
 .tarjeta, .tarjeta1{
-	-webkit-box-shadow: 0px 0px 2px 1px #D1D1D1;
-	box-shadow: 0px 0px 2px 1px #D1D1D1;
 	-webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 	background-color: white;
@@ -187,6 +193,11 @@ a i.mdi-navigation-chevron-right:hover{
 	padding: 6px;
 	cursor: pointer;
 }
+#exception-nav .secondary-nav{
+	position: absolute;
+	top: 0px;
+	right: 20%;
+}
 .secondary-nav ul li.inline .icon:hover{
 	-webkit-box-shadow: 0 0 0 0 rgba(255,255,255,0.3);
 	box-shadow: 0 0 0 0 rgba(255,255,255,0.3);
@@ -260,6 +271,9 @@ div.separador + h5 + blockquote{
 .bcolor-5{
 	background-color: #E0F2F1;
 }
+.bcolor-6{
+	background-color: #e1bee7;
+}
 /* verde */
 .brcolor0{
 	border-color: #4CAF50;
@@ -318,6 +332,9 @@ div.separador + h5 + blockquote{
 .color-10{
 	color: #009688;
 }
+.color-11{
+	color: #9c27b0;
+}
 /**************** main **********************/
 main{
 	position: absolute;
@@ -344,6 +361,7 @@ section.main{
 }
 .contenido{
 	padding-left: 20px;
+	padding-right: 20px;
 	margin-bottom: 20px;
 }
 .contenido ul li{

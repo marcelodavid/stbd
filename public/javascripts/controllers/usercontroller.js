@@ -16,7 +16,7 @@
 				index = 0;
 			$timeout(function(){
 				self.fadeIn = "";
-			},4200);
+			},2200);
 		};
 		var result = function(data){
 			self.parametros = data[0];
@@ -28,7 +28,7 @@
 		mediciones.setInterval();
 		var timeStop = $interval(function(){
 			dynamicData();
-		}, 5000);
+		}, 3000);
 
 		/* resumen y graficos */
 		var options = {
@@ -50,9 +50,9 @@
 			var salida = function(clave, parametros){
 				return clave=='fecha'? new Date(parametros[clave]): parseInt(parametros[clave]);
 			};
-			var campos = [ [
-				salida(clave, parametros) for(clave in parametros) if(clave == 'fecha' || clave=='activatotal') 
-			] for(parametros of data)];
+			var campos = [[
+				salida(clave, data[index]) for(clave in data[index]) if(clave == 'fecha' || clave=='activatotal') 
+			] for(index in data)];
 			
 			// tabla1 contiene los resumenes diarios
 			var tabla1 = new google.visualization.DataTable();

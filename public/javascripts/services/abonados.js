@@ -17,7 +17,7 @@
 			};
 			var _req2 = form? {
 				method: 'POST',
-				url: '/abonados/nuevo',
+				url: '/abonados/registrar',
 				data: form,
 				headers: {
 		        	'Content-Type': 'application/json'

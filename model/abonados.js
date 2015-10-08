@@ -48,7 +48,7 @@ var area = function(db, lat, lng, radio, callback){
 };
 var buscar = function(db, generico, callback){
 	var collection = db.collection('abonados');
-	collection.find({$or:[{ci:generico}, {nombre: generico}, {NIS: generico}]})
+	collection.find({$or:[{ci:generico}, {nombre: generico}, {NIS: generico}, {serial: generico}]})
 		.toArray(function(err, docs){
 			callback(docs);
 		});

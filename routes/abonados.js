@@ -4,11 +4,13 @@ var router = express.Router();
 //importamos el controlador de las zonas
 var abonados_controller = require('../controllers/abonados_controller');
 var resumen_controller = require('../controllers/resumen_controller/resumen_controller');
-
+router.route('/registrar')
+	.get(abonados_controller.getForm)
+	.post(abonados_controller.registrar);
 router.route('/buscar')
-	.get(abonados_controller.buscar)
+	.get(abonados_controller.buscar);
 router.route('/:id')
-	.get(abonados_controller.abonado);
+	.get(abonados_controller.informe);
 router.route('/:id/mediciones')
 	.get(abonados_controller.mediciones);
 router.route('/:id/resumen/dias')
