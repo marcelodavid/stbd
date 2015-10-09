@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 var debug = require('debug')('stbd');
 var app = require('../app');
+var app2 = require('../app2');
 
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
+});
+
+var server2 = app2.listen(8000, function(){
+	debug('Socket service listen on port' + this.address().port);
 });

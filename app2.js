@@ -6,7 +6,7 @@ var assert = require('assert');
 var http =  require('http').Server();
 var io = require('socket.io')(http);
 
-var modelo  =  require('./model/model');
+var modelo = require('./model/model');
 
 var bitacora = function(){
 	var _time = new Date();
@@ -23,12 +23,12 @@ io.on('connection', function(client){
 	console.log("conexion establecida con el cliente");
 
 	client.on('parametros', function(data){
-		data.parametros.fecha = bitacora.time.toLocaleFormat();
+		data.parametros.fecha = bitacora().time.toLocaleFormat();
 		mongoClient.connect(url, {server:{poolSize:1}}, function(err, db){
 			assert.equal(err, null, ["can't connect to db"]);
 			modelo.abonados.actualizar_medicion(db, data, function(referencia){
-				var bitacora = bitacora.get();
-				modelo.historial.entrada(db, data, referencia, bitacora, function(){
+				var fecha = bitacora().get();
+				modelo.historial.entrada(db, data, referencia, fecha, function(){
 					db.close();
 				});
 			})
@@ -39,7 +39,7 @@ io.on('connection', function(client){
 setInterval(function(){
 	var horas = new Date().getHours();
 	var minutos= new Date().getMinutes();
-	if (horas===23 && minutos===59){
+	if (horas===23 && minutos===55){
 		mongoClient.connect(url,{server: {poolSize:1}},function(err,db){
 			assert.equal(err,null);
 			ee.emit('buscar',db);
@@ -54,27 +54,26 @@ ee.on('buscar', function(db){
 	});
 });
 
-ee.on('resumen',function(zona, index, db){
+ee.on('resumen', function(zona, index, db){
 	if(zona[index] === undefined){
 		db.close();
 	}
 	else{
-		var bitacora = bitacora.get();
+		var fecha = bitacora().get();
 		var lat = zona[index].centro[1];
 		var lng = zona[index].centro[0];
 		var radio = zona[index].radio;
 		modelo.abonados.area(db, lat, lng, radio, function(docs){
 			var resumen = {
 				activo_zona : 0,
-				reactivo_zona : 0,
 				demanda_maxima : 0,
 			}; 
 			for(abonado of docs){
 				resumen.activo_zona += parseFloat(abonado["parametros"]["Energia Activa"]);
 				resumen.demanda_maxima += parseFloat(abonado["parametros"]["Demanda Maxima"]);
 			};
-			resumen.fecha = bitacora.get();
-			modelo.historial.entrada(db, data, zona[index]._id, bitacora, function(){
+
+			modelo.historial.entrada(db, resumen, zona[index]._id, fecha, function(){
 				index++;
 				ee.emit('resumen', zona, index, db);
 			});
@@ -82,6 +81,4 @@ ee.on('resumen',function(zona, index, db){
 	}; 
 });
 
-http.listen(8000, function(){
-	console.log("server escuchando en el puerto 8000");
-});
+module.exports = http;
