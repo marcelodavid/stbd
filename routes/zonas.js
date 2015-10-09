@@ -5,8 +5,8 @@ var router = express.Router();
 var zonas_controller = require('../controllers/zonas_controller');
 
 router.route('/nueva')
-	.post(zonas_controller.nueva_zona);
+	.post(zonas_controller.nueva);
 router.route('/:id')
-	.put(zonas_controller.actualizar_zona);
+	.put(zonas_controller.actualizar);
 
 module.exports = router;

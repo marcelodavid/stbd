@@ -118,7 +118,7 @@
     			nombre: this.nombre,
     			descripcion: this.descripcion,
     			departamento: this.departamento,
-    			centro: [this.lat, this.lng],
+    			centro: [this.lng, this.lat],
     			radio: this.circle.radius,
     		}
     		if(this.zonaUpdate){

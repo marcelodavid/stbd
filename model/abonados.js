@@ -17,11 +17,12 @@ var registar = function(db, data, callback){
 	);
 	callback();
 };
+
 var actualizar_medicion = function(db, data, callback){
 	var collection = db.collection('abonados');
 	collection.update(	
 		{serial: data.serial},
-		{$set:{meassure: data.meassure}},
+		{$set:{parametros: data.parametros}},
 		function(err, success){
 			assert.equal(err, null);
 			assert.equal(1, success.result.n);
@@ -29,6 +30,7 @@ var actualizar_medicion = function(db, data, callback){
 		}
 	);
 };
+
 var area = function(db, lat, lng, radio, callback){
 	var collection = db.collection('abonados')
 	collection.find({
@@ -46,6 +48,7 @@ var area = function(db, lat, lng, radio, callback){
 			callback(docs);
 	});	
 };
+
 var buscar = function(db, generico, callback){
 	var collection = db.collection('abonados');
 	collection.find({$or:[{ci:generico}, {nombre: generico}, {NIS: generico}, {serial: generico}]})
@@ -53,6 +56,7 @@ var buscar = function(db, generico, callback){
 			callback(docs);
 		});
 };
+
 var mediciones = function(db, id, callback){
 	var collection = db.collection('abonados');
 	collection.find({serial:id}, {_id:0, parametros:1})
