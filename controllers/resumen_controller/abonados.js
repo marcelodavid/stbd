@@ -26,15 +26,23 @@ var dias = function(req, res){
 
 var meses = function(req, res){
 	var id = req.params.id;
-	var meses = req.query.fecha;
+	var meses = req.query.fecha.split(',').map(function(item) {
+    	return parseInt(item);
+	});
+	var docs = [
+		{fecha:152574255383232, activatotal:100},
+		{fecha:217531257725372, activatotal:110},
+		{fecha:318268261823232, activatotal:120},
+	]
 
-	mongoClient.connect(url, {server:{poolSize:1}}, function(err, db){
+	res.json(docs);
+	/*mongoClient.connect(url, {server:{poolSize:1}}, function(err, db){
 		assert(err, null, ["can't connect to db"]);
 		modelo.historial.abonados.meses(db, id, meses, function(docs){
 			db.close();
 			res.json(docs);
 		});
-	});
+	});*/
 };
 
 var años = function(req, res){
