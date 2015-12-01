@@ -46,25 +46,25 @@
           	curveType: 'function',
 			colors: ['#c5e1a5']
 		};
-		var resumendias =  function(data){
+		var resumen_control =  function(data, id, column, key, options){
 			var salida = function(clave, parametros){
 				return clave=='fecha'? new Date(parametros[clave]): parseInt(parametros[clave]);
 			};
 			var campos = [[
-				salida(clave, data[index]) for(clave in data[index]) if(clave == 'fecha' || clave=='activatotal') 
+				salida(clave, data[index]) for(clave in data[index]) if(clave == 'fecha' || clave == key) 
 			] for(index in data)];
 			
 			// tabla1 contiene los resumenes diarios
-			var tabla1 = new google.visualization.DataTable();
-			tabla1.addColumn('date', "Dias");
-			tabla1.addColumn('number', "Potencia Activa");
-			tabla1.addRows(campos);
+			var tabla = new google.visualization.DataTable();
+			tabla.addColumn('date', "Dias");
+			tabla.addColumn('number', column);
+			tabla.addRows(campos);
 
-			var chart = new google.visualization.LineChart(angular.element("#chart")['0']);
-			chart.draw(tabla1, options);
+			var chart = new google.visualization.LineChart(angular.element(id)['0']);
+			chart.draw(tabla, options);
 		};
 
-		//slider 
+		//slider1 y el resumen de los dias
 		var slider1 = document.getElementById('slider1');
 		noUiSlider.create(slider1, {
 			start:7,
@@ -82,9 +82,36 @@
 				
 				//servicio que trae los datos del historial
 				$resumen(self.slider1).abonado.dias(userid, function(data){
-					resumendias(data);
+					self.resumendias = data;
+					resumen_control(self.resumendias, '#chart1', 'Potencia Activa', 'activatotal', options);
 				});
 			});
 		});
+
+		//slider2 y resumen de los ultimos meses
+		var slider2 = document.getElementById('slider2');
+		noUiSlider.create(slider2, {
+			start:7,
+			connect:'lower',
+			step:1,
+			range:{
+				'min':2,
+				'max':12
+			}
+		});
+
+		slider2.noUiSlider.on('update', function(value, handle){
+			$timeout(function(){
+				self.slider2 = +value[handle].match(/[0-9]*/)[0];
+
+				//servicio que trae los datos del historial
+				$resumen(undefined, self.slider2).abonado.meses(userid, function(data){
+					options.colors = ['#3f51b5'];
+					self.resumenmeses = data;
+					resumen_control(self.resumenmeses, '#chart2', 'Potencia Activa', 'activatotal',options, 'Pie');
+				});
+			});
+		});
+
 	}]);
 })();

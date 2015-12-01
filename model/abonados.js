@@ -22,10 +22,9 @@ var actualizar_medicion = function(db, data, callback){
 	var collection = db.collection('abonados');
 	collection.update(	
 		{serial: data.serial},
-		{$set:{parametros: data.parametros}},
+		{$set: data},
 		function(err, success){
 			assert.equal(err, null);
-			assert.equal(1, success.result.n);
 			callback(data.serial);
 		}
 	);

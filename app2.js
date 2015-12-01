@@ -23,12 +23,13 @@ io.on('connection', function(client){
 	console.log("conexion establecida con el cliente");
 
 	client.on('parametros', function(data){
-		data.parametros.fecha = bitacora().time.toLocaleFormat();
+		//tiempo con la hora
+		data.fecha = bitacora().time.toLocaleString();
 		mongoClient.connect(url, {server:{poolSize:1}}, function(err, db){
 			assert.equal(err, null, ["can't connect to db"]);
 			modelo.abonados.actualizar_medicion(db, data, function(referencia){
 				var fecha = bitacora().get();
-				modelo.historial.entrada(db, data, referencia, fecha, function(){
+				modelo.historial.entrada(db, data.parametros, referencia, fecha, function(){
 					db.close();
 				});
 			})

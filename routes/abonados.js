@@ -15,5 +15,7 @@ router.route('/:id/mediciones')
 	.get(abonados_controller.mediciones);
 router.route('/:id/resumen/dias')
 	.get(resumen_controller.abonados.dias);
+router.route('/:id/resumen/meses')
+	.get(resumen_controller.abonados.meses);
 
 module.exports = router;

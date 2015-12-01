@@ -34,6 +34,7 @@
 		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-6)}">Resumen de los ultimos {{ user.slider1 }} dias</span></h5>
 	</div>
 	<!--charts de google-->
+	<!-- resumen en dias -->
 	<div class="tarjeta1">
 		<div>
 			<div class="titulo">
@@ -41,7 +42,7 @@
 				<h3>Tendencia de los ultimos dias</h3>
 			</div>
 			<div class="contenido">
-				<div id="chart" style="width:700px"></div>
+				<div id="chart1" style="width:700px"></div>
 			</div>
 			<div class="control border-top1 bcolor-5">
 				<span class="enfasis">2</span>
@@ -50,17 +51,40 @@
 			</div>
 		</div>
 	</div>
+
+
+	<div ng-mouseover="mc.above(-7)">	
+		<div class="separador {{ mc.color(3) }}"></div>
+		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-7)}">Resumen de los ultimos {{ user.slider2 }} meses</span></h5>
+	</div>
+	<!-- resumen en meses -->
+	<div class="tarjeta1">
+		<div>
+			<div class="titulo">
+				<div><i class="icon mdi-social-poll color-12" ></i><span>Infografia del consumo</span></div>
+				<h3>Tendencia de los ultimos meses</h3>
+			</div>
+			<div class="contenido">
+				<div id="chart2" style="width:700px"></div>
+			</div>
+			<div class="control border-top1 bcolor-7">
+				<span class="enfasis">2</span>
+				<div class="slider shor" id="slider2"></div>
+				<span class="enfasis">12</span>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- scripts -->
 	<!--google charts-->
-	   	<script type="text/javascript" src="https://www.google.com/jsapi?autoload={
-	        'modules':[{
-	          'name':'visualization',
-	          'version':'1.1',
-	          'packages':['line', 'corechart']
-	        }]}">
-	   	</script>
+   	<script type="text/javascript" src="https://www.google.com/jsapi?autoload={
+        'modules':[{
+          'name':'visualization',
+          'version':'1.1',
+          'packages':['line', 'corechart']
+        }]}">
+   	</script>
 
-	 <!--Slider-->
-	 <script src="/javascripts/slider/nouislider.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	<!--Slider-->
+	<script src="/javascripts/slider/nouislider.min.js" type="text/javascript" charset="utf-8" async defer></script>
