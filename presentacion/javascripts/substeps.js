@@ -3,16 +3,6 @@ for (var i = 0; i < substepsAll.length; i++) {
     substepsAll[i].classList.add("future");
 }
 
-//var steps = document.querySelectorAll(".step");
-// var stepsf = document.querySelectorAll(".step .future");
-// var stepsp = document.querySelectorAll(".step .past");
-// if (stepsf.length === 0) {
-//     for (var i = 0; i < stepp.length; i++) {
-//     substepsAll[i].classList.remove("past");
-//     substepsAll[i].classList.add("future");
-//    }
-// }
-
 function substepNext() {
     var activeStep = document.querySelector(".step.active");
     var future = activeStep.querySelectorAll(".future");
@@ -33,7 +23,9 @@ function substepNext() {
             present[0].classList.remove("present");
         }
         var event = document.createEvent("CustomEvent");
-        event.initCustomEvent("impress:substep:enter", true, true);
+        // se dispara el evento
+        event.initCustomEvent("impress:substep:enter", true, true, undefined);
+        //  el evento esta asociado al primer elemento con las clases "substep future"  
         future[0].dispatchEvent(event);
     }
 }
@@ -67,13 +59,17 @@ document.addEventListener("keyup", function (event) {
 function automatedPresentationWithSubsteps() {
     var delayedNext = function (e) {
         var duration = e.target.dataset.duration;
-        if (!duration) {
-            duration = 3000;
+
+        if (duration) {
+            console.log("accion");
+            var timing = setTimeout(function() {
+                substepNext();
+            }, duration);
         }
-        var timing = setTimeout(function() {
-            substepNext();
-        }, duration);
     }
     document.addEventListener("impress:stepenter", delayedNext, false);
     document.addEventListener("impress:substep:enter", delayedNext, false);
 }
+
+// habilitamos la presentacion automatica
+automatedPresentationWithSubsteps();

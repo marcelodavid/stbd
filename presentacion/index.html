@@ -5,7 +5,8 @@
 	<meta name="viewport" content="width=1024" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>impress.js |  presenacion proyecto de grado</title>
+	<title>Soluciones TICs para mejora del sistema de monitoreo de una red electrica</title>
+	<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/substeps.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -54,26 +55,51 @@
 	        It will not be rotated or scaled.
 	        
 	    -->
-	    	<div id="telemedida" class="step" data-x="-1000" data-y="0" data-scale="10">
+	    	<!-- slide 1 -->
+	    	<div id="telemedida" class="step" data-x="-1000" data-y="0" data-scale="40" data-duration="1000">
 	    		<div>
-	    			<h2>Sistemas de Telemedida</h2>
-					<p class="bounceIn">
-						son aquellas que cuentan con una gran cantidad de puntos de medición que pueden estar ubicados a grandes distancias deben permitir el registro y extracción de datos en tiempo real y facilitar el servicio de consulta remota o presencial. 
+	    			<h1 class="title">Sistemas de Telemedida</h1>
+					<p class="bIn">
+						Son aquellas que cuentan con una gran cantidad de puntos de medición que pueden estar ubicados a grandes distancias deben permitir el registro y extracción de datos en tiempo real y facilitar el servicio de consulta remota o presencial. 
 					</p>
 	    		</div>
-	    		<div id="points" class="substep bounceIn"></div>
+	    		<div id="points" class="substep bounceIn" data-duration="10000"></div>
 	    		<section id="elementos">
-	    			<h2 class="substep fadeIn">Elementos del Sistema</h2>
+	    			<h2 class="substep fadeIn subtitle" data-duration="500">Elementos del Sistema</h2>
 		    		<ul>
-		    			<li class="substep fadeIn">Sensores o Transductores</li>
-		    			<li class="substep fadeIn">Terminal Remota</li>
-		    			<li class="substep fadeIn">Sistemas de Comunicaciones</li>
-		    			<li class="substep fadeIn">Centro de Control y Supervision</li>
-		    			<li class="substep fadeIn">Software de Supervision</li>
+		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="#sensores" title="Sensores o Tadructores" class="writeEffect" data-text="Sensores o Transductores."></a></li>
+		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Terminal Remota."></a></li>
+		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Sistemas de Comunicaciones."></a></li>
+		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Centro de Control y Supervision."></a></li>
+		    			<li class="substep fadeIn" data-duration="2000"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Software de Supervision."></a></li>
 	    			</ul>
 	    		</section>
 	    	</div>
-	    	<div id="overview" class="step" data-x="-500" data-y="-1500" data-scale="30">
+	<!--
+        
+        This element introduces rotation.
+        
+        Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
+        element should be rotated by 90 degrees clockwise.
+        
+    -->
+	    	<!-- slide 2 -->
+	    	<div id="sensores" class="step" data-duration="500" data-x="-13800" data-y="-8200" data-scale="1" data-rotate="-90">
+	    		<div class="expandBox">
+	    			<h1 class="title">Sensores y Tansductores</h1>
+	    		</div>
+	    		<img id="sensor" class="substep scaleIn" data-duration="10" src="images/sensor.png">
+	    		<img id="divider1" class="substep fadeIn" data-duration="10" src="images/divider.png">
+	    		<p class="substep scaleIn">
+	    			Un sensor es un dispositivo que se encarga de detectar materiales o cambios en variables de algún tipo de naturaleza.
+	    		</p>
+	    		<img id="luz" class="substep bounceIn" src="images/luz.png">
+	    		<img id="temperatura" class="substep bounceIn" src="images/temperatura.png">
+	    		<img id="magnetismo" class="substep bounceIn" src="images/magnetic.png">
+	    		<img id="corriente" class="substep bounceIn" src="images/corriente.png">
+	    	</div>
+
+	    	<div id="overview" class="step" data-x="-500" data-y="-1500" data-scale="100">
     		</div>
 		</div>
 

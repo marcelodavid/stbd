@@ -1,15 +1,15 @@
 var api = impress();
 api.init();
 
-var writeEfect = function(event){
+var writeEffect = function(event){
 	var target = event.target;
-	var writeEfectclass = target.querySelector(".writeEfect");
-	if(writeEfectclass){
-		var text = writeEfectclass.dataset.text;
+	var writeEffectclass = target.querySelector(".writeEffect");
+	if(writeEffectclass){
+		var text = writeEffectclass.dataset.text;
 		var length = text.length;
 		var idx = 0;
 		var write = setInterval(function(){
-			writeEfectclass.innerHTML = (idx>0 ? text.substr(0, idx):'') + '<span>' + text[idx] + '</span>';
+			writeEffectclass.innerHTML = (idx>0 ? text.substr(0, idx):'') + '<span>' + text[idx] + '</span>';
 			idx++;
 			if(idx == length){
 				clearInterval(write);
@@ -18,11 +18,6 @@ var writeEfect = function(event){
 	};
 };
 
-document.addEventListener("impress:stepenter", function(event){
-	writeEfect(event);
-}, false);
-
 document.addEventListener("impress:substep:enter", function(event){
-	writeEfect(event);
-	console.log("substep adentro");
+	writeEffect(event);
 }, false);
