@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Soluciones TICs para mejora del sistema de monitoreo de una red electrica</title>
 	<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="css/substeps.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,7 +37,11 @@
     But as I said, you won't need it for now, so don't worry - there are some simple but interesing things
     right around the corner of this tag ;)
     
--->
+-->		<div id="fp-logo">
+			<img src="images/fp_symbol_only.png" alt="fp-una">
+		</div>
+		<div class="cd-fixed-bg">
+		</div>
 		<div id="impress">
 	    <!--
 	        
@@ -56,22 +61,206 @@
 	        
 	    -->
 	    	<!-- slide 1 -->
-	    	<div id="telemedida" class="step" data-x="-1000" data-y="0" data-scale="40" data-duration="1000">
+	    	<div id="portada" class="step size1" data-x="-1000" data-y="-32000" data-scale="40">
+	    		<div class="substep fadeIn" data-duration="5000">
+    				<h2 class="title3">UNIVERSIDAD NACIONAL DE ASUNCIÓN</h2>
+    				<h1>FACULTAD POLITÉCNICA</h1>
+    				<h2 class="title3">INGENIERIA EN ELECTRÓNICA</h2>
+    				<h2 class="title3">Teleprocesamiento de la Informacion</h2>
+    			</div>
+	    		<div id="logoband" class="substep fadeIn" data-duration="4000">
+	    			<h1>Sistema de automatización de mediciones y supervisión de los parametros electricos de la red de distribucion</h1>
+	    			<h2 class="title3">Orientador</h2>
+	    			<h2 class="title3">Prof. Ing. Lucas Frutos</h2>
+	    			<h2 class="title3">Abril - 2016</h2>
+    			</div>
+	    	</div>
+	    	<!-- slide 2-->
+	    	<div id="contenido" class="step size1 not-opacity" data-x="-1000" data-y="-32000" data-scale="40">
+	    		<h1 class="title2">CONTENIDO</h1>
+	    		<ul>
+	    			<li>
+	    				<ul>
+			    			<li><h3><a class="substep scaleIn" data-duration="1000" class="substep scaleIn" data-duration="1000" href="#introduccion" title="">Introducción</a></h3></li>
+			    			<li>
+			    				<h3><a class="substep scaleIn" data-duration="500" href="#situacionActual" title="">Situacion Actual</a></h3>
+			    				<ul class="substep scaleIn" data-duration="3000">
+			    					<li><a href="#problema1" title="">El problema en el sector operacional</a></li>
+			    					<li><a href="#problema2" title="">El problema en el sector administrativo</a></li>
+			    				</ul>
+			    			</li>
+			    			<li><h3><a class="substep scaleIn" data-duration="1000" href="#justificacion" title="">Justificación</a></h3></li>
+			    			<li><h3><a class="substep scaleIn" data-duration="1000" href="#objetivos" title="">Objetivos</a></h3></li>
+	    				</ul>
+	    			</li>
+	    			<li>
+	    				<ul>
+			    			<li>
+			    				<h3><a class="substep scaleIn" data-duration="500" href="#revisionBibliografica" title="">Revision Bibliográfica</a></h3>
+			    				<ul class="substep scaleIn" data-duration="3000">
+			    					<li><a href="#tics" title="">Soluciones Tics</a></li>
+			    					<li><a href="#telemedida" title="">Los sistemas de telemedia</a></li>
+			    					<li><a href="#protocolos" title="">IEC 62056 y 62021</a></li>
+			    				</ul>
+			    			</li>
+			    			<li><h3><a class="substep scaleIn" data-duration="1000" href="#ingenieriaDiseno" title="">Ingeniería de Diseño</a></h3></li>
+			    			<li><h3><a class="substep scaleIn" data-duration="1000" href="conclusiones" title="">Conclusiones y Recomendaciones</a></h3></li>
+			    			<li><h3><a id="introband" class="substep scaleIn" href="prototipo" title="">Presentasión del Prototipo</a></h3></li>
+			    		</ul>
+			    	</li>
+	    		</ul>
+	    	</div>
+	    	<!-- slide 3 -->
+	    	<div id="introduccion" class="step size1" data-x="-1000" data-y="0" data-scale="40"> 
+	    		<h1 class="title">INTRODUCCION</h1>
+	    	</div>
+	    	<!-- Situacion Actual -->
+	    	<!-- portada -->
+	    	<div id="situacionActual" class="step size1 bg-sisactual" data-x="-1000" data-y="32000" data-scale="40">
+	    		<h1 class="center">SITUACION ACTUAL</h1>
+	    	</div>
+	    	<!--En Paraguay-->
+	    	<div id="enParaguay" class="step size1" data-x="-1000" data-y="64000" data-scale="40"></div>
+	    	<div class="step" id="problema1" data-x="-100" data-y="52000" data-scale="19">
+	    		<img src="images/ANDE.png" alt="">
+	    		<h2>Administracion Nacional de Distribucion de Energia</h2>
+	    		<div class="divider horizontal1"></div>
+	    		<p>La distribución de la energía eléctrica en el Paraguay se encuentra a cargo de la institución pública ANDE</p>
+	    	</div>
+	    	<div id="obras" class="step" data-x="-13500" data-y="52900" data-scale="10">
+	    		<h2 class="title1">DISTRIBUCIÓN</h2>
+	    		<img src="images/people.png" alt="">
+	    		<img src="images/transformadores.png" alt="">
+	    		<img src="images/linea.png" alt="">
+	    		<p>La cantidad acumulada de clientes conectados en el país asciende</p>
+	    		<p>162 nuevos transformadores montados</p>
+	    		<p>1.571 km de redes de media tensión</p>
+	    		<p>731 km de redes de baja tensión</p>
+	    		<div class="divider vertical1"></div>
+	    		<div class="divider vertical2"></div>
+	    	</div>
+	    	<div id="inconvenientes" class="step" data-x="-13500" data-y="60000" data-scale="10">
+	    		<h1 class="title2">Inconvenientes en la etapa de distribución</h1>
+	    	</div>
+	    	<div id="inconvenientes1" class="step" data-x="-15400" data-y="59000" data-scale="6">
+	    		<img src="images/reparacion1.png" alt="">
+	    	</div>
+	    	<div id="inconvenientes2" class="step" data-x="-12300" data-y="57820" data-scale="4">
+	    		<img src="images/reparacion2.png" alt="">
+	    	</div>
+	    	<div id="inconvenientes3" class="step" data-x="-10280" data-y="57820" data-scale="4">
+	    		<img class="border" src="images/Perdidas_distribucion.png" alt="">
+	    	</div>
+	    	<div id="inconvenientes4" class="step" data-x="-11150" data-y="59350" data-scale="7">
+	    		<img class="border" src="images/indice_satisfaccion.png" alt="">
+	    	</div>
+	    	<div id="inconvenientes5" class="step" data-x="-13500" data-y="62100" data-scale="10">
+	    		<ul>
+	    			<li><img src="images/list.png" alt="">Aumento de la demanda por el aumento de la poblacion y los niveles economicos</li>
+	    			<li><img src="images/list.png" alt="">Deficit en el manejo de la carga</li>
+	    			<li><img src="images/list.png" alt="">Transformadores con fallas o sobrecargados</li>
+	    			<li><img src="images/list.png" alt="">Infraestructura danada por condiciones climaticas</li>
+	    			<li><img src="images/list.png" alt="">Carencia de un sistema de análisis y supervisión en comunicación con una central de control y los abonados</li>
+	    			<li><img src="images/list.png" alt="">El usuario final  no supervisa su consumo</li>
+	    			<li><img src="images/list.png" alt="">Manipulacion de los medidores</li>
+	    		</ul>
+	    	</div>
+	    	<!-- slide 8 -->
+	    	<div id="reaccion" class="step" data-x="-200" data-y="66800" data-scale="32"></div>
+	    	<div id="noticias1" class="step" data-x="-200" data-y="60300" data-scale="27"></div>
+	    	<div id="noticias2" class="step" data-x="-200" data-y="72700" data-scale="27"></div>
+	    	<!--slide 9 -->
+	    	<div id="plataforma" class="step" data-x="12500" data-y="62000" data-scale="10">
+	    		<h1 class="title1">REQUIEREN UNA PLATAFORMA DE COMUNICACIONES, ADQUISICIÓN Y TRATAMIENTO DE LOS DATOS PARA SER EFICACES</h1>
+	    		<div class="divider horizontal1"></div>
+	    		<p class="substep scaleIn"><span>Sin esta plataforma</span> la institucion no podra dar solucion a muchos de los problemas del sector operativo.</p>
+	    		<p class="substep scaleIn">También persistirán los <span>inconvenientes en la administracion de mediciones y facturacion</span> que presentan las redes tradicionales</p>
+	    	</div>
+	    	<!-- slide 10 -->
+	    	<div id="administracion" class="step" data-x="12500" data-y="66000" data-scale="10">
+	    		<video id="video1" width="800" height="400">
+	    			<source src="media/admin_med.mp4">
+	    		</video>	
+	    	</div>
+	    	<!-- En Paraguay Overview -->
+	    	<div id="enParaguayOverview" class="step size1" data-x="-1000" data-y="64000" data-z="-1" data-scale="40"></div>
+	    	<!-- slide 11 -->
+	    	<div id="justificacion" class="step size1 bg-justificacion" data-x="-1000" data-y="96000" data-scale="40">
+	    		<h1 class="center">JUSTIFICACIÓN</h1>
+	    	</div>
+	    	<div id="justificacion2" class="step size1" data-x="-1000" data-y="128000" data-scale="40">
+	    		<p></p>
+	    	</div>
+	    	<!-- slide 12 -->
+	    	<div id="objetivos" class="step size1 bg-objetivos" data-x="-1000" data-y="164000" data-scale="40">
+	    		<h1 class="center">OBJETIVOS</h1>
+	    	</div>
+	    	<div id="objetivos2" class="step size1 bg-objetivos2" data-x="-1000" data-y="200000" data-scale="40" data-duration="15">
+	    	</div>
+	    	<div id="objetivoGeneral" class="step" data-x="-1000" data-y="200000" data-scale="28">
+	    		<div>
+	    			<h1 class="title">Objetivo General</h1>
+		    		<p>Desarrollar un sistema  de monitoreo en tiempo real que facilite el control de la demanda y el consumo de la energía eléctrica  de cada hogar, utilizando la geolocalización</p>
+	    		</div>
+	    	</div>
+	    	<div id="objetivoEspecifico1" class="step " data-x="7100" data-y="202170" data-scale="15" data-rotate="15">
+	    		<div class="ext-derecho">
+	    			<h1 class="title">
+	    				objetivoEspecifico1
+	    			</h1>
+	    			<p>Este es el parrafo del objetivo especifico de este nivel. reemplace en el codigo html</p>		    			
+	    		</div>
+	    	</div>
+	    	<div id="objetivoEspecifico2" class="step" data-x="-565" data-y="208300" data-scale="15" data-rotate="87">
+	    		<div class="ext-derecho">
+	    			<h1 class="title">
+	    				objetivoEspecifico2
+	    			</h1>
+	    			<p>Este es el parrafo del objetivo especifico de este nivel. reemplace en el codigo html</p>		    			
+	    		</div>	
+	    	</div>
+	    	<div id="objetivoEspecifico3" class="step " data-x="-8800" data-y="202994" data-scale="15" data-rotate="159">
+	    		<div class="ext-derecho">
+	    			<h1 class="title">
+	    				objetivoEspecifico3
+	    			</h1>
+	    			<p>Este es el parrafo del objetivo especifico de este nivel. reemplace en el codigo html</p>    			
+	    		</div>	
+	    	</div>
+	    	<div id="objetivoEspecifico4" class="step " data-x="-6263" data-y="193500" data-scale="15" data-rotate="-129">
+	    		<div class="ext-derecho">
+	    			<h1 class="title">
+	    				objetivoEspecifico4
+	    			</h1>
+	    			<p>Este es el parrafo del objetivo especifico de este nivel. reemplace en el codigo html</p>		    			
+	    		</div>	
+	    	</div>
+	    	<div id="objetivoEspecifico5" class="step" data-x="3545" data-y="193000" data-scale="15" data-rotate="-57">
+	    		<div class="ext-derecho">
+	    			<h1 class="title">
+	    				objetivoEspecifico5
+	    			</h1>
+	    			<p>Este es el parrafo del objetivo especifico de este nivel. reemplace en el codigo html</p>		    			
+	    		</div>	
+	    	</div>
+	    	<div id="objetivosOverview" class="step size1" data-x="-1000" data-y="200000" data-scale="40"></div>
+	    	<!-- slide 20 -->
+	    	<div id="telemedida" class="step size1" data-x="-1000" data-y="236000" data-scale="40">
 	    		<div>
 	    			<h1 class="title">Sistemas de Telemedida</h1>
 					<p class="bIn">
 						Son aquellas que cuentan con una gran cantidad de puntos de medición que pueden estar ubicados a grandes distancias deben permitir el registro y extracción de datos en tiempo real y facilitar el servicio de consulta remota o presencial. 
 					</p>
 	    		</div>
-	    		<div id="points" class="substep bounceIn" data-duration="10000"></div>
+	    		<div id="points" class="substep bounceIn"></div>
 	    		<section id="elementos">
 	    			<h2 class="substep fadeIn subtitle" data-duration="500">Elementos del Sistema</h2>
 		    		<ul>
-		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="#sensores" title="Sensores o Tadructores" class="writeEffect" data-text="Sensores o Transductores."></a></li>
+		    			<li class="substep dafeIn" data-duration="800"><img src="images/list.png" alt=""><a href="#sensores" title="Sensores o Tadructores" class="writeEffect" data-text="Sensores o Transductores."></a></li>
 		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Terminal Remota."></a></li>
 		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Sistemas de Comunicaciones."></a></li>
 		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Centro de Control y Supervision."></a></li>
-		    			<li class="substep fadeIn" data-duration="2000"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Software de Supervision."></a></li>
+		    			<li class="substep fadeIn"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Software de Supervision."></a></li>
 	    			</ul>
 	    		</section>
 	    	</div>
@@ -83,24 +272,6 @@
         element should be rotated by 90 degrees clockwise.
         
     -->
-	    	<!-- slide 2 -->
-	    	<div id="sensores" class="step" data-duration="500" data-x="-13800" data-y="-8200" data-scale="1" data-rotate="-90">
-	    		<div class="expandBox">
-	    			<h1 class="title">Sensores y Tansductores</h1>
-	    		</div>
-	    		<img id="sensor" class="substep scaleIn" data-duration="10" src="images/sensor.png">
-	    		<img id="divider1" class="substep fadeIn" data-duration="10" src="images/divider.png">
-	    		<p class="substep scaleIn">
-	    			Un sensor es un dispositivo que se encarga de detectar materiales o cambios en variables de algún tipo de naturaleza.
-	    		</p>
-	    		<img id="luz" class="substep bounceIn" src="images/luz.png">
-	    		<img id="temperatura" class="substep bounceIn" src="images/temperatura.png">
-	    		<img id="magnetismo" class="substep bounceIn" src="images/magnetic.png">
-	    		<img id="corriente" class="substep bounceIn" src="images/corriente.png">
-	    	</div>
-
-	    	<div id="overview" class="step" data-x="-500" data-y="-1500" data-scale="100">
-    		</div>
 		</div>
 
 	<!--

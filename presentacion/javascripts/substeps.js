@@ -61,7 +61,6 @@ function automatedPresentationWithSubsteps() {
         var duration = e.target.dataset.duration;
 
         if (duration) {
-            console.log("accion");
             var timing = setTimeout(function() {
                 substepNext();
             }, duration);
@@ -71,5 +70,38 @@ function automatedPresentationWithSubsteps() {
     document.addEventListener("impress:substep:enter", delayedNext, false);
 }
 
+var fixedBackground = document.querySelector('.cd-fixed-bg');
+var logo = document.querySelector('#fp-logo img');
+var video1 = document.getElementById('video1');
+function javascriptsAnimation(){
+    var animationHandler = function(e){
+        var bandera = e.target.id;
+        console.log(bandera);
+        switch (bandera){
+            case 'logoband':
+                logo.classList.add('encabezado');
+                break;
+            case 'introband':
+                fixedBackground.classList.add('bg-introduccion');
+                logo.classList.add('opaco');
+                break;
+            case 'introduccion':
+                //document.getElementById('introduccion').classList.add('bg-introduccion');
+                break;
+            case 'situacionActual':
+                fixedBackground.classList.remove('bg-introduccion');
+            case 'administracion':
+                video1.currentTime = 0;
+                video1.play();
+            default:
+                null;
+        }
+    }
+    document.addEventListener("impress:stepenter", animationHandler, false);
+    document.addEventListener("impress:substep:enter", animationHandler, false);
+}
+
 // habilitamos la presentacion automatica
 automatedPresentationWithSubsteps();
+// habilitamos las animaciones con javascripts
+javascriptsAnimation();
