@@ -72,27 +72,43 @@ function automatedPresentationWithSubsteps() {
 
 var fixedBackground = document.querySelector('.cd-fixed-bg');
 var logo = document.querySelector('#fp-logo img');
+var innovaciones = document.querySelector('#innovaciones');
 var video1 = document.getElementById('video1');
+var videogrid = document.getElementById('grid');
+var intro = document.getElementById('introduccion');
 function javascriptsAnimation(){
     var animationHandler = function(e){
         var bandera = e.target.id;
-        console.log(bandera);
         switch (bandera){
             case 'logoband':
                 logo.classList.add('encabezado');
                 break;
             case 'introband':
-                fixedBackground.classList.add('bg-introduccion');
+                // fixedBackground.classList.add('bg-introduccion');
                 logo.classList.add('opaco');
                 break;
             case 'introduccion':
-                //document.getElementById('introduccion').classList.add('bg-introduccion');
+                // document.getElementById('introduccion').classList.add('bg-introduccion');
+                // fixedBackground.classList.remove('bg-introduccion');
                 break;
             case 'situacionActual':
-                fixedBackground.classList.remove('bg-introduccion');
+                //fixedBackground.classList.remove('bg-introduccion');
+                break;
             case 'administracion':
                 video1.currentTime = 0;
                 video1.play();
+                break;
+            case 'bigband':
+                intro.classList.remove('opacidad');
+                break;
+            case 'connectworld':
+                intro.classList.add('opacidad');
+                innovaciones.classList.add('opacidad');
+                break;
+            case 'videogrid':
+                videogrid.currentTime = 0;
+                videogrid.play();
+                break;
             default:
                 null;
         }

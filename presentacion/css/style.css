@@ -272,14 +272,14 @@
         background-color: #424242;
     }
     .substep.scaleIn{
-        display: none;
+        visibility: hidden;
         -webkit-animation-fill-mode:both;
         animation-fill-mode:both;
         -webkit-animation-duration:0.7s;
         animation-duration:0.7s;
     }
     .substep:not(.future).scaleIn{
-        display: block;
+        visibility: visible;
         -webkit-animation-name:scaleIn;
         animation-name:scaleIn;
     }
@@ -346,6 +346,11 @@
         margin-left: 0px;
         padding: 0px;
     }
+    .center.p1{
+    width: calc(100% - 80px);
+    top: calc(50% - 120px);
+    color:#9e9e9e;
+    }
     .ext-derecho{
         position: absolute;
         right:40px;
@@ -359,14 +364,16 @@
         transition: all 0.4s;
     }
     .bg-introduccion{
-        background: url(../images/intro_bg.png) no-repeat left bottom;
-        background-size: cover;
+        background: url(../images/intro_bg.png) no-repeat right bottom;
     }
     .bg-sisactual{
         background-color: #FF8A80;
     }
     .bg-justificacion{
         background-color: #90CAF9;
+    }
+    .bg-finalidad{
+        background-color: #9E9E9E;
     }
     .bg-objetivos{
         background-color: #80CBC4;
@@ -520,14 +527,342 @@
     }
 
 /*************** slide 3 Introduccion *******************/
-    #introduccion{
+    .opacidad{
+        opacity: 1 !important;
+    }
+    #introduccion.step.past div{
+        opacity: 0.1;
+    }
+    #haciadonde{
+        width: 350px;
+        height: 250px;
+        position: absolute;
+        top: 150px;
+        right: 83px;
+    }
+    #haciadonde p{
+        font-size: 1.3rem;
+    }
+
+    #innovaciones{
+        width: 700px;
+        height: 800px;
+    }
+    #innovaciones div{
+        width: 700px;
+        height: 450px;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+    }
+    #innovaciones h2{
+        font-size: 1.5rem;
+        display: inline-block;
+        position: absolute;
+        right: 80px;
+        top: 25px;
+    }
+    #innovaciones li{
+        display: block !important;
+        visibility: visible !important;
+        opacity: 0.6;
+        font-size: 1.2rem;
+        color: #9E9E9E;
+        width: 120px;
+        position: absolute;
+    }
+    #innovaciones li:first-child{
+        top: 90px;
+        left: 280px;
+    }
+    #innovaciones li:nth-child(2){
+        text-align: right;
+        top:180px;
+        left: 140px;
+    }
+    #innovaciones li span{
+        display: block;
+        color:black;
+        font-size: 0.8rem;
+    }
+    #innovaciones li:nth-child(3){
+        top:120px;
+        right: 50px;
+    }
+
+    #bigdata, #analitics{
+        width: 400px;
+        height: 400px;
+        opacity: 1;
+    }
+    #bigdata p, #analitics p{
+        width: 130px;
+        text-align: right;
+        margin-top: 25px;
+        margin-right: 20px;
+        float: left;
+        color: #9E9E9E;
+    }
+    #analitics p{
+        width: 200px;
+        margin-top: 65px;
+        font-size: 1.6rem;
+    }
+    #analitics > p{
+        position: absolute;
+        bottom: -40px;
+        right: 30px;
+    }
+    #bigdata.step.future p, #analitics.step.future p{
+        opacity: 0.2 !important;
+        visibility: visible;
+        display: block;
+    }
+    #bigdata.step.active p, #analitics.step.active p{
+        opacity: 0.2;
+    }
+    #bigdata img, #analitics img{
+        width: 100px;
+        height: auto;
+        float: left;
+    }
+    #bigdata div, #analitics div{
+        position: absolute;
+        bottom: 30px;
+        right: 48px;
+    }
+
+    #connectworld{
+        width: 450px;
+        height: 800px;
+    }
+    #connectworld p{
+        font-family: "Kaushan Script", "sans-serif";
+        color:#b71c1c;
+        margin-left: 240px;
+        position: absolute;
+        bottom: 20px;
+    }
+    #connectworld.step.past{
+        opacity: 1;
+    }
+    #impactotec, #nucleotics, #aplicacionestics{
+        width: 800px;
+        height: 400px;
+    }
+    #impactotec p, #nucleotics p, #aplicacionestics p{
+        float: left;
+        width: 280px;
+        font-size: 1.2rem;
+    }
+    #aplicacionestics p{
+        padding-top: 20px;
+        width: 300px;
+    }
+    #nucleotics p{
+        width: 470px;
+    }
+    #nucleotics div p:first-child{
+        margin-top: 40px;
+    }
+    #impactotec img, #aplicacionestics img, #nucleotics img{
+        width: auto;
+        height: 200px;
+        float: left;
+        margin-right: 20px;
+    }
+    #raiz1{
+        height: 500px;
+        width: 480px;
+    }
+    #raiz1 div{
+        height: 85px;
+        width: 95%;
+        border-left: solid 1px #2C393B;
+        border-bottom: solid 1px #2C393B;
+        border-bottom-left-radius: 5px;
+        position: absolute;
+        bottom: 0px;
+    }
+    #raiz3, #raiz4 {
+        border-left: solid 3px #2C393B;
+        position: absolute;
+    }
+    #raiz3{
+        border-bottom: solid 3px #2C393B;
+        border-bottom-left-radius: 8px;
+        width: 178px;
+        height: 150px;
+        top: 239px;
+        left:126px;
+    }
+    #raiz4{
+        width: 1px;
+        height: 158px;
+        top: 217px;
+        left: 325px;
+    }
+    #raiz5_1{
+        height: 171px;
+        width: 141px;
+        border-top: solid 2px #2C393B;
+        border-left: solid 2px #2C393B;
+        border-bottom: solid 2px #2C393B;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        position: absolute;
+        top: 250px;
+        left: -32px;
+    }
+    #raiz5_2{
+        height: 64px;
+        width: 30px;
+        border-right: solid 3px #2C393B;
+        border-top-right-radius: 8px;
+        position: absolute;
+        left: 83px;
+        top: 423px;
+    }
+    #TicsRE{
+        position: absolute;
+        width: 800px;
+        height: 430px;
+    }
+    #TicsRE img{
+        position: absolute;
+        z-index: 10;
+    }
+    #raiz1.step.past, #impactotec.step.past, #nucleotics.step.past, #aplicacionestics.step.past, #TicsRE.step.past{
+        opacity: 1;
     }
 
 /**************** slides sin padding **************/
 
-#situacionActual, #justificacion, #objetivos, #revisionBibliografica{
+#situacionActual, #justificacion, #finalidad, #objetivos, #revisionBibliografica{
     padding: 0px;
 }
+
+/**************** slide 4 expertos ****************/
+    #expertos .substep h2{
+        visibility: visible !important;
+        position: fixed;
+        font-size: 1.6rem;
+        z-index: 15;
+        color: #2C393B;
+        width: 320px;
+        -webkit-transition:all .3s;
+    }
+    #expertos .substep.present h2{
+        color: white;
+        text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+    }
+    #expertos .substep h2#hjm{
+        top:10px;
+    }
+    #expertos .substep h2#hjj{
+        top: 55px;
+    }
+    #expertos .substep h2#hte{
+        line-height: 1;
+        top: 105px;
+    }
+    #expertos .substep .img-wrap, 
+    #expertos .substep .content-wrap{
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        overflow:hidden;
+    }
+    #expertos .substep .img-wrap div, 
+    #expertos .substep .content-wrap p,
+    #expertos .substep .content-wrap img{
+        -webkit-transform:translateX(100%);
+        -moz-transform:translateX(100%);
+        transform: translateX(100%);
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        transition: all 1s;
+    }
+    #expertos .substep.present .img-wrap div,
+    #expertos .substep:nth-child(4).past .img-wrap div,
+    #expertos .substep.present .content-wrap p,
+    #expertos .substep.present .content-wrap img,
+    #expertos .substep.past .content-wrap img {
+        -webkit-transform:translateX(0%);
+        -moz-transform:translateX(0%);
+        transform: translateX(0%);
+        /*-webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        transition: all 1s;*/
+    }
+    /*#expertos .substep.past .img-wrap div, 
+    #expertos .substep.past .content-wrap p,
+    #expertos .substep.past .content-wrap img{
+        -webkit-transform:translateX(-100%);
+        -moz-transform:translateX(-100%);
+        transform: translateX(-100%);
+    }*/
+    #expertos div#sidecolor{
+        width: 380px;
+        height: 100%;
+        background-color: black;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+    #expertos .substep .img-wrap{
+        left: 0px;
+        width: 380px;
+        background-color: black;
+    }
+    #expertos .substep .img-wrap #bgJhonMc{
+        height: 100%;
+        background: url(../images/jhonMc.png) left bottom no-repeat;
+        background-size: contain;
+    }
+    #expertos .substep .img-wrap #bgJerryJi{
+        height: 100%;
+        background: url(../images/jerryJi.png) left bottom no-repeat;
+        background-size: contain;
+    }
+    #expertos .substep .img-wrap #penumbra{
+        height: 100%;
+        width: 1080px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 10;
+        background-color: rgba(0, 2, 0, 0.4);
+        -webkit-transform: translateX(-500px);
+        transform: translateX(-500px);
+    }
+    #grid{
+        height: 800px;
+        width: auto;
+        transform: translateX(-500px);
+    }
+    #expertos .substep .content-wrap{
+        width: 700px;
+        left: 380px;
+    }
+    #expertos .content-wrap p{
+        font-size: 1.6rem;
+        padding-left: 165px;
+        padding-right: 165px;
+        width: 370px;
+        height: 160px;
+        position: absolute;
+        top: 320px;
+        text-align: left;
+    }
+    #expertos .content-wrap img{
+        width: 700px;
+        height: auto;
+        position: absolute;
+        left: -10px;
+        top: 137.5px;
+    }
+
 
 /**************** slide 5 problema1 ***********************/
     #problema1{
@@ -696,7 +1031,79 @@
         background: url(../images/noticias2.png) left top no-repeat;
     }
 
-/*******************  slide 9 plataforma *******************/
+/*******************  slide 9  diferencias entre los medidores **************/
+    #diferenciasmed{
+        width: 900px;
+        height: 800px;
+    }
+    #diferenciasmed > div{
+        width: 425px;
+        position: absolute;
+    }
+    #difereciasmed > div > div{
+        position: relative;
+    }
+    #diferenciasmed div h2{
+        margin-bottom: 30px;
+    }
+    #diferenciasmed div > img{
+        border-radius: 50%;
+        height: 145px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+        width: auto;
+    }
+    /* animacion de las imagenes al cargar el slide */
+    #diferenciasmed.step.future div> img{
+        visibility: hidden;
+    }
+    #diferenciasmed.step.present div> img{
+        visibility: visible;
+    }
+    #diferenciasmed.step div > img{
+        -webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;
+        -ms-animation-fill-mode:both;-o-animation-fill-mode:both;
+        animation-fill-mode:both;
+        -webkit-animation-duration:.5s;
+        -moz-animation-duration:.5s;
+        -ms-animation-duration:.5s;
+        -o-animation-duration:.5s;
+        animation-duration:.5s;
+    }
+    #diferenciasmed.step.present div > img{
+        -webkit-animation-name: fadeInLeftPop;
+        -moz-animation-name: fadeInLeftPop;
+        -o-animation-name: fadeInLeftPop;
+        animation-name: fadeInLeftPop;
+    }
+    #diferenciasmed.step.present div:first-child > div > img:nth-child(2){
+        animation-delay: 50ms;
+    }
+    #diferenciasmed.step.present div:nth-child(2) > div > img:first-child{
+        animation-delay:100ms
+    }
+    #diferenciasmed.step.present div:nth-child(2) > div > img:nth-child(2){
+        animation-delay:150ms
+    }
+
+    #diferenciasmed div:first-child{
+        left: -30px;
+    }
+    #diferenciasmed div:nth-child(2){
+        right: 40px;
+    }
+    /*#diferenciasmed div:nth-child(2) > img{
+        border: solid 2px #757575;
+    }*/
+    #diferenciasmed ul li{
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+        color: #757575;
+    }
+    #diferenciasmed ul li img{
+        margin-right:5px;
+    }
+/*******************  slide 10 plataforma *******************/
     #plataforma{
         width: 800px;
         height: 400px;
@@ -713,66 +1120,14 @@
         color: #B71C1C;
     }
 
-/***************** slide 10 video administracion ***********/
+/***************** slide 11 video administracion ***********/
     #administracion{
         width: 800px;
         height: 400px;
         padding: 0px;
     }
 
-/******************* slide 11 justificacion *****************/
-
-/******************* slide 12 objetivos *********************/
-    #objetivos2.step.past{
-        opacity: 0.5;
-    }
-    #objetivoGeneral{
-        width: 800px;
-        height: 780px;
-    }
-    #objetivoGeneral.step.past{
-        opacity: 0.6;
-    }
-    #objetivoGeneral div{
-        width: 300px;
-        height: 200px;
-        position: absolute;
-        top:calc(50% - 100px);
-        left: calc(50% - 150px);
-    }
-    #objetivoGeneral div h1{
-        text-align: center;
-        opacity: 1;
-    }
-    #objetivoGeneral div p{
-        text-align: center;
-    }
-    #objetivoEspecifico1.step.past, #objetivoEspecifico2.step.past,
-    #objetivoEspecifico3.step.past, #objetivoEspecifico4.step.past, 
-    #objetivoEspecifico5.step.past{
-        opacity: 1;.step.past
-    }
-    #objetivoEspecifico1, #objetivoEspecifico2,
-    #objetivoEspecifico3, #objetivoEspecifico4, 
-    #objetivoEspecifico5{
-        width: 800px;
-        height: 300px;
-        padding: 0px;
-    }
-    #objetivoEspecifico1 h1, #objetivoEspecifico2 h1,
-    #objetivoEspecifico3 h1, #objetivoEspecifico4 h1, 
-    #objetivoEspecifico5 h1{
-        opacity: 1;
-        color: #616161;
-    }
-    #objetivoEspecifico1 .ext-derecho, #objetivoEspecifico2 .ext-derecho,
-    #objetivoEspecifico3 .ext-derecho, #objetivoEspecifico4 .ext-derecho, 
-    #objetivoEspecifico5 .ext-derecho{
-        top: calc(50% - 2.5rem);
-        width: 400px;
-    }
-
-/**************** slide 20 Telemedida*****************/
+/**************** slide 12 Telemedida*****************/
     #telemedida{
         background: url(../images/cityMap.png) left bottom no-repeat; 
         -webkit-background-size: cover;
@@ -837,4 +1192,54 @@
     #elementos ul li img{
         position: absolute;
         bottom: 3px;
+    }
+
+/******************* slide 15 objetivos *********************/
+    #objetivos2.step.past{
+        opacity: 0.5;
+    }
+    #objetivoGeneral{
+        width: 800px;
+        height: 780px;
+    }
+    #objetivoGeneral.step.past{
+        opacity: 0.6;
+    }
+    #objetivoGeneral div{
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top:calc(50% - 100px);
+        left: calc(50% - 150px);
+    }
+    #objetivoGeneral div h1{
+        text-align: center;
+        opacity: 1;
+    }
+    #objetivoGeneral div p{
+        text-align: center;
+    }
+    #objetivoEspecifico1.step.past, #objetivoEspecifico2.step.past,
+    #objetivoEspecifico3.step.past, #objetivoEspecifico4.step.past, 
+    #objetivoEspecifico5.step.past{
+        opacity: 1;.step.past
+    }
+    #objetivoEspecifico1, #objetivoEspecifico2,
+    #objetivoEspecifico3, #objetivoEspecifico4, 
+    #objetivoEspecifico5{
+        width: 800px;
+        height: 300px;
+        padding: 0px;
+    }
+    #objetivoEspecifico1 h1, #objetivoEspecifico2 h1,
+    #objetivoEspecifico3 h1, #objetivoEspecifico4 h1, 
+    #objetivoEspecifico5 h1{
+        opacity: 1;
+        color: #616161;
+    }
+    #objetivoEspecifico1 .ext-derecho, #objetivoEspecifico2 .ext-derecho,
+    #objetivoEspecifico3 .ext-derecho, #objetivoEspecifico4 .ext-derecho, 
+    #objetivoEspecifico5 .ext-derecho{
+        top: calc(50% - 2.5rem);
+        width: 400px;
     }
