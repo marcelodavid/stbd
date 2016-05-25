@@ -23,9 +23,11 @@
 			randonParam = Object.keys(self.parametros);
 			dynamicData();
 		};
-		var mediciones = $mediciones().abonado(userid, result);
-		mediciones.getOne();
-		mediciones.setInterval();
+		var socket = io();
+		socket.emit('usuario',{'userid':userid});
+		socket.on('lectura', function(data){
+			result(data);
+		});
 		var timeStop = $interval(function(){
 			dynamicData();
 		}, 3000);
@@ -47,12 +49,12 @@
 			colors: ['#c5e1a5']
 		};
 		var resumen_control =  function(data, id, column, key, options){
-			var salida = function(clave, parametros){
-				return clave=='fecha'? new Date(parametros[clave]): parseInt(parametros[clave]);
-			};
-			var campos = [[
-				salida(clave, data[index]) for(clave in data[index]) if(clave == 'fecha' || clave == key) 
-			] for(index in data)];
+			var campos = [];
+			data.map(function(parametros){
+				var abscisas = new Date(parametros.fecha);
+				var ordenadas = parseInt(parametros[key]);
+				campos.push([abscisas, ordenadas]);
+			});
 			
 			// tabla1 contiene los resumenes diarios
 			var tabla = new google.visualization.DataTable();

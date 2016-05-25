@@ -7,7 +7,7 @@ var entrada = function(db, data, id, fecha, callback){
 	collection.ensureIndex({fecha: -1, resumen_id: 1}, function(err, success){
 		assert.equal(err, null);
 	});
-	collection.update({resumen_id: id, fecha: fecha},{$set:data}, {upsert:true}, function(err, success){
+	collection.update({resumen_id: id, fecha: fecha},{$set:{resumen: data}}, {upsert:true}, function(err, success){
 		assert.equal(err, null, ['error al insertar los datos']);
 		callback();
 	});

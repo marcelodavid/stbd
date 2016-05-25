@@ -8,6 +8,7 @@
 			mapTypeId:google.maps.MapTypeId.ROADMAP
 		};
         var self = this;
+        self.abonados = undefined;
         var _googleMap = document.getElementById("googleMap");
         if(_googleMap){
             var _map = new google.maps.Map(_googleMap, _options)
@@ -143,8 +144,11 @@
                 console.log(data);
             });
         };
+
+        var socket = io();
 	    // manejadores de eventos del mapa
 	    var clickHandler = function(event){
+
 			self.lat = event.latLng.lat();
 			self.lng = event.latLng.lng();
 
@@ -155,19 +159,11 @@
 	        self.showTable = true;
 	        self.showOthers = true;
 		};
-		var mediciones; 	// el servicio que nos traera los datos de la DB
-		var result = function(docs){
-			// aqui se cargan los datos personales y parametros de cada abonado
-			// que seran mostradas en la tabla
-			self.abonados = docs;
-		};
 		var circleEventsHandler = function(){
 			// manejador que responde al cambio del centro como del radio
 			$timeout(function(){
-				mediciones? mediciones.clearInterval(): null;
-				mediciones = $mediciones().mapa(self.circle.radius, self.lat, self.lng, result);
-				mediciones.getOne();
-				mediciones.setInterval(3000);
+                // transmitimos al server los datos del area
+				socket.emit('area', {lat: self.lat, lng: self.lng, radio: self.circle.radius});
                 //reseteamos los campos del formulario para guardar zonas y sus opciones
                 //de navegacion
 				self.showSave = true;

@@ -418,7 +418,7 @@
         -webkit-transition-delay:3s;
         transition-delay:3s;
         z-index: 1;
-        visibility: hidden;
+        visibility: visible;
     }
     #fp-logo img.encabezado{
         -webkit-transform:scale(0.32);

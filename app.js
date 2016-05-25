@@ -11,6 +11,8 @@ var abonados = require('./routes/abonados');
 var zonas = require('./routes/zonas');
 
 var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +29,31 @@ app.use('/', index);
 app.use('/mapa', mapa);
 app.use('/zona', zonas);
 app.use('/abonados', abonados);
+
+// conexion con el socket cliente
+io.on('connection', function(client){
+	client.on('area', function(area){
+		// guardamos el NIS de los clientes colicitados en cache
+		null;
+	});
+
+	client.on('usuario', function(data){
+		// guardamos el NIS del cliente en cache
+		null; 
+	});
+
+	client.on('parametros', function(data){
+		/*	si los datos cazan con los medidores observados,
+			son reenviados hacia la app	
+		*/
+		null;
+	});
+
+	client.on('disconnect', function(){
+		// liberamos la cache
+		null;
+	});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,4 +87,4 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+module.exports = server;

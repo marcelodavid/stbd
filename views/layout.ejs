@@ -7,6 +7,8 @@
 		<!-- Mobile support -->
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+	    <script src="http://maps.googleapis.com/maps/api/js"></script>
+
 		<!-- Twitter Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
@@ -46,8 +48,8 @@
 			</footer>
 		</div>
 	<!--scripts-->
-		<!--google maps api-->
-	   	<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<!--google maps api
+	   	<script src="http://maps.googleapis.com/maps/api/js"></script>-->
 
 	   	<!--jquery necesary for boostrap must load first to angular-->
 	    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
@@ -55,36 +57,38 @@
 	    <!--angular-->
 		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
 
+		<!-- socket client -->
+		<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
 		<!--modulo-->
 		<script type="text/javascript" src="/javascripts/app.js"></script>
 
 		<!--controllers-->
-		<script src="/javascripts/controllers/controllers.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/controllers/maincontroller.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/controllers/minicardscontroller.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/controllers/navcontroller.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/controllers/usercontroller.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/controllers/usercontroller2.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="/javascripts/controllers/controllers.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/controllers/maincontroller.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/controllers/minicardscontroller.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/controllers/navcontroller.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/controllers/usercontroller.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/controllers/usercontroller2.js" type="text/javascript" charset="utf-8" ></script>
 
 
 		<!--services-->
-		<script src="/javascripts/services/services.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/services/zonas.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/services/mediciones.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/services/resumen.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/services/abonados.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="/javascripts/services/services.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/services/zonas.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/services/resumen.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/services/abonados.js" type="text/javascript" charset="utf-8" ></script>
 
 		<!--directives-->
-		<script src="/javascripts/directives/directives.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/directives/radio.js" type="text/javascript" charset="utf-8" async defer></script>
-		<script src="/javascripts/directives/centro.js" type="text/javascript" charset="utf-8" async defer></script>
+		<script src="/javascripts/directives/directives.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/directives/radio.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/directives/centro.js" type="text/javascript" charset="utf-8" ></script>
 
 		<!-- Material Design for Bootstrap -->
 	    <script src="/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
 	    <script src="/bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
 
 	     <!--customScrollbar-->
-	    <script src="/javascripts/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	    <script src="/javascripts/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8" ></script>
 
 	    <script>
 	    	$.material.init();
