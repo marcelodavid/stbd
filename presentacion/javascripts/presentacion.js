@@ -21,3 +21,4 @@ var writeEffect = function(event){
 document.addEventListener("impress:substep:enter", function(event){
 	writeEffect(event);
 }, false);
+

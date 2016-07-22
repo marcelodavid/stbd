@@ -71,14 +71,25 @@ function automatedPresentationWithSubsteps() {
 }
 
 var fixedBackground = document.querySelector('.cd-fixed-bg');
-var logo = document.querySelector('#fp-logo img');
 var innovaciones = document.querySelector('#innovaciones');
+var logo = document.querySelector('#fp-logo img');
 var video1 = document.getElementById('video1');
 var videogrid = document.getElementById('grid');
 var intro = document.getElementById('introduccion');
+var esquema = document.getElementById('esquema');
+var eventLoop = document.getElementById('eventLoop');
+var dbs = document.getElementById('dbs');
+var dataCenter = document.getElementById('dataCenter');
+var diseño = document.querySelector('#Diseño img');
+var diagrama = document.querySelectorAll('.diagramaFlujo');
+var psoc = document.getElementById('psoc');
+var mesh = document.getElementById('mesh');
 function javascriptsAnimation(){
     var animationHandler = function(e){
         var bandera = e.target.id;
+        if(bandera=='portada'){
+            logo.classList.add('visible');
+        }
         switch (bandera){
             case 'logoband':
                 logo.classList.add('encabezado');
@@ -109,6 +120,32 @@ function javascriptsAnimation(){
                 videogrid.currentTime = 0;
                 videogrid.play();
                 break;
+            case 'dbs':
+                eventLoop.classList.add('hidden');
+                break;
+            case 'dataCenter':
+                dbs.classList.add('hidden');
+                break;
+            case 'finesquema':
+                dataCenter.classList.add('hidden');
+                esquema.classList.add('opacidad');
+                break;
+            case 'algoritmo':
+                for(var i=0; i<diagrama.length; i++){
+                    diagrama[i].classList.add('visible');
+                }
+                break;
+            case 'mesh':
+                for(var i=0; i<diagrama.length; i++){
+                    diagrama[i].classList.add('fadeOut');
+                }
+                psoc.classList.add('fadeOut');
+                diseño.classList.add('pos1');
+                break;
+            case 'meshOut':
+                diseño.classList.remove('pos1');
+                diseño.classList.add('pos2');
+                mesh.classList.add('hidden');
             default:
                 null;
         }

@@ -56,8 +56,60 @@
     table {
         border-collapse: collapse;
         border-spacing: 0;
+        height: 100%;
+        width:100%;
     }
-
+    table th{
+        font-size: 20px;
+        color:#0277bd;
+        text-align:left;
+        line-height:1;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    table th{
+        border-bottom:solid 1px white;
+        background-color:white;
+    }
+    table td{
+        color:#111;
+        font-size: 17px;
+        padding: 1px;
+        padding-left: 3px;
+        padding-right:2px;
+        border-bottom: solid 1px #e7e7e7;
+        background-color:white;
+    }
+    table tbody tr td:first-child{
+        background-color:#f3f3f3;
+    }
+    .substep.future .upRow,.substep.present .upRow td,.substep.present .upRow th{
+        visibility:visible;
+        -moz-transition:all .4s 2s; 
+        -webkit-transition: all .4s 2s;
+        -o-transition:all .4s 2s;
+        transition:all .4s 2s;
+    }
+    .substep.present .upRow td, .substep.present .upRow th,
+    .substep.past .upRow td, .substep.past .upRow th{
+       background-color:#ffebee !important;
+       color:#d50000 !important;
+    }
+    .substep.future .rowRed{
+        visibility:visible;
+        -moz-transition:all .5s 3s; 
+        -webkit-transition: all .5s 3s;
+        -o-transition:all .5s 3s;
+        transition:all .5s 3s !important;
+    }
+    .substep.present .rowRed{
+        background-color:#ffebee;
+        color:#d50000;
+        -moz-transition:all .5s 3s; 
+        -webkit-transition: all .5s 3s;
+        -o-transition:all .5s 3s;
+        transition:all .5s 3s;
+    }
 
     body {
         font-family: 'PT Sans', sans-serif;
@@ -116,7 +168,7 @@
 
         /* fade out inactive slides */
         .step:not(.active) {
-            opacity: 0.1;
+            opacity: 0.2;
         }
 
         /* STEP SPECIFIC STYLES */
@@ -329,6 +381,17 @@
         font-size: 2rem;
         color: #9E9E9E;
     }
+    .title5{
+        width:100%;
+        padding-top:25px;
+        padding-bottom:25px;
+        position:absolute;
+        top:0px;
+        left:0px;
+        background-color:#f3f3f3;
+        text-align:center;
+        color:#212121;
+    }
     .subtitle{
         font-size: 1.6rem;
         color: #757575;
@@ -347,9 +410,13 @@
         padding: 0px;
     }
     .center.p1{
-    width: calc(100% - 80px);
-    top: calc(50% - 120px);
-    color:#9e9e9e;
+    width: 90%;
+    top: calc(50% - 96px);
+    color:#f8f8f8;
+    text-align: left;
+    padding-left:5%;
+    padding-right:5%;
+    
     }
     .ext-derecho{
         position: absolute;
@@ -367,19 +434,24 @@
         background: url(../images/intro_bg.png) no-repeat right bottom;
     }
     .bg-sisactual{
-        background-color: #FF8A80;
+        background-color: #7E7E7E;
     }
     .bg-justificacion{
-        background-color: #90CAF9;
+        background-color: #424242;
     }
     .bg-finalidad{
         background-color: #9E9E9E;
     }
     .bg-objetivos{
-        background-color: #80CBC4;
+        background:url(../images/objetivos.jpg) left center no-repeat;
+        background-size:cover;
     }
     .bg-objetivos2{
         background: url(../images/aro_objetivos.png) center center no-repeat;
+    }
+    .bg-ing{
+    
+        background-color:#302e2c;
     }
     .size1{
         max-height: 800px;
@@ -418,7 +490,10 @@
         -webkit-transition-delay:3s;
         transition-delay:3s;
         z-index: 1;
-        visibility: visible;
+        visibility:hidden;
+    }
+    #fp-logo img.visible{
+        visibility:visible;
     }
     #fp-logo img.encabezado{
         -webkit-transform:scale(0.32);
@@ -437,6 +512,11 @@
         height: 100%;
         width: 100%;
     }
+    .block-divider{
+       background-color:white;
+       padding-top:25px;
+       height:100%;
+    }
 
     .horizontal1{
         height: 7px;
@@ -454,6 +534,82 @@
         border-style:solid;
         border-width:1px;
     }
+    .referencia{
+        font-size: 1rem;
+        margin-top:25px;
+        margin-bottom:10px;
+    }
+    .mg-l1{
+        margin-left:25px;
+    }
+    .mg-l2{
+        margin-left:50px;
+    }
+    .mg-l3{
+        margin-left:75px;
+    }
+    .mg-l4{
+        margin-left:100px;
+    }
+    .mg-l5{
+        margin-left:125px;
+    }
+    .mg-l5_5{
+        margin-left:137px;
+    }
+    .mg-l6{
+        margin-left:150px;
+    }
+    .mg-l7{
+        margin-left:175px;
+    }
+    .mg-l8{
+        margin-left:200px;
+    }
+    .mg-l9{
+        margin-left:225px;
+    }
+    .mg-l10{
+        margin-left:250px;
+    }
+    .referencia span{
+        color: #424242;
+        padding-right: 5px;
+    }
+    .footer{
+        background-color:#424242;
+        position:absolute;
+        bottom:0px;
+        left:0px;
+        width:100%;
+        height: 46px;
+        opacity:1 !important;
+    }
+    .footer div:first-child{
+        position:absolute;
+        left: 20px;
+        top:-20px;
+        width: 400px;
+        opacity:1 !important;
+    }
+    .footer div:nth-child(2){
+        position:absolute;
+        right:20px;
+        top:-20px;
+        width:400px;
+        opacity:1 !important;
+    }
+    .footer div a{
+        font-size:1.3rem;
+        color:white !important;
+        opacity:1 !important;
+        padding:4px;
+    }
+    .shadow{
+        -webkit-box-shadow: 1px 1px 10px 1px #A1A1A1;
+        box-shadow: 1px 1px 10px 1px #A1A1A1;
+    }
+
 /**************** slide 1 Portada ******************/
     #portada{
         padding: 0px;
@@ -527,18 +683,32 @@
     }
 
 /*************** slide 3 Introduccion *******************/
+    #introduccion h1{
+        position:absolute;
+        top: -20px;
+    }
+    #introduccion.step.past{
+        opacity:1;
+    }
+    #introduccion, #introOverview{
+        width:1080px;
+        height:700px;
+    }
+    #introduccion .footer{
+        bottom:-46px;
+    }
     .opacidad{
         opacity: 1 !important;
     }
-    #introduccion.step.past div{
+    /*#introduccion.step.past div{
         opacity: 0.1;
-    }
+    }*/
     #haciadonde{
         width: 350px;
         height: 250px;
         position: absolute;
-        top: 150px;
-        right: 83px;
+        top: 100px;
+        right: 75px;
     }
     #haciadonde p{
         font-size: 1.3rem;
@@ -642,6 +812,7 @@
         margin-left: 240px;
         position: absolute;
         bottom: 20px;
+        font-size:1.1rem;
     }
     #connectworld.step.past{
         opacity: 1;
@@ -655,9 +826,27 @@
         width: 280px;
         font-size: 1.2rem;
     }
+    #impactotec p.referencia{
+        position:absolute;
+        left:120px;
+        bottom: 100px;
+        font-size:20px;
+    }
+    #nucleotics p.referencia{
+        position:absolute;
+        left:30px;
+        bottom:130px;
+        font-size:20px;
+    }
     #aplicacionestics p{
         padding-top: 20px;
         width: 300px;
+    }
+    #aplicacionestics p.referencia{
+        position: absolute;
+        left: -90px;
+        bottom:120px;
+        font-size:18px;
     }
     #nucleotics p{
         width: 470px;
@@ -672,17 +861,14 @@
         margin-right: 20px;
     }
     #raiz1{
-        height: 500px;
-        width: 480px;
-    }
-    #raiz1 div{
-        height: 85px;
-        width: 95%;
-        border-left: solid 1px #2C393B;
-        border-bottom: solid 1px #2C393B;
+        height: 80px;
+        width:1250px;
+        border-left: solid 3px #2C393B;
+        border-bottom: solid 3px #2C393B;
         border-bottom-left-radius: 5px;
         position: absolute;
-        bottom: 0px;
+        bottom: 77px;
+        left:220px;
     }
     #raiz3, #raiz4 {
         border-left: solid 3px #2C393B;
@@ -692,13 +878,13 @@
         border-bottom: solid 3px #2C393B;
         border-bottom-left-radius: 8px;
         width: 178px;
-        height: 150px;
-        top: 239px;
+        height: 130px;
+        top: 237px;
         left:126px;
     }
     #raiz4{
         width: 1px;
-        height: 158px;
+        height: 125px;
         top: 217px;
         left: 325px;
     }
@@ -732,6 +918,19 @@
         position: absolute;
         z-index: 10;
     }
+    #TicsRE img + p{
+        position:absolute;
+        width:300px;
+        right:50px;
+        top:135px;
+        font-size:28px;
+    }
+    #TicsRE p.referencia{
+        position:absolute;
+        left:10px;
+        bottom:-10px;
+        font-size:20px;
+    }
     #raiz1.step.past, #impactotec.step.past, #nucleotics.step.past, #aplicacionestics.step.past, #TicsRE.step.past{
         opacity: 1;
     }
@@ -740,6 +939,16 @@
 
 #situacionActual, #justificacion, #finalidad, #objetivos, #revisionBibliografica{
     padding: 0px;
+}
+.size2{
+    width: 1080px;
+    height: 266px;
+}
+.clear{
+    clear:both;
+}
+#situacionActual{
+    overflow: hidden;
 }
 
 /**************** slide 4 expertos ****************/
@@ -787,7 +996,8 @@
     #expertos .substep:nth-child(4).past .img-wrap div,
     #expertos .substep.present .content-wrap p,
     #expertos .substep.present .content-wrap img,
-    #expertos .substep.past .content-wrap img {
+    #expertos .substep.past .content-wrap img,
+    #expertos .substep:nth-child(4).past .content-wrap p.referencia{
         -webkit-transform:translateX(0%);
         -moz-transform:translateX(0%);
         transform: translateX(0%);
@@ -795,6 +1005,7 @@
         -moz-transition: all 1s;
         transition: all 1s;*/
     }
+    
     /*#expertos .substep.past .img-wrap div, 
     #expertos .substep.past .content-wrap p,
     #expertos .substep.past .content-wrap img{
@@ -862,9 +1073,22 @@
         left: -10px;
         top: 137.5px;
     }
+    #expertos .substep .content-wrap p.referencia{
+        font-size:18px;
+        position:absolute;
+        left:-120px;
+        top:700px;
+        width:500px;
+    }
+    #expertos .substep:nth-child(4) .content-wrap p.referencia{
+        left:-140px;
+    }
 
 
 /**************** slide 5 problema1 ***********************/
+    #enParaguay{
+        opacity:1;
+    }
     #problema1{
         width: 900px;
         height: 250px;
@@ -904,6 +1128,12 @@
         height: auto;
         position: absolute;
         top: 110px;
+    }
+    #obras p.referencia{
+        position:absolute;
+        top:570px;
+        left:135px;
+        font-size:19px;
     }
     #obras img:nth-child(4){
         width: 240px;
@@ -954,6 +1184,12 @@
         width: 800px;
         height: 600px;
     }
+    #inconvenientes1 p.referencia{
+        position:absolute;
+        font-size:22px;
+        bottom:40px;
+        left:100px;
+    }
     #inconvenientes1 img{
         width: 750px;
         height: auto;
@@ -964,6 +1200,12 @@
     #inconvenientes2{
         width: 463px;
         height: 280px;
+    }
+    #inconvenientes2 p.referencia{
+        position:absolute;
+        left:65px;
+        bottom: -60px;
+        font-size:22px;
     }
     #inconvenientes2 img{
         height:282px;
@@ -977,11 +1219,17 @@
         height: 280px;
     }
     #inconvenientes3 img{
-        width:auto;
+        width:586px;
         height:280px;
         position:absolute;
         left:0px;
         top:0px;
+    }
+    #inconvenientes3 img + p{
+        position:absolute;
+        bottom:-55px;
+        left:70px;
+        font-size:19px;
     }
     #inconvenientes4{
         width: 597px;
@@ -993,6 +1241,12 @@
         position:absolute;
         left:0px;
         top:0px;
+    }
+    #inconvenientes4 img + p{
+        position:absolute;
+        bottom: -60px;
+        left:70px;
+        font-size:19px;
     }
     #inconvenientes5{
         width: 920px;
@@ -1029,6 +1283,12 @@
         width: 570px;
         height: 510px;
         background: url(../images/noticias2.png) left top no-repeat;
+    }
+    #noticias2 p.referencia{
+        position:absolute;
+        bottom: -50px;
+        left: 15px;
+        font-size:18px;
     }
 
 /*******************  slide 9  diferencias entre los medidores **************/
@@ -1126,31 +1386,41 @@
         height: 400px;
         padding: 0px;
     }
+    #administracion p.referencia{
+        position:absolute;
+        font-size: 22px;
+        bottom:-90px;
+        left: 0px;
+    }
 
 /**************** slide 12 Telemedida*****************/
     #telemedida{
+        height:700px;
         background: url(../images/cityMap.png) left bottom no-repeat; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
     }
+    #telemedida.past{
+        opacity:1;
+    }
     #telemedida p{
-        width: 320px;
+        width: 350px;
         text-align: center;
         position: absolute;
         left: 290px;
-        top: 75px;
+        top: 50px;
     }
     #telemedida h1{
         width: 350px;
         position: absolute;
-        top: 20px;
+        top: 10px;
         left: 260px;
     }
     .step h1{
         opacity: 0;
-        -webkit-transition: opacity 0..8s ease-in 0.4s;
+        -webkit-transition: opacity 0.8s ease-in 0.4s;
         -moz-transition: opacity 0.8s ease-in 0.4s;
         transition: opacity 0.8s ease-in 0.4s;
     }
@@ -1168,6 +1438,15 @@
     }
     .step:not(.future) h1{
         opacity: 1;
+    }
+    #elementos h2 + ul li.substep.colours a{
+        -moz-transition:color .4s 3s; 
+        -webkit-transition: color .4s 3s;
+        -o-transition:color .4s 3s;
+        transition:color .4s 3s;
+    }
+    #elementos h2 + ul li.substep.past.colours a{
+        color:orange;
     }
     #elementos h2{
         position: absolute;
@@ -1193,8 +1472,23 @@
         position: absolute;
         bottom: 3px;
     }
+/**********************8 justificacion y finalidad **********************/
+    #justificacion, #finalidad{
+        opacity:1;
+    }
+    #justificacion h1.substep.future, #finalidad h1.substep.future{
+        visibility:visible;
+    }
+    #justificacion p.substep, #finalidad p.substep{
+        -webkit-animation-delay:.6s;
+        animation-delay:.6s;
+    }
 
 /******************* slide 15 objetivos *********************/
+    #objetivos div{
+        height:100%;
+        background-color:rgba(0,0,0,0.2);
+    }
     #objetivos2.step.past{
         opacity: 0.5;
     }
@@ -1243,3 +1537,1575 @@
         top: calc(50% - 2.5rem);
         width: 400px;
     }
+/*************************** Ingenieria de Diseño *************************/
+/***************** Analisis de Diseño ********************/
+    #antecedentes{
+        width:1080px;
+        height: 650px;
+    }
+    #antecedentes p.referencia{
+        position:absolute;
+        bottom: 80px;
+    }
+    #antecedentes p.referencia:nth-child(2){
+        left:-80px;
+    }
+    #antecedentes p.referencia:nth-child(3){
+        left: 450px;
+    }
+    #antecedentes.past{
+        opacity:1;
+    }
+    #antecedentes1{
+        opacity:1;
+        width: 550px;
+        height: 425px;
+        overflow:hidden;
+    }
+    #antecedentes + #antecedentes1 div, #antecedentes + #antecedentes1 + #antecedentes2 div{
+        background-color: #bdbdbd;
+        width:calc(100% - 12px); 
+        padding: 2px;
+        padding-left:10px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+        transform: translateY(100%);
+        -webkit-transition: all .3s 1s;
+        -moz-transition: all .3s 1s;
+        transition: all .3s 1s;
+    }
+    #antecedentes + #antecedentes1 + #antecedentes2 div{
+        -webkit-transition: all .3s 2s;
+        -moz-transition: all .3s 2s;
+        transition: all .3s 2s;
+    }
+    #antecedentes:not(.future) + #antecedentes1 div, #antecedentes:not(.future) + #antecedentes1 + #antecedentes2 div{
+        -webkit-transform: translateY(0%);
+        -moz-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+    #antecedentes1 div h3,#antecedentes2 div h3{
+        color: white;
+    }
+    #antecedentes2 {
+        overflow: hidden;
+        opacity:1;
+        height: 750px;
+        width: 570px;
+    }
+    #antecedentes2 img{
+        height: 650px;
+        width: auto;
+    }
+    #antecedentes2 div h3{
+        font-size: 48px;
+    }
+/**************** Esquema del sistema ********************/
+    #IngDesign{
+        opacity:1;
+    }
+    #IngDesign h1{
+        color:#bdbdbd;
+    }
+    #esquema{
+        padding: 0px;
+        background: url('../images/bgIngDesign.png') left bottom no-repeat;
+        background-size: cover;
+        width: 1080px;
+        height: 600px;
+    }
+    #esquema.step.past.opacidad{
+        opacity:1
+    }
+    #esquema p.referencia{
+        position:absolute;
+        bottom:30px;
+        left: 130px;
+    }
+    #esquema > div:first-child{
+        padding: 20px;
+        padding-left: 40px;
+        position: absolute;
+        top:calc(50% - 245px);
+        width: 100%;
+        height: 450px;
+        background-color: rgba(255,255,255,0.85);
+    }
+    #esquema .footer{
+        bottom:-45px;
+    }
+    .previa.substep{
+        visibility:visible;
+    }
+    .previa{
+        opacity:1;
+        width:100%;
+        height:100%;
+        position:absolute;
+        background-color:#eee;
+        -webkit-transform:translateX(0%);
+        transform:translateX(0%);
+        -webkit-transition:all .8s;
+        transition:all .8s;
+    }
+    .previa.substep.past{
+        opacity:0;
+        -webkit-transform:translateX(-100%);
+        transform:translateX(-100%);
+    }
+    .previa h1{
+        width: 100%;
+        font-size:158px;
+        font-weight:bold;
+        position:absolute;
+        top:calc(50% - 250px);
+        color:#757575;
+        text-align:center;
+        opacity:1;
+    }
+    #dispositivoLectura, #comunicador{
+        border: dashed 2px #686868;
+        opacity: 1;
+    }
+    #dispositivoLectura > h2, #comunicador > h2, #supervision > h2{
+        position: absolute;
+        bottom: 10px;
+        left: 25px;
+        font-size: 40px;
+    }
+    #dispositivoLectura, #comunicador{
+        width: 900px;
+        height: 600px;
+    }
+    div.dc{
+        position: absolute;
+        left: 210px;
+        top: 100px;
+        width: 175px;
+        height: 150px;
+        border: solid 2px #bdbdbd;
+        background-color: #eee;
+    }
+    div.dc img{
+        position: absolute;
+        bottom: 15px;
+        left: 40px;
+        width: 40px;
+        height: auto;
+    }
+    div.dc img:nth-child(2){
+        left: 90px;
+    }
+    div.dc img:nth-child(4){
+        bottom: 60px;
+        left: 200px;
+        -webkit-tranform:scale(1.4);
+        transform: scale(1.4);
+    }
+    div.dc h3{
+        position: absolute;
+        font-size: 30px;
+        top: 25px;
+        text-align: center;
+        width: 100%;
+    }
+    #comunicador div.dc:nth-child(2){
+        left: 455px;
+    }
+    #comunicador div.dc:nth-child(2) img:nth-child(4){
+        left: -70px;
+        -webkit-tranform:scale(1.4);
+        transform: scale(1.4);
+    }
+    #comunicador div.dc:nth-child(3){
+        left: 190px;
+    }
+    #comunicador div.dc:nth-child(3) h3{
+        top: 45px;
+        font-size: 35px;
+    }
+    #comunicador div.dc:nth-child(3) img{
+        position: absolute;
+        left: -85px;
+        bottom: -20px;
+    }
+    #comunicador div.dc:nth-child(4){
+        width: 215px;
+        height: 160px;
+        top: 323px;
+        left: 42px;
+    }
+    #comunicador div.dc:nth-child(4) h3{
+        width: 95%;
+        font-size: 35px;
+    }
+     #comunicador div.dc:nth-child(4) img{
+        left: 247px;
+        bottom: 70px;
+        -webkit-tranform:scale(1.7);
+        transform: scale(1.7);
+    }
+/*********** sub bloques **************/
+    #interfazOptica, #Micro, #radiofrecuencia, 
+    #Alimentacion, #regulador,
+    #CCSC, #gateway{
+        opacity: 1;
+        padding: 0px;
+    }
+    #interfazOptica.past,#Micro.past, #radiofrecuencia.past,
+    #regulador.past, #CSSC.past, #gateway.past{
+        -webkit-box-shadow:none;
+        box-shadow:none;
+    }
+    #Micro .previa{
+        background-color:#153445;
+    }
+    #Micro .previa h1{
+        top:calc(50% - 100px);
+        color:white;
+        font-size:130px;
+    }
+    #CCSC > img{
+        position: absolute;
+        right: -278px;
+        bottom: 300px;
+        -webkit-tranform:scale(1.2);
+        transform: scale(1.2);
+    }
+    #CCSC .previa{
+        background-color:#0f6bab;
+    }
+    #CCSC .previa h1{
+        top:calc(50% - 120px);
+        font-size:170px;
+        color:white;
+    }
+    #regulador, #regulador2{
+        width: 800px;
+        height: 700px;
+    }
+    #regulador .previa h1{
+        top: calc(50% - 130px);
+    }
+    #interfazOptica > img{
+        position: absolute;
+        right: -340px;
+        top: 300px;
+    }
+    #interfazOptica.step:not(.future){
+        border: none;
+    }
+    #interfazOptica .table-wrap img.only{
+        width:auto;
+        margin-left: calc(50% - 250px);
+        margin-top: 100px;
+    }
+    #interfazOptica img.only + .referencia{ 
+        width:530px;
+        margin-left:calc(50% - 265px);
+    }
+    #interfazOptica .table-wrap > div:nth-child(2) img{
+        border-radius:50%;
+        border: solid 1px #bdbdbd;
+        width:250px;
+        height:250px;
+        margin-left: calc(50% - 125px);
+        margin-top:50px;
+    }
+    #cto, #carcasa{
+        height:100%;
+        float:left;
+        position:relative;
+        width:50%;
+        background-color:#f8f8f8;
+        margin-left:0px;
+        margin-top:0px;
+        overflow:hidden;
+    }
+    #carcasa{
+        background-color:white;
+    }
+    #cto img, #carcasa img{
+        width:315px;
+        border: solid 2px #e0e0e0;
+        margin-left:100px;
+        margin-top:20px !important;
+    }
+    #cto img:first-child.substep:not(.past), #carcasa img:first-child.substep:not(.past){
+        visibility:visible;
+        opacity:1;
+    }
+    #cto img.substep:not(.present), #carcasa  img.substep:not(.present){ 
+        opacity:0;
+        position:absolute;
+        top:0px;
+        -moz-transition:all 0.4s; 
+        -webkit-transition: all 0.4s;
+        -o-transition:all 0.4s;
+        transition:all 0.4s;   
+    }
+    #cto img.substep.present, #carcasa img.substep.present{
+        opacity1;
+         -moz-transition:all 0.4s ; 
+         -webkit-transition: all 0.4s ;
+         -o-transition:all 0.4s ;
+         transition:all 0.4s ;
+    }
+    #cto img:nth-child(4).substep.past, #carcasa img:nth-child(4).substep.past{
+        visibility:visible;
+        opacity:1;
+    }
+    #cto > div, #carcasa > div{
+        position:absolute;
+        width:100%;
+        height:40%;
+        bottom:0px;
+    }
+    #cto p.referencia, #carcasa p.referencia{
+        position:absolute;
+        top:300px;
+        left:100px;
+    }
+    #interfazOptica .detalles{
+        width:calc(100% - 120px);
+        margin-left: 0px !important;
+        padding:60px;
+    }
+    #interfazOptica .detalles h3{
+        text-align:left;
+    }
+    .detalles p{
+        margin-bottom:30px;
+    }
+    #interfazOptica .table-wrap table{
+        margin-left: calc(50% - 320px);
+    }
+    #interfazOptica h3{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .miniTable{
+        width: 60%;
+        height: auto;
+    }
+    .miniTable th, .miniTable td{
+        padding: 5px;
+    }
+    #Micro > img{
+        position: absolute;
+        right: -340px;
+        top: 300px;
+    }
+    #radiofrecuencia > img{
+        position: absolute;
+        width:470px;
+        height: auto;
+        right: -485px;
+    }
+    #radiofrecuencia img:first-child{
+        top: 200px;
+    }
+    #radiofrecuencia img:nth-child(2){
+        top: 400px;
+    }
+    #regulador > img{
+        position: absolute;
+        right: -350px;
+        bottom: -100px;
+        width: 200px;
+        height: auto;
+    }
+    #regulador .right-slide.last{
+        background-color:white;
+    }
+    #regulador .right-slide.last img{
+        position:absolute;
+        left: 100px;
+        top: 70px;
+    }
+    #regulador .right-slide.last p.referencia{
+        position:absolute;
+        top: 320px;
+        left: 230px;
+        width:400px;
+    }
+    #supervision{
+        width: 250px;
+        height: 600px;
+    }
+    .table-wrap{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    table#tabla3 td{
+        font-size:16px;
+    }
+    .right-slide{
+        position: absolute;
+        top:0px;
+        left:0px;
+        right:0px;
+        bottom:0px;
+    }
+    .substep.future.right-slide{
+        opacity:0;
+        z-index:0;
+        -webkit-transition: all .6s;
+        transition: all .6s;
+    }
+    .substep.present.right-slide{
+        opcity:1;
+        z-index:2;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        -webkit-transition: all 1.3s;
+        transition: all 1.3s;
+    }
+    .substep.past.right-slide{
+        opacity:0;
+        z-index:0;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+    }
+    .substep.past.right-slide.last{
+        opacity:1;
+        z-index:1;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);        
+    }
+/***************** flex wrap ********************/
+    #Micro .flex-wrap{
+        width:100%;
+        height:100%;
+        background-color:white;
+    }
+    div.flex-wrap{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-around;
+        align-items:center;
+    }
+    div.child{ 
+        background-color:white;
+    }
+    div.child{
+        min-width: 250px;
+        min-height:200px;
+        max-height:400px;
+    }
+    #Micro div.child img{
+        width:100%;
+        height:230px;
+    }
+    #Micro div.child:nth-child(4) .referencia{
+        width:500px;
+    }
+    #Micro div.child .referencia{
+        width:330px;
+        margin: 15px;
+    }
+    #Micro table tbody tr > th, #Micro table thead tr th:first-child{
+        color:#111;
+        background-color:#f3f3f3;
+        border-bottom:solid 1px  #e7e7e7;
+    }
+    #Micro table thead tr th{
+        padding-top:5px;
+        border-bottom:solid 1px #e7e7e7;
+    }
+    #Micro table td{
+        padding-left:7px;
+        padding-right:7px;
+    }
+    #Micro .right-slide.last{
+        background-color:white;
+    }
+    #Micro .right-slide.last img{
+        position:absolute;
+        left:calc(50% - 310px);
+        top:calc(50% - 250px);
+    }
+    #Micro .right-slide.last p.referencia{
+        position:absolute;
+        bottom:100px;
+        left:400px;
+        font-size:1.4rem;
+    }
+    div.child h3{
+        padding-bottom:5px;
+        padding-left:15px;
+    }
+    #radioImagenes{
+        width:60%;
+        margin-left:20%;
+        margin-top:150px;
+        margin-bottom:60px;
+    }
+    #radiofrecuencia div.radio{
+        float:left;
+        margin-left:55px;
+    }
+    #radiofrecuencia .miniTable{
+        margin-left:15%;
+        width:70%
+    }
+    #radiofrecuencia .miniTable tbody td:first-child{
+        width:125px;
+        padding-left:10px;
+        padding-right:10px;
+    }
+    #radiofrecuencia .miniTable tbody tr td:nth-child(2){
+        width:195px;
+    }
+    #radiofrecuencia .miniTable tbody tr td:nth-child(3){
+        width:150px;
+    }
+    #radiofrecuencia #table3 th, #radiofrecuencia #table4 tbody th, #CCSC #table5 tbody th{
+        color:#111;
+        background-color:#f3f3f3;
+        border-bottom:solid 1px #e7e7e7;
+    }
+    #table5 thead th{
+        padding-top:8px;
+        border-bottom:solid 1px #e7e7e7;
+    }
+    #radiofrecuencia #table4{
+        position:absolute;
+        top:100px;
+    }
+    #radiofrecuencia .right-slide{
+        background-color:white;
+    }
+    #CCSC div.flex-wrap{
+        width:100%;
+        height:100%;
+    }
+    #CCSC div.flex-wrap div.child{
+        width:250px;
+    }
+    #CCSC div.child div:first-child{
+        height:210px;
+    }
+    #CCSC .right-slide{
+        background-color:white;
+    }
+    #CCSC .right-slide.last img{
+        position:absolute;
+        left: calc(50% - 350px);
+        top:50px;
+    }
+    #CCSC .right-slide.last p.referencia{
+        position:absolute;
+        bottom:100px;
+        left:280px;
+        font-size:1.3rem;
+    }
+/***************** supervision *************************/
+    #supervision{
+        opacity:1;
+        padding:20px;
+        padding-top:15px;
+        width:1000px;
+    }
+    #supervision > div{
+        padding:0px;
+        padding-left:40px;
+        width:170px;
+        position:absolute;
+        left:0px;
+    }
+    #supervision > div:nth-child(6) img{
+        width:165px;
+        heigt:auto;
+        display:block;
+        margin-bottom:15px;
+    }
+    #supervision > div:first-child{
+        position: absolute;
+        left:0px;
+        top:0px;
+        bottom:0px;
+        width: 215px;
+        border:dashed 2px #686868;
+        -moz-transition:width .6s .6s; 
+        -webkit-transition: width .6s .6s;
+        -o-transition:width .6s .6s;
+        transition:width .6s .6s;
+        background-color:white;
+    }
+    #supervision.active > div:first-child{
+        width:970px;
+        overflow:hidden;
+    }
+    #supervision > div.substep{
+        position:absolute;
+        left:220px;
+        top: 15px;
+        bottom:64px;
+        width:740px;
+    }
+    #eventLoop.substep.hidden, #dbs.substep.hidden, #dataCenter.substep.hidden{
+        opacity:0;
+    }
+    /*event Loop nodeJS*/
+    #supervision > div:nth-child(3) img:first-child{
+        position:absolute;
+        width:65%;
+        height:auto;
+        top:65px;
+        left:200px;
+    } 
+    #supervision > div:nth-child(3) img:nth-child(4),#supervision > div:nth-child(3) img:nth-child(5),#supervision > div:nth-child(3) img:nth-child(6){
+        position:absolute;
+        width:25%;
+        height:auto;
+        left:10px;
+        bottom:100px;
+        -moz-transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg); 
+        -o-transform: rotateY(180deg); 
+        transform: rotateY(180deg);
+    }
+    #supervision > div:nth-child(3) img:nth-child(5){
+        bottom:75px;
+    }
+    #supervision > div:nth-child(3) img:nth-child(6){
+        bottom:50px;
+    }
+    #supervision > div:nth-child(3) img:nth-child(7){
+        position:absolute;
+        width:17%;
+        height:auto;
+        bottom:10px;
+    }
+    #supervision > div:nth-child(3) img:nth-child(2){
+        position: absolute;
+        width: 30%;
+        height: auto;
+        left: 0px;
+        top: 70px;
+        transform: rotateY(180deg) rotateZ(-20deg);
+    }
+    #supervision > div:nth-child(3) img:nth-child(3){
+        position:absolute;
+        width:25%;
+        top:20px;
+        left:10px;
+        -moz-transform: rotateZ(10deg);
+        -webkit-transform: rotateZ(10deg); 
+        -o-transform: rotateZ(10deg); 
+        transform: rotateZ(10deg);
+    }
+    #supervision > div:nth-child(3) img:nth-child(8){
+        position:absolute;
+        width:25%;
+        height:auto;
+        left:-10px;
+        top:262px;
+    }
+    #supervision > div:nth-child(3) img:nth-child(9){
+        position:absolute;
+        width:17%;
+        top:240px;
+        left:25px;
+    }
+    #supervision > div:nth-child(3) img:nth-child(10){
+        position:absolute;
+        width:15%;
+        right:10px;
+        bottom:250px;
+    }
+    #supervision > div:nth-child(3) img:nth-child(11){
+        position:absolute;
+        width:30%;
+        bottom:-40px;
+        left:100px;
+        -moz-transform: rotatez(170deg);
+        -webkit-transform: rotatez(170deg); 
+        -o-transform: rotatez(170deg); 
+        transform: rotatez(170deg);
+    }
+    #supervision > div:nth-child(3) img:nth-child(12){
+        position:absolute;
+        width:25%;
+        bottom:-40px;
+        left:320px;
+    }
+    #dbs .cd-single-step{
+        left:-38px;
+        top:268px;
+    }
+    #dbs .cd-content{
+        width:725px;
+        height:530px;
+    }
+    
+/****************** arquitectura de diseño *****************/
+    #arquitectura{
+        opacity:1;
+    }
+    #arquitectura h1{
+        opacity:1;
+    }
+    #diseño{
+        position:absolute;
+        width:100%;
+    }
+    #Diseño > div:nth-child(1){
+        height: 600px;
+        padding-top:20px;
+        padding-bottom:15px;
+        padding-right:10px;
+        width: calc(98% - 5px);
+        position: absolute;
+        right:0px;
+        top: 123px;
+    }
+    #Diseño > div:nth-child(1) > div:first-child{
+        width:100%;
+        height:600px;
+        overflow:hidden;
+    }
+    #Diseño > div:nth-child(1) > div:first-child img{
+        visibility:visible;
+        display:block;
+        width:auto;
+        -moz-transform: scale(1)  translateX(23%);
+        -webkit-transform: scale(1)  translateX(23%); 
+        -o-transform: scale(1)  translateX(23%); 
+        transform: scale(1)  translateX(23%);
+        transition: all 5s .5s;
+    }
+    #Diseño > div:nth-child(1) > div:first-child img.pos1{
+         -moz-transform: scale(1)  translateX(6%);
+         -webkit-transform: scale(1)  translateX(6%); 
+         -o-transform: scale(1)  translateX(6%); 
+         transform: scale(1)  translateX(6%);
+    }
+    #Diseño > div:nth-child(1) > div:first-child img.pos2{
+         -moz-transform: scale(1)  translateX(-10%);
+         -webkit-transform: scale(1)  translateX(-10%); 
+         -o-transform: scale(1)  translateX(-10%); 
+         transform: scale(1)  translateX(-10%);
+    }
+    #Diseño > div:nth-child(1) > div:first-child img.pos3{
+         -moz-transform: scale(1)  translateX(-10%);
+         -webkit-transform: scale(1)  translateX(-10%); 
+         -o-transform: scale(1)  translateX(-10%); 
+         transform: scale(1)  translateX(-10%);
+    }
+    #Diseño > div:nth-child(1) > p.referencia{
+        position:absolute;
+        bottom:5px;
+        left:380px;
+        font-size:1.2rem;
+    }
+/***************************** model-box ***********************/
+    @-webkit-keyframes cd-pulse {
+      0% {
+      box-shadow: 0 0 0 0 #00acc1;
+        }
+      100% {
+      box-shadow: 0 0 0 20px rgba(255, 150, 44, 0);
+        }
+    }
+    @-moz-keyframes cd-pulse {
+      0% {
+      box-shadow: 0 0 0 0 #00acc1;
+        }
+      100% {
+      box-shadow: 0 0 0 20px rgba(255, 150, 44, 0);
+        }
+    }
+    @keyframes cd-pulse {
+      0% {
+      box-shadow: 0 0 0 0 #00acc1;
+        }
+      100% {
+      box-shadow: 0 0 0 20px rgba(255, 150, 44, 0);
+        }
+    }
+
+    .cd-single-step > span {
+      /* dot indicator - visible on desktop version only */
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: inherit;
+        background: #00acc1;
+        /* replace text with background images */
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+        /* hide on mobile */
+        display: block;
+    }
+
+    .cd-single-step {
+        /* reset style */
+        /* tour single step */
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        height: auto;
+        width: auto;
+        top: auto;
+        left: auto;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+        border-radius: 50%;
+        opacity: 1;
+        background-color: transparent;
+      }
+      
+      .cd-single-step::after {
+            /* this is used to create the pulse animation */
+            content: '';
+            z-index:1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: inherit;
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            /* hide on mobile */
+            display: block;
+        }
+
+        .cd-single-step.move-left {
+            -webkit-transform: scale(1) translateX(-100%);
+            -moz-transform: scale(1) translateX(-100%);
+            -ms-transform: scale(1) translateX(-100%);
+            -o-transform: scale(1) translateX(-100%);
+            transform: scale(1) translateX(-100%);
+        }
+
+
+      .cd-single-step::after {
+          -webkit-animation: cd-pulse 2s infinite;
+          -moz-animation: cd-pulse 2s infinite;
+          animation: cd-pulse 2s infinite;
+          -webkit-animation-delay: 0.5s;
+          -moz-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+        }
+        .cd-content{
+            position:absolute;
+            z-index:1;
+            background-color:#fffefb;
+            border:solid 1px;
+            border-radius:4px;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15);
+            border-color:#fffefb;
+        }
+
+        .cd-single-step .cd-content::before {
+            /* triangle next to the step description - hidden on mobile */
+            content: '';
+            position: absolute;
+            height: 0;
+            width: 0;
+            border: 10px solid transparent;
+            display: block;
+        }
+
+        .cd-single-step .cd-content.left {
+            right: calc(100% + 20px);
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        .cd-single-step .cd-content.right {
+            left: calc(100% + 20px);
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        .cd-single-step .cd-content.left, .cd-single-step .cd-content.right {
+            top: 50%;
+        }
+        .cd-single-step .cd-content.top {
+            bottom: calc(100% + 20px);
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        .cd-single-step .cd-content.bottom {
+            top: calc(100% + 20px);
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        .cd-single-step .cd-content.top, .cd-single-step .cd-content.bottom {
+            left: 50%;
+        }
+        .cd-single-step .cd-content.left::before, .cd-single-step .cd-content.right::before {
+            top: 50%;
+            bottom: auto;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        .cd-single-step .cd-content.top::before, .cd-single-step .cd-content.bottom::before {
+            left: 50%;
+            right: auto;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        .cd-single-step .cd-content.left::before {
+            border-left-color: inherit;
+            left: 100%;
+        }
+        .cd-single-step .cd-content.right::before {
+            border-right-color: inherit;
+            right: 100%;
+        }
+        .cd-single-step .cd-content.top::before {
+            border-top-color: inherit;
+            top: 100%;
+        }
+        .cd-single-step .cd-content.bottom::before {
+            border-bottom-color: inherit;
+            bottom: 100%;
+        }
+                                                    
+
+/****************************** psoc ***********************************/
+    #psoc{
+        -webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;
+        -ms-animation-fill-mode:both;-o-animation-fill-mode:both;
+        animation-fill-mode:both;
+        -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+        -ms-animation-duration:1s;
+        -o-animation-duration:1s;
+        animation-duration:1s;
+        opacity:1;
+        visibility:visible;
+        width:600px;
+        height:700px;
+    }
+    #psoc.fadeOut{
+        -webkit-animation-name: fadeOut;
+        -moz-animation-name: fadeOut;
+        -o-animation-name: fadeOut;
+        animation-name: fadeOut;  
+    }
+    #psoc div:first-child{
+        position:absolute;
+    }
+    #psoc .cd-single-step{
+        left:450px;
+        top:295px;
+    }
+    #psoc .cd-content{
+        width:500px;
+        height:690px;
+        padding:15px;
+    }
+    #psoc .cd-single-step div:first-child{
+        position:absolute;
+        background-color:white;
+        left:-1px;
+        top:-1px;
+        bottom:-1px;
+    }
+    #psoc .cd-single-step div:first-child img{
+        position:absolute;
+        left:0px;
+        bottom:0px;
+        height:100%;
+        width:130px;
+    }
+    #psoc .cd-single-step p.referencia{
+        width:290px;
+        height:auto;
+        position:absolute;
+        bottom:-50px;
+        left: 125px;
+        font-size:1.3rem;
+    }
+/************************* diagrama de flujo ****************/
+    .diagramaFlujo{
+        -webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;
+        -ms-animation-fill-mode:both;-o-animation-fill-mode:both;
+        animation-fill-mode:both;
+        -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+        -ms-animation-duration:1s;
+        -o-animation-duration:1s;
+        animation-duration:1s;
+    }
+    .diagramaFlujo{
+        width:800px;
+        height:500px;
+        position:absolute;
+        display:none;
+    }
+    .diagramaFlujo.visible{
+        display:block;
+        opacity:1;
+    }
+    .diagramaFlujo.fadeOut{
+        -webkit-animation-name: fadeOut;
+        -moz-animation-name: fadeOut;
+        -o-animation-name: fadeOut;
+        animation-name: fadeOut;
+        
+    }
+    .flujoProceso{
+        position:absolute;
+        z-index:1;
+        background-color:white;
+        border: solid 2px #9e9e9e;
+        border-radius: 50%;
+        width:20px;
+        height:20px;
+        -moz-transition:all .6s; 
+        -webkit-transition: all .6s;
+        -o-transition:all .6s;
+        transition:all .6s;
+    }
+    .flujoProceso.substep{
+        visibility:visible !important;
+    }
+
+    .flujoProceso.substep:not(.future){
+        border:solid 2px #9e9e9e;
+        border-radius: 10px 0px 10px 0px;
+    }
+    .nombreProceso{
+        position:absolute;
+        width: 250px;
+        top: -15px;
+        left:calc(100% + 25px);
+        text-align:justify;
+        -moz-transition:all .5s; 
+        -webkit-transition: all .5s;
+        -o-transition:all .5s;
+        transition:all .5s;
+    }
+    .nombreProceso.singleLine{
+        width:180px;
+        top:-5px;
+        text-align:right;
+    }
+    .substep:not(.future) .nombreProceso{
+        left:calc(100% - 250px);
+        top: -68px;
+        text-align:justify;
+    }
+    .substep:not(.future) .nombreProceso.singleLine{
+        left:calc(100% - 180px);
+        top:-35px;
+        text-align:right;
+    }
+    .nombreProceso p{
+        color: #686868;
+    }
+    .nombreProceso + div{
+        position:relative;
+        width:inherit;
+        height: inherit;
+        border-radius:inherit;
+        overflow:hidden;
+        background-color:white;
+    }
+    .numProcess {
+        width: 40px;
+        height: 40px;
+        padding:5px;
+        line-height:1;
+        text-align:center;
+        border-radius:50%;
+        font-size:2.4rem;
+        background-color: #e7e7e7;
+        color:white;
+        position:absolute;
+        -moz-transition:visibility .1s; 
+        -webkit-transition: visibility .1s;
+        -o-transition:visibility .1s;
+        transition:visibility .1s;
+
+    }
+    .substep.present .numProcess{
+        visibility:hidden;
+    }
+    /************ inicioLectura *****************/
+    #inicioLectura > div:first-child{
+        position:absolute;
+        top: 0px;
+    }
+    #inicioLectura .flujoProceso:nth-child(2){
+        left: calc(50% - 35px);
+        top:10px;
+    }
+    #inicioLectura .flujoProceso:nth-child(2).substep:not(.future){
+        width: 800px;
+        height: 150px;
+        left: calc(50% - 400px);
+    }
+    #inicioLectura .flujoProceso:nth-child(3){
+        left: calc(50% - 35px);
+        top:255px;
+    }
+    #inicioLectura .flujoProceso:nth-child(3).substep:not(.future){
+        border-radius: 10px 0px 10px 0px;
+        width: 650px;
+        height: 270px;
+        left: calc(50% - 325px);
+    }
+    #inicioLectura .flujoProceso:nth-child(2) .nombreProceso + div> div:nth-child(2){
+        position:absolute;
+        top: 20px;
+        right:10px;
+    }
+    #inicioLectura .flujoProceso:nth-child(3) .nombreProceso + div> div{
+        position:absolute;
+    }
+    #inicioLectura .flujoProceso:nth-child(3) .nombreProceso + div> div img{
+        display:block; 
+    }
+    #inicioLectura .flujoProceso:nth-child(3) .nombreProceso + div> div:first-child{
+        top:70px;
+        left:7px;
+        padding-bottom:10px;
+        background-color:white;
+        border-bottom:solid 1px #eee;
+    }
+    #inicioLectura .flujoProceso:nth-child(3) .nombreProceso + div> div:nth-child(2){
+        top:160px;
+        overflow:hidden;
+    }
+    #inicioLectura .flujoProceso:nth-child(3) .nombreProceso + div> div:nth-child(3){
+        width: 94.5%;
+        top:5px;
+        padding-left:10px;
+        padding-bottom:5px;
+        left: 7px;
+        border-bottom:solid 1px #eee;
+        overflow:hidden;
+    }
+    #inicioLectura .flujoProceso:nth-child(3) .nombreProceso + div> div:nth-child(2) img{
+        -moz-transform: translatey(0);
+        -webkit-transform: translatey(0); 
+        -o-transform: translatey(0); 
+        transform: translatey(0);
+        -moz-transition:all 8s 5s; 
+        -webkit-transition: all 8s 5s;
+        -o-transition:all 8s 5s;
+        transition:all 8s 5s;
+    }
+    #inicioLectura .flujoProceso.substep:not(.future):nth-child(3) .nombreProceso + div> div:nth-child(2) img{
+        -moz-transform: translateY(-75%);
+        -webkit-transform: translateY(-75%); 
+        -o-transform: translateY(-75%); 
+        transform: translateY(-75%);
+    }
+    /*********** Mensaje de Identificacion **************/
+    #mensajeIdentificacion > div:first-child{
+        position:absolute;
+        top:-120px;
+    }
+    #mensajeIdentificacion .flujoProceso:nth-child(2){
+        left: calc(70% - 35px);
+        top:45%;
+    }
+    #mensajeIdentificacion .flujoProceso:nth-child(2).substep:not(.future){
+        border-radius: 10px 0px 10px 0px;
+        width: 650px;
+        height: 100px;
+        left: calc(70% - 325px);
+    }
+    #mensajeIdentificacion .flujoProceso:nth-child(3){
+        left: calc(20% - 35px);
+        top: 75%;
+    }
+    #mensajeIdentificacion .flujoProceso:nth-child(3).substep:not(.future){
+        width:550px;
+        height:155px;
+        left:calc(15% - 225px);
+    }
+    #mensajeIdentificacion .flujoProceso:nth-child(3).substep:not(.future) .nombreProceso{
+        left:0px;
+    }
+    #mensajeIdentificacion .flujoProceso:nth-child(4){
+        left:calc(70% - 35px);
+        top:71%;
+    }
+    #mensajeIdentificacion .flujoProceso:nth-child(4) .nombreProceso{
+        padding-left:5px;
+        text-align:left;
+    }
+    /***************** modo de trabajo *****************************/
+    #modoTrabajo > div:first-child{
+        position: absolute;
+        left:0px;
+    }
+    #modoTrabajo .flujoProceso:nth-child(2){
+        left: calc(50% - 35px);
+        top:45%;
+    }
+    #modoTrabajo .flujoProceso:nth-child(2).substep:not(.future){
+        border-radius: 10px 0px 10px 0px;
+        width: 720px;
+        height: 190px;
+        left: calc(50% - 360px);
+    }
+    #modoTrabajo .flujoProceso:nth-child(2) .nombreProceso{
+        width:450px;
+    }
+    #modoTrabajo .flujoProceso .nombreProceso.singleLine{
+        width:160px;
+        text-align:left;
+    }
+    #modoTrabajo .flujoProceso:nth-child(2).substep:not(.future) .nombreProceso{
+        width:375px;
+        left:calc(100% - 375px);
+    }
+    #modoTrabajo .flujoProceso:nth-child(3), #modoTrabajo .flujoProceso:nth-child(4),#modoTrabajo .flujoProceso:nth-child(5){
+        left: calc(50% - 35px);
+        top:95%;
+    }
+    #modoTrabajo .flujoProceso:nth-child(3){
+        left:0%; 
+    }
+    #modoTrabajo .flujoProceso:nth-child(4){
+        left:40%;
+    }
+    #modoTrabajo .flujoProceso:nth-child(5){
+        left:80%;
+    }
+    #modoTrabajo .flujoProceso:nth-child(2) .nombreProceso + div> div:nth-child(2){
+        position:absolute;
+        top:30px;
+        right:10px;
+        overflow:hidden;
+    }
+    /************************ bloque de datos **********************/
+    #bloqueDatos > div:first-child{
+        position:absolute;
+        left:0px;
+    }
+    #bloqueDatos .flujoProceso .nombreProceso{
+        width:160px;
+        text-align:left;
+    }
+    #bloqueDatos .flujoProceso:nth-child(2), #bloqueDatos .flujoProceso:nth-child(3),#bloqueDatos .flujoProceso:nth-child(4){
+        left: calc(50% - 35px);
+        top:80%;
+    }
+    #bloqueDatos .flujoProceso:nth-child(2).substep:not(.future){
+        width: 380px;
+        height:60px;
+        left: calc(50% - 190px);
+    }
+    #bloqueDatos .flujoProceso:nth-child(2).substep:not(.future) .nombreProceso{
+        left: calc(100% + 15px);
+        top:0px;
+    }
+    #bloqueDatos .flujoProceso:nth-child(2){
+        left:40%;
+        top: 55%;
+    }
+    #bloqueDatos .flujoProceso:nth-child(3){
+        left:80%;
+    }
+    #bloqueDatos .flujoProceso:nth-child(4){
+        left:0%;
+    }
+    /****************** mapeo ***********************/
+    #mapeo > div:first-child{
+        position:absolute;
+        left:0px;
+    }
+    #mapeo .flujoProceso:nth-child(2){
+        left: 0%;
+        top:40%;
+    }
+    #mapeo .flujoProceso:nth-child(2).substep:not(.future){
+        border-radius: 10px 0px 10px 0px;
+        width: 900px;
+        height: 300px;
+        left: calc(50% - 450px);
+    }
+    /*************************************
+     * Animaciones para el mapeo         *
+     * ***********************************/
+    @-webkit-keyframes vertical-translate{
+        0%{
+            -webkit-transform:translateY(-20%);
+        }
+        50%{
+            -webkit-transform:translateY(-40%);
+        }
+        100%{
+            -webkit-transform:translateY(-60%);
+        }
+    }
+    @-moz-keyframes vertical-translate{
+        0%{
+            -moz-transform:translateY(-20%);    
+        }
+        50%{
+            -moz-transform:translateY(-40%);
+        }
+        100%{
+            -moz-transform:translateY(-60%);    
+        }
+    }
+    @-o-keyframes vertical-translate{
+        0%{
+            -o-transform:translateY(-20%);
+        }
+        50%{
+            -o-transform:translateY(-40%);
+        }
+        100%{
+            -o-transform:translateY(-60%);    
+        }
+    }
+    @keyframes vertical-translate{
+        0%{
+            transform:translateY(-20%);    
+        }
+        50%{
+            transform:translateY(-40%);
+        }
+        100%{
+            transform:translateY(-60%);    
+        }
+    }
+    #mapeo .flujoProceso.substep:not(.future):nth-child(2) .nombreProceso + div> div:nth-child(1).substep.future img {
+        position:absolute;
+        left:-10px;
+        visibility:visible;
+        -moz-transform: translateY(0%);
+        -webkit-transform: translateY(0%); 
+        -o-transform: translateY(0%); 
+        transform: translateY(0%);
+        -moz-transition:all 5s; 
+        -webkit-transition: all 5s;
+        -o-transition:all 5s;
+        transition:all 5s;
+    }
+    #mapeo .flujoProceso.substep:not(.future):nth-child(2) .nombreProceso + div> div:nth-child(1).substep.present img {
+        -moz-transform: translateY(-30%);
+        -webkit-transform: translateY(-30%); 
+        -o-transform: translateY(-30%); 
+        transform: translateY(-30%);
+        -moz-transition:all 5s 1s; 
+        -webkit-transition: all 5s 1s;
+        -o-transition:all 5s 1s;
+        transition:all 5s 1s; 
+    }
+    #mapeo .flujoProceso.substep:not(.future):nth-child(2) .nombreProceso + div> div:nth-child(1).substep.past img {
+        -moz-transform: translateY(-45%);
+        -webkit-transform: translateY(-45%); 
+        -o-transform: translateY(-45%); 
+        transform: translateY(-45%);
+    }
+    #mapeo .flujoProceso:nth-child(2).substep:not(.future) .nombreProceso{
+        left: calc(0% + 100px);
+    }
+    #mapeo .flujoProceso:nth-child(2) .nombreProceso + div> div:nth-child(2){
+        position:absolute;
+        left:0px;
+        top: 0px;
+        right:0px;
+        bottom:0px;
+        background-color:white;
+        z-index:1;
+    }
+    #mapeo .flujoProceso:nth-child(3){
+        right:17%;
+        top:27%;
+    }
+    #mapeo .flujoProceso:nth-child(3) .nombreProceso{
+        text-align:left
+    }
+    #mapeo .nombreProceso + div > div:nth-child(1).substep + div{
+        visibility:hidden;
+        -webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;
+        -ms-animation-fill-mode:both;-o-animation-fill-mode:both;
+        animation-fill-mode:both;
+        -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+        -ms-animation-duration:1s;
+        -o-animation-duration:1s;
+        animation-duration:1s;
+    }
+    #mapeo .nombreProceso + div > div:nth-child(1).present + div {
+        visibility:visible;
+        -webkit-animation-name: fadeIn;
+        -moz-animation-name: fadeIn;
+        -o-animation-name: fadeIn;
+        animation-name: fadeIn;
+        animation-delay:10s;
+    }
+    /************* caracteristicas del mesh  ***************/
+    #mesh.step.future{
+        opacity:0;
+    }
+    #mesh.step{
+        visibility:visible;
+        -moz-transition:visibility .8s .2s; 
+        -webkit-transition: visibility .8s .2s;
+        -o-transition:visibility .8s .2s;
+        transition:visibility .8s .2s;
+    }
+    #mesh.step.hidden{
+        visibility:hidden;
+    }
+    #mesh_caracteristicas{
+        position:absolute;
+    }
+    #mesh .cd-single-step{
+        right:350px;
+        top:430px;
+    }
+    #mesh .cd-content{
+        width:250px;
+        height:320px;
+        -moz-transform: translateX(-20%);
+        -webkit-transform: translateX(-20%); 
+        -o-transform: translateX(-20%); 
+        transform: translateX(-20%);
+    }
+    #mesh .cd-content::before{
+        -moz-transform: translateX(-430%);
+        -webkit-transform: translateX(-430%); 
+        -o-transform: translateX(-430%); 
+        transform: translateX(-430%);
+    }
+    #mesh .cd-single-step:not(.future) .cd-content li.substep{
+        visibility:visible;
+    }
+    #mesh.step.hidden .cd-single-step:not(.future) .cd-content li.substep{
+        visibility:hidden;
+    }
+    #mesh .cd-single-step .cd-content li{
+        padding-left:15px;
+        font-size:1.3rem;
+        color:#757575;
+        line-height:1.3;
+        -moz-transition: all .3s; 
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+    }
+    #mesh .cd-content li.present{
+        color:#0277bd;
+        font-size:1.6rem;
+    }
+    #mesh .cd-content >div{
+        overflow:hidden;
+        height:190px;
+        width:100%;
+        margin-bottom:5px;
+    }
+    #mesh .cd-content > div >img{
+        width:100%;
+        height:auto;
+    }
+    /****************** gabeta *************/
+    #gabeta.step.future{
+        opacity:0;
+    }
+    #gabeta.step.past{
+        opacity:1;
+    }
+    #gabeta.step.hidden{
+        visibility:hidden;
+    }
+    #gabeta .cd-single-step{
+        top:395px;
+        right:200px;
+    }
+    #gabeta .cd-content{
+        width:250px;
+        height:300px;
+    }
+    /************** gabetacod ***************/
+    #gabeta.step.future + #gabetacod{
+        opacity:0;
+    }
+    #gabeta.step.present + #gabetacod{
+        opacity:1;
+    }
+    #gabetacod{
+        width:590px;
+        height:718px;
+        padding:0px;
+    }
+    #gabetacod> div:first-child{
+        position:absolute;
+        width:100%;
+        height:35%;
+        top:0px;
+        overflow:hidden;
+        background-color:white;
+    }
+    #gabetacod > div:first-child img{
+        display:block;
+        margin: 0 auto;
+    }
+    #gabetacod> div.raspberry{
+        position:absolute;
+        width:100%;
+        height:65%;
+        top:35%;
+    } 
+    .raspberry h3{
+        width:95%;
+        padding-left:2.5%;
+        padding-right:2.5%;
+        text-align:center;
+        background-color:#8e24aa;
+        color:white;
+    }
+    .raspberry div{
+        background-color:white;
+        overflow:hidden;
+        height:84%;
+        padding-top:4%;
+    }
+    .raspberry:nth-child(2) div{
+        padding-top:0px;
+        height:88%;
+    }
+
