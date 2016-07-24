@@ -1758,7 +1758,150 @@
                         <div><img src="images/notificacion.png" alt=""></div>
                     </div>
                 </div>
-	    	 
+                <div id="webapp" class"step" data-x="10000" data-y"255000" data-scale="10">
+                    <div>
+                            <video id="APP" autobuffer muted>
+                                    <source src="media/appweb.mp4">
+                            </video>
+                    </div> 
+                </div>
+                <div id="presupuesto" class"step size" data-x="-1000" data-y"280000" data-scale="40">
+                    <div><img src="images/presupuesto.png" alt=""></div>
+                    <div class="substep fadeIn">
+                        <div class="señalador"></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Open Energy Monitor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Descripción</td>
+                                    <td>Costo (USD) para 32 usuarios</td>
+                                </tr>
+                                <tr>
+                                    <td>Software</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>emonTx</td>
+                                    <td>461.76</td>
+                                </tr>
+                                <tr>
+                                    <td>emonPi</td>
+                                    <td>6504.64</td>
+                                </tr>
+                                <tr>
+                                    <td>emonBase</td>
+                                    <td>2368</td>
+                                </tr>
+                                <tr>
+                                    <td>3 sensores de corriente</td>
+                                    <td>1209.6</td>
+                                </tr>
+                                <tr>
+                                    <td>Sensor de tensión</td>
+                                    <td>288</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>10832</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- P2CC -->
+                    <div class="substep fadeIn">
+                        <div class="señalador"></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Iskraemeco System</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Descripción</td>
+                                    <td>Costo (USD) para 32 Usuarios</td>
+                                </tr>
+                                <tr>
+                                    <td>Software</td>
+                                    <td>0.75</td>
+                                </tr>
+                                <tr>
+                                    <td>P2CC Gateway</td>
+                                    <td>1500</td>
+                                </tr>
+                                <tr>
+                                    <td>Cable coaxial RS-485 (1240 metros)</td>
+                                    <td>4960</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>6460.75</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="substep fadeIn">
+                        <div class="señalador"></div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Prototipo diseñado</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Descripción</td>
+                                    <td>Costo (USB) para 32 Usuarios</td>
+                                </tr>
+                                <tr>
+                                    <td>Dispositivo de lectura</td>
+                                    <td>1632</td>
+                                </tr>
+                                <tr>
+                                    <td>Software</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Mano de obra</td>
+                                    <td>1.148</td>
+                                </tr>
+                                <tr>
+                                    <td>Dispositivo Concentrador</td>
+                                    <td>85</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>1718.148</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="conclusiones" class="step size1" data-x="-1000" data-y="310000" data-scale="40">
+                    
+                </div>
+                <div id="recomendaciones" class="step size1" data-x="-1000" data-y="330000" data-scale="40">
+                    <ul>
+                        <li>Reemplazar el modulo RF Xbee serie 2 por el módulo NRF24l01+. Un sensor inalambrico de bajo costo y libre, presenta excelentes prestaciones y buena documentación en la web</li>
+                        <li>Emplear un arduino nano con el modulo inalambrico NRF24l01+. Existen librerias que facilitan su operacion en el modo mesh, otro metodo sería migrar las librerías</li>
+                        <li>Intercambiar la fuente de alimentación del concentrador y el dispositivo de lectura por paneles solares. Será posible localizar los puntos afectados por el evento</li>
+                        <li>
+                            Actualizar la aplicación web con las siguientes funcionalidades.
+                            <ul>
+                                <li>Análisis de datos (historial, eventos, reclamos) que otorguen la capacidad de realizar predicciones o informacion útil para la toma de decisiones en la empresa (business intelilgence)</li>
+                                <li>Notificar deteccion de fraude (tamper)</li>
+                            </ul>
+                        </li>
+                        <li>Comunicación entre los nodos y el dispositivo concentrador</li>
+                        <li>Facturación y tarifas diferenciadas (día, noche)</li>
+                    </ul>
+                </div>
 	<!--
         This element introduces rotation.
         
