@@ -2253,11 +2253,7 @@
     #arquitectura h1{
         opacity:1;
     }
-    #diseño{
-        position:absolute;
-        width:100%;
-    }
-    #Diseño > div:nth-child(1){
+    #Diseno > div:nth-child(1){
         height: 600px;
         padding-top:20px;
         padding-bottom:15px;
@@ -2267,12 +2263,12 @@
         right:0px;
         top: 123px;
     }
-    #Diseño > div:nth-child(1) > div:first-child{
+    #Diseno > div:nth-child(1) > div:first-child{
         width:100%;
         height:600px;
         overflow:hidden;
     }
-    #Diseño > div:nth-child(1) > div:first-child img{
+    #Diseno > div:nth-child(1) > div:first-child img{
         visibility:visible;
         display:block;
         width:auto;
@@ -2282,29 +2278,32 @@
         transform: scale(1)  translateX(23%);
         transition: all 5s .5s;
     }
-    #Diseño > div:nth-child(1) > div:first-child img.pos1{
+    #Diseno > div:nth-child(1) > div:first-child img.pos1{
          -moz-transform: scale(1)  translateX(6%);
          -webkit-transform: scale(1)  translateX(6%); 
          -o-transform: scale(1)  translateX(6%); 
          transform: scale(1)  translateX(6%);
     }
-    #Diseño > div:nth-child(1) > div:first-child img.pos2{
+    #Diseno > div:nth-child(1) > div:first-child img.pos2{
          -moz-transform: scale(1)  translateX(-10%);
          -webkit-transform: scale(1)  translateX(-10%); 
          -o-transform: scale(1)  translateX(-10%); 
          transform: scale(1)  translateX(-10%);
     }
-    #Diseño > div:nth-child(1) > div:first-child img.pos3{
-         -moz-transform: scale(1)  translateX(-10%);
-         -webkit-transform: scale(1)  translateX(-10%); 
-         -o-transform: scale(1)  translateX(-10%); 
-         transform: scale(1)  translateX(-10%);
+    #Diseno > div:nth-child(1) > div:first-child img.pos3{
+         -moz-transform: scale(1)  translateX(-40%);
+         -webkit-transform: scale(1)  translateX(-40%); 
+         -o-transform: scale(1)  translateX(-40%); 
+         transform: scale(1)  translateX(-40%);
     }
-    #Diseño > div:nth-child(1) > p.referencia{
+    #Diseno > div:nth-child(1) > p.referencia{
         position:absolute;
         bottom:5px;
         left:380px;
         font-size:1.2rem;
+    }
+    .hidden{
+        visibility:hidden;
     }
 /***************************** model-box ***********************/
     @-webkit-keyframes cd-pulse {

@@ -80,15 +80,18 @@ var esquema = document.getElementById('esquema');
 var eventLoop = document.getElementById('eventLoop');
 var dbs = document.getElementById('dbs');
 var dataCenter = document.getElementById('dataCenter');
-var diseño = document.querySelector('#Diseño img');
+var diseño = document.querySelector('#Diseno img');
 var diagrama = document.querySelectorAll('.diagramaFlujo');
 var psoc = document.getElementById('psoc');
 var mesh = document.getElementById('mesh');
+var gabeta = document.getElementById('gabeta');
 function javascriptsAnimation(){
     var animationHandler = function(e){
         var bandera = e.target.id;
-        if(bandera=='portada'){
-            logo.classList.add('visible');
+        var clase = e.target.className.match(/break/);
+        if(clase){
+            document.querySelector('.break.present').parentNode.classList.add('hidden');
+            gabeta.classList.add('hidden');
         }
         switch (bandera){
             case 'logoband':
@@ -146,8 +149,15 @@ function javascriptsAnimation(){
                 diseño.classList.remove('pos1');
                 diseño.classList.add('pos2');
                 mesh.classList.add('hidden');
+                break;
+            case 'webapp':
+                diseño.classList.remove('pos2');
+                diseño.classList.add('pos3');
+                break;
             default:
-                null;
+                if(bandera=='portada'){
+                    logo.classList.add('visible');
+                }
         }
     }
     document.addEventListener("impress:stepenter", animationHandler, false);
