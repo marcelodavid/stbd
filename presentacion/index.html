@@ -157,7 +157,7 @@
 	    			<p class="writeEffect" data-text="Mundo Conectado"></p>
 	    		</div>
 	    	</div>
-	    	<div id="impactotec" class="step" data-x="-8000" data-y="11150" data-scale="15" data-duration="25">
+	    	<div id="impactotec" class="step" data-x="-8000" data-y="11150" data-scale="10" data-duration="25">
 	    		<div>
 	    			<img src="images/empresas.jpg" alt="">
 	    			<div class="substep fadeInLeft">
@@ -169,9 +169,8 @@
                             <span>Fuente:</span>
                             http://www.citrix.com
                         </p>
-                        <div id="raiz1"></div>
 	    	</div>
-	    	<div id="nucleotics" class="step" data-x="-12000" data-y="7650" data-scale="15" data-duration="25">
+	    	<div id="nucleotics" class="step" data-x="-12000" data-y="7650" data-scale="10" data-duration="25">
 	    		<div>
 	    			<img src="images/4g.png" alt="">
 	    			<div class="substep fadeInLeft">
@@ -183,9 +182,8 @@
                             <span>Fuente:</span>
                             http://www.negocios360.mx
                         </p>
-	    		<div id="raiz3"></div>
 	    	</div>
-	    	<div id="aplicacionestics" class="step" data-x="-15000" data-y="3150" data-scale="15" data-duration="25">
+	    	<div id="aplicacionestics" class="step" data-x="-15000" data-y="3150" data-scale="10" data-duration="25">
 	    		<div>
 	    			<img src="images/sistemas_de_informacion.jpg" alt="">
 	    			<p class="substep fadeInLeft">Estas redes de comunicaciones, su infraestructura y tecnologia permiten que las innovaciones tengan amplias aplicaciones, practicamente en todos los ambitos sociales</p>
@@ -194,7 +192,6 @@
                             <span>Fuente:</span>
                             http://www.credibanco.com
                         </p>
-	    		<div id="raiz4"></div>
 	    	</div>
 	    	<div id="TicsRE" class="step" data-x="-9000" data-y="-5850" data-scale="25">
 	    		<div>
@@ -205,8 +202,6 @@
                             <span>Fuente:</span>
                             http://www.cronista.com
                         </p>
-	    		<div id="raiz5_1"></div>
-	    		<div id="raiz5_2"></div>
 	    	</div>
 	    	<div id="introOverview" class="step" data-x="-1000" data-y="-1000" data-scale="40"></div>
 
@@ -1319,7 +1314,7 @@
                                             <th>SoC</th>
                                             <th>CPU</th>
                                             <th>RAM</th>
-                                            <th>Consumo</th>
+                                            <th class="rowRed">Consumo</th>
                                             <th>Puertos</th>
                                             <th>Interfaz de Comunicación</th>
                                             <th class="rowRed">Precio</th>
@@ -1334,7 +1329,7 @@
                                             <td>Broadcom BCM2835</td>
                                             <td>700 MHz ARM1176JZF-S</td>
                                             <td>512 MB</td>
-                                            <td>2.5W</td>
+                                            <td class="rowRed">2.5W</td>
                                             <td>GPIO, HDMI</td>
                                             <td>I2C, SPI, UART, microUSB</td>
                                             <td class="rowRed">$35</td>
@@ -1347,7 +1342,7 @@
                                             <td>AllWinner A20</td>
                                             <td>1 GHz ARM Cortex A7</td>
                                             <td>1 GB</td>
-                                            <td>8W</td>
+                                            <td class="rowRed">8W</td>
                                             <td>GPIO, ADC, HDMI, PWM</td>
                                             <td>I2C, UART, Wifi, IR, SATA, microUSB</td>
                                             <td class="rowRed">$60</td>
@@ -1360,7 +1355,7 @@
                                             <td>AM3359AZCZ100 1 GHz</td>
                                             <td>ARM Cortex A8</td>
                                             <td>512 MB</td>
-                                            <td>2W</td>
+                                            <td class="rowRed">2W</td>
                                             <td>analog, PWM, microSD</td>
                                             <td>I2C, serial, SPI</td>
                                             <td class="rowRed">$55</td>
@@ -1373,7 +1368,7 @@
                                             <td>AllWinner A20</td>
                                             <td>ARM Cortex A8 a 1GHz</td>
                                             <td>1 GB</td>
-                                            <td>8W</td>
+                                            <td class="rowRed">8W</td>
                                             <td>ADC, RGB/LVDS</td>
                                             <td>I2C, SPI</td>
                                             <td class="rowRed">$60</td>
@@ -1386,7 +1381,7 @@
                                             <td>Exynos 5410 Octacore</td>
                                             <td>ARM Cortex A15 de 1.6 GHz y ARM Cortex A7 de 13 GHz</td>
                                             <td>1 GB</td>
-                                            <td>7W</td>
+                                            <td class="rowRed">7W</td>
                                             <td>GPIO, LCD, ADC, PWM</td>
                                             <td>I2C, UART, SPI</td>
                                             <td class="rowRed">$129</td>
@@ -1399,7 +1394,7 @@
                                             <td>Basado en la microarquitectura Pentium P54C</td>
                                             <td>AMD A55E</td>
                                             <td>256 MB</td>
-                                            <td>8W</td>
+                                            <td class="rowRed">8W</td>
                                             <td>USB, slot para SD, JTAG</td>
                                             <td>RS-232, PCI Express, UART, Ethernet</td>
                                             <td class="rowRed">$43</td>
@@ -1412,7 +1407,7 @@
                                             <td>APU embebida AMD G-Series (X86)</td>
                                             <td>Intel Quark x1000 a 400 MHz basado en sus procesadores x86</td>
                                             <td>1 GB</td>
-                                            <td> &lt; 10W</td>
+                                            <td class="rowRed"> &lt; 10W</td>
                                             <td>GPIO, PWM, A/D, VGA, JTAG</td>
                                             <td>USB, Ethernet, RJ-45, SATA, SPI, PCI Express</td>
                                             <td class="rowRed">$200</td>
@@ -1425,7 +1420,7 @@
                                             <td>i.MX6 de doble nucleo</td>
                                             <td>i2ex</td>
                                             <td>512MB/1GB</td>
-                                            <td>2.5W</td>
+                                            <td class="rowRed">2.5W</td>
                                             <td>GPIO, HDMI, VGA</td>
                                             <td>USB, Ethernet</td>
                                             <td class="rowRed">$50 - $100</td>
@@ -1451,13 +1446,13 @@
                         <img src="images/eventLoop.png" alt="">
                         <img class="substep fadeInLeft" src="images/flecha_curva_4.png" alt="" data-duration="100">
                         <img class="substep fadeIn" src="images/registerCallback.png" alt="">
-                        <img class="substep fadeInLeft" src="images/flecha_punteada.png" alt="" data-duration="400">
-                        <img class="substep fadeInLeft" src="images/flecha_punteada.png" alt="" data-duration="400">
-                        <img class="substep fadeInLeft" src="images/flecha_punteada.png" alt="" data-duration="400">
+                        <img class="substep fadeInLeft" src="images/flecha_punteada2.png" alt="" data-duration="400">
+                        <img class="substep fadeInLeft" src="images/flecha_punteada2.png" alt="" data-duration="400">
+                        <img class="substep fadeInLeft" src="images/flecha_punteada2.png" alt="" data-duration="400">
                         <img class="substep fadeIn" src="images/request.png" alt="">
                         <img class="substep fadeInRight" src="images/flecha_punteada.png" alt="" data-duration="300">
                         <img class="substep fadeIn" src="images/ioOperations.png" alt="">
-                        <img class="substep fadeIn" src="images/completa.png" alt="" data-duration="1000">
+                        <img class="substep fadeIn" src="images/completa.png" alt="">
                         <img class="substep fadeIn" src="images/flecha_curva_4.png" alt="" data-duration="400">
                         <img class="substep fadeIn" src="images/triggerCallback.png" alt="">
                     </div>
@@ -1516,7 +1511,7 @@
                     </div>
                	</div>
                 <div id="finesquema" class="step" data-x="-1000" data-y="232100" data-scale="40"></div>
-                <div id="arquitectura" class="step size1" data-x="-1000" data-y="261900" data-scale="40" data-duration="300">
+                <div id="arquitectura" class="step size1" data-x="-1000" data-y="261900" data-scale="40" data-duration="1000">
                     <h1 class="title5">
                         Arquitectura del sistema
                     </h1>
@@ -1759,14 +1754,14 @@
                     </div>
                     <div class="substep break" data-duration="100"></div>
                 </div>
-                <div id="webapp" class="step size1" data-x="10000" data-y="265000" data-scale="40">
+                <div id="webapp" class="step size1" data-x="-1000" data-y="261900" data-scale="40">
                     <div>
                             <video id="APP" autobuffer muted>
                                     <source src="media/appweb.mp4">
                             </video>
                     </div> 
                 </div>
-                <div id="presupuesto" class="step size1" data-x="-1000" data-y="280000" data-scale="40">
+                <div id="presupuesto" class="step size1" data-x="-1000" data-y="293800" data-scale="40">
                     <div><img src="images/presupuesto.png" alt=""></div>
                     <div class="substep fadeIn">
                         <div class="señalador"></div>
@@ -1884,23 +1879,24 @@
                         </table>
                     </div>
                 </div>
-                <div id="conclusiones" class="step size1" data-x="-1000" data-y="310000" data-scale="40">
+                <div id="conclusiones" class="step size1" data-x="-1000"  data-y="325800" data-scale="40">
                     
                 </div>
-                <div id="recomendaciones" class="step size1" data-x="-1000" data-y="330000" data-scale="40">
+                <div id="recomendaciones" class="step size1" data-x="-1000" data-y="357800" data-scale="40">
+                    <h1 class="title">Recomendaciones</h1>
                     <ul>
-                        <li>Reemplazar el modulo RF Xbee serie 2 por el módulo NRF24l01+. Un sensor inalambrico de bajo costo y libre, presenta excelentes prestaciones y buena documentación en la web</li>
-                        <li>Emplear un arduino nano con el modulo inalambrico NRF24l01+. Existen librerias que facilitan su operacion en el modo mesh, otro metodo sería migrar las librerías</li>
-                        <li>Intercambiar la fuente de alimentación del concentrador y el dispositivo de lectura por paneles solares. Será posible localizar los puntos afectados por el evento</li>
-                        <li>
+                        <li class="table-divider">Reemplazar el modulo RF Xbee serie 2 por el módulo NRF24l01+. Un sensor inalambrico de bajo costo y libre, presenta excelentes prestaciones y buena documentación en la web</li>
+                        <li class="table-divider">Emplear un arduino nano con el modulo inalambrico NRF24l01+. Existen librerias que facilitan su operacion en el modo mesh, otro metodo sería migrar las librerías</li>
+                        <li class="table-divider">Intercambiar la fuente de alimentación del concentrador y el dispositivo de lectura por paneles solares. Será posible localizar los puntos afectados por el evento</li>
+                        <li class="table-divider">
                             Actualizar la aplicación web con las siguientes funcionalidades.
                             <ul>
                                 <li>Análisis de datos (historial, eventos, reclamos) que otorguen la capacidad de realizar predicciones o informacion útil para la toma de decisiones en la empresa (business intelilgence)</li>
                                 <li>Notificar deteccion de fraude (tamper)</li>
                             </ul>
                         </li>
-                        <li>Comunicación entre los nodos y el dispositivo concentrador</li>
-                        <li>Facturación y tarifas diferenciadas (día, noche)</li>
+                        <li class="table-divider">Comunicación entre los nodos y el dispositivo concentrador</li>
+                        <li class="table-divider">Facturación y tarifas diferenciadas (día, noche)</li>
                     </ul>
                 </div>
 	<!--
