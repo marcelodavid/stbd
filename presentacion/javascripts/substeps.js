@@ -85,6 +85,7 @@ var diagrama = document.querySelectorAll('.diagramaFlujo');
 var psoc = document.getElementById('psoc');
 var mesh = document.getElementById('mesh');
 var gabeta = document.getElementById('gabeta');
+var image_presupuesto = document.getElementById('image_presupuesto');
 function javascriptsAnimation(){
     var animationHandler = function(e){
         var bandera = e.target.id;
@@ -153,6 +154,13 @@ function javascriptsAnimation(){
             case 'webapp':
                 diseño.classList.remove('pos2');
                 diseño.classList.add('pos3');
+                break;
+            case 'presupuesto2':
+                image_presupuesto.classList.add('rot1');
+                break;
+            case 'presupuesto3':
+                image_presupuesto.classList.remove('rot1');
+                image_presupuesto.classList.add('rot2');
                 break;
             default:
                 if(bandera=='portada'){
