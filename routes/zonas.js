@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 //importamos el controlador de las zonas
-var zonas_controller = require('../controllers/zonas_controller');
+var zoneCtrl = require('../controllers/zonas');
 
 router.route('/nueva')
-	.post(zonas_controller.nueva);
+	.post(zoneCtrl.nueva);
 router.route('/:id')
-	.put(zonas_controller.actualizar);
+	.put(zoneCtrl.actualizar);
 
 module.exports = router;

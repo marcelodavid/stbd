@@ -2,6 +2,8 @@ var abonados = require('./abonados');
 var zonas = require('./zonas')
 
 var assert = require('assert');
+
+// historial diario de cada medidor
 var entrada = function(db, data, id, fecha, callback){
 	var collection = db.collection('historial');
 	collection.ensureIndex({fecha: -1, resumen_id: 1}, function(err, success){
@@ -16,3 +18,4 @@ var entrada = function(db, data, id, fecha, callback){
 exports.entrada = entrada;
 exports.abonados = abonados;
 exports.zonas = zonas;
+

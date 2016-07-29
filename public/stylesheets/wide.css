@@ -4,21 +4,7 @@ textarea.form-control{
 }
 /* formulario para guardar la zona */
 div.enfasis{
-	float: left;
-	width: 75%;
-	padding-top: 25px;
-	padding-right: 10%;
-}
-.infographics{
-	display: block;
-	float: left;
-	width: 25%;
-}
-.infographics img{
-	padding: 10px;
-	width: 150px;
-	margin-left: 25%;
-	margin-top: 50px;
+	width: 80%;
 }
 /* menu secundario */
 .secondary-nav ul li.inline icon{
@@ -27,11 +13,46 @@ div.enfasis{
 }
 
 /* aside y main*/
-aside{
-	display: block;
-	z-index: 1;
+main{
+    width:100;
+    position: absolute;
 }
-section.main{
-	margin-left: 250px;
-	margin-right: 250px;
+header#header{
+   right:calc(50% - 550px);
+   -webkit-trasition: all .3s;
+   -moz-transition: all .3s;
+   transition: all .3s;
 }
+header#header > a:first-child{
+    position:fixed;
+}
+aside.active + section, aside.active + section.active{
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    transform: translateX(0%);
+
+}
+section{
+    width: 1100px;
+    right: calc(50% - 550px);
+}
+@media screen and (max-width:1435px){
+    header#header.active{
+       right:calc(50% - 645px); 
+    }
+    section.active{
+        width: 965px;
+        right: calc(50% - 645px);
+    }
+}
+
+@media screen and (min-width:1435px) and (max-width: 1740px){
+    header#header.active{
+       right:calc(50% - 712px); 
+    }
+    section.active{
+        width: 1100px;
+        right: calc(50% - 712px);
+    }    
+}
+

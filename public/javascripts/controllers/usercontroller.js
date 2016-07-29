@@ -1,38 +1,35 @@
 (function(){
 	var app = angular.module('usercontroller', []);
 
-	app.controller('userController', ['$mediciones', '$interval','$timeout','$resumen', function($mediciones, $interval, $timeout, $resumen){
+	app.controller('userController', ['$interval','$timeout','$resumen', function($interval, $timeout, $resumen){
 		var $userid = angular.element('#serial');
 		var self = this;
 		var userid = $userid.html().match(/[a-zA-Z0-9]*$/)[0];
-		var index = 0;
-		var randonParam;
-		var dynamicData =  function(){
-			self.fadeIn = "fadeIn";
-			self.key = randonParam[index];
-			self.parametro = self.parametros[self.key];
-			index++;
-			if(index == 5)
-				index = 0;
-			$timeout(function(){
-				self.fadeIn = "";
-			},2200);
-		};
-		var result = function(data){
-			self.parametros = data[0];
-			randonParam = Object.keys(self.parametros);
-			dynamicData();
-		};
-		var socket = io();
-		socket.emit('usuario',{'userid':userid});
-		socket.on('lectura', function(data){
-			result(data);
-		});
-		var timeStop = $interval(function(){
-			dynamicData();
-		}, 3000);
+                
+                // actualizamos los datos con socket io
+                // formamos parate del espacio admin
 
-		/* resumen y graficos */
+		socket.emit('usuario',{'userid':userid});
+
+                // al iniciar la pagina se carga la ultima lectura hecha por el medidor
+                socket.on('ultimaLectura', function(user){
+                    $timeout(function(){
+                        self.parametros = user.data.parametros; 
+                    });
+                });
+                
+                // se actualiza la lectura
+                socket.on('update', function(user){
+                    if(user.data.serial ==  userid){
+                        $timeout(function(){
+                            self.parametros = user.data.parametros; 
+                        });
+                    }
+                });
+
+        /*****************************************************************************
+         *                      resumen y graficos                                   *
+         *****************************************************************************/
 		var options = {
 			title: 'Potencias suministradas al domicilio',
 			legend:{position: 'in'},
@@ -48,21 +45,26 @@
           	curveType: 'function',
 			colors: ['#c5e1a5']
 		};
-		var resumen_control =  function(data, id, column, key, options){
+
+                // inicializa los campos de la columna del chart
+		var resumen_control =  function(data, idDOM, columnLabel, key, options){
 			var campos = [];
-			data.map(function(parametros){
-				var abscisas = new Date(parametros.fecha);
-				var ordenadas = parseInt(parametros[key]);
-				campos.push([abscisas, ordenadas]);
+			data.map(function(parametros, index, array){
+                                if(index){
+                                    var abscisas = new Date(parametros.fecha);
+
+                                    // ordenadas contiene el valor acumulado a partir del dia anterior [index -1]
+                                    var ordenadas = parseInt(array[index - 1].resumen[key]) - parseInt(parametros.resumen[key]);
+                                    campos.push([abscisas, ordenadas]);
+                                }
 			});
 			
-			// tabla1 contiene los resumenes diarios
 			var tabla = new google.visualization.DataTable();
 			tabla.addColumn('date', "Dias");
-			tabla.addColumn('number', column);
+			tabla.addColumn('number', columnLabel);
 			tabla.addRows(campos);
 
-			var chart = new google.visualization.LineChart(angular.element(id)['0']);
+			var chart = new google.visualization.LineChart(angular.element(idDOM)['0']);
 			chart.draw(tabla, options);
 		};
 
@@ -85,7 +87,7 @@
 				//servicio que trae los datos del historial
 				$resumen(self.slider1).abonado.dias(userid, function(data){
 					self.resumendias = data;
-					resumen_control(self.resumendias, '#chart1', 'Potencia Activa', 'activatotal', options);
+					resumen_control(self.resumendias, '#chart1', 'Energia Activai en Kwh', 'Energia Activa', options);
 				});
 			});
 		});
@@ -110,7 +112,7 @@
 				$resumen(undefined, self.slider2).abonado.meses(userid, function(data){
 					options.colors = ['#3f51b5'];
 					self.resumenmeses = data;
-					resumen_control(self.resumenmeses, '#chart2', 'Potencia Activa', 'activatotal',options, 'Pie');
+					resumen_control(self.resumenmeses, '#chart2', 'Potencia Activa en Kwh', 'activatotal',options, 'Pie');
 				});
 			});
 		});

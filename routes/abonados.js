@@ -2,17 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 //importamos el controlador de las zonas
-var abonados_controller = require('../controllers/abonados_controller');
-var resumen_controller = require('../controllers/resumen_controller/resumen_controller');
+var userCtrl = require('../controllers/abonados');
+var resumen_controller = require('../controllers/resumen_controller/resumen');
 router.route('/registrar')
-	.get(abonados_controller.getForm)
-	.post(abonados_controller.registrar);
+	.get(userCtrl.form)
+	.post(userCtrl.register);
 router.route('/buscar')
-	.get(abonados_controller.buscar);
+	.get(userCtrl.search);
 router.route('/:id')
-	.get(abonados_controller.informe);
+	.get(userCtrl.report);
 router.route('/:id/mediciones')
-	.get(abonados_controller.mediciones);
+	.get(userCtrl.getMeassurement);
 router.route('/:id/resumen/dias')
 	.get(resumen_controller.abonados.dias);
 router.route('/:id/resumen/meses')

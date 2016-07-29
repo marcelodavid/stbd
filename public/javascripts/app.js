@@ -1,3 +1,3 @@
 (function() {
-	var app = angular.module('teleApp', ['controllers', 'services', 'directives']);
+	var app = angular.module('teleApp', ['controllers', 'services', 'directives','angularUtils.directives.dirPagination']);
 })();

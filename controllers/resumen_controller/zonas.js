@@ -1,6 +1,6 @@
 var mongoClient = require('mongodb').MongoClient;
 var	assert = require('assert');
-var url = 'mongodb://localhost:27017/data';
+var url = 'mongodb://Ande:DOHOTHPrTuAsS7@localhost:27017/data';
 var modelo = require('../../model/model');
 
 var dias = function(req, res){

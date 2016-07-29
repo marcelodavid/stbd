@@ -2,7 +2,7 @@ var mongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var	assert = require('assert');
 var modelo = require('../model/model');
-var url = 'mongodb://localhost:27017/data';
+var url = 'mongodb://Ande:DOHOTHPrTuAsS7@localhost:27017/data';
 var nueva= function(req, res){
 	mongoClient.connect(url, function(err, db){
 		assert.equal(err, null, ["can't connect to db"]);

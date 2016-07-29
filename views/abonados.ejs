@@ -1,4 +1,4 @@
-<section class="main" ng-controller="userController as user">
+<section ng-controller="userController as user">
 	<div ng-mouseover="mc.above(-5)">	
 		<div class="separador {{ mc.color(1) }}"></div>
 		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-5)}">Informe General</span></h5>
@@ -22,8 +22,8 @@
 				</ul>
 			</div>
 			<div class="extra bcolor-4 border-top1">
-				<div id="random" class="{{ user.fadeIn }}">
-					<span>{{ user.key }}</span><span class="corner-right">{{ user.parametro }}</span>	
+				<div>
+					<span>Consumo</span><span class="corner-right">{{ user.parametros['Energia Activa'] }}</span>	
 				</div>
 			</div>
 		</div>
@@ -87,4 +87,4 @@
    	</script>
 
 	<!--Slider-->
-	<script src="/javascripts/slider/nouislider.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="/javascripts/slider/nouislider.min.js" type="text/javascript" charset="utf-8"></script>

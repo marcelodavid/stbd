@@ -8,5 +8,6 @@ var server = app.listen(3000, function() {
 });
 
 var server2 = app2.listen(8000, function(){
-	debug('Socket service listen on port' + this.address().port);
+	debug('App2 service listen on port' + this.address().port);
 });
+

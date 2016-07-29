@@ -13,13 +13,13 @@
 		this.RUC = "";
 		this.Telefono = "";
 		this.Equipo = "";
-		this.lat = "",
-		this.lng = "",
+		this.lat = "";
+		this.lng = "";
 
 		this.addUser = function(){
 			var form = {
 				"NIS": this.NIS,
-				"nombre": this.nombre,
+				"nombre": this.Nombre,
 				"ci": this.CI,
 				"mail": this.Email,
 				"direccion": this.Direccion,
@@ -33,6 +33,7 @@
 			};
 			$abonados(form).add(function(){
 				console.log("exitoso");
+                                form = {};
 			});
 		};
 		var self = this;
@@ -40,7 +41,7 @@
 			if(navigator.geolocation){
 				navigator.geolocation.watchPosition(function(position){
 					$timeout(function(){
-								self.lat = position.coords.latitude;
+						self.lat = position.coords.latitude;
 						self.lng = position.coords.longitude;
 
 						//mostramos el resultado en el mapa

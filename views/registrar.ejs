@@ -1,96 +1,100 @@
-<section class="main" ng-controller="userController2 as user">
-    <div id="exception-nav">
-        <nav class="secondary-nav">
-            <ul>
-                <li class="inline"><i ng-click="mc.clickClose()" ng-mouseover="mc.hoverClose()" ng-mouseleave="mc.defaultIconName()" class="mdi-navigation-close color-0 icon"></i></li>
-                <li class="inline">
-                    <form name ="submit2" accept-charset="utf-8" ng-submit="enroll.$valid && user.addUser()">
-                            <button ng-mouseover="mc.hoverSend(enroll.$valid)" ng-mouseleave="mc.defaultIconName()" class="icon" type="submit">
-                                <i class="mdi-content-send {{ mc.valid(enroll.$valid) }}"></i>
-                            </button>
-                    </form>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div ng-mouseover="mc.above(-10)">   
-        <div class="separador {{ mc.color(0) }}"></div>
-        <h5><span ng-class="{enfasis:mc.active(), info:mc.info(-10)}">{{ mc.iconName || "Nuevo Cliente" }}</span></h5>
-    </div>
+<div ng-controller="userController2 as user">       
+    <aside ng-class="{'active':mc.subMenuActive()}">
+        <!-- secondary nav -->
+        <div>
+            <nav class="secondary-nav">
+                <ul>
+                    <li><i class="mdi-action-search color-0 icon"></i><a href="#">Buscar</a></li>
+                </ul>
+            </nav>
+        </div>
 
-    <div class="tarjeta1">
-        <div id="adduser">
-            <div class="titulo">
-                <div><i class="icon mdi-social-person-add color-11" ></i><span>Todos los campos son obligatorios</span></div>
-                <h3>Datos Personales</h3>
-            </div>
-            <div class="contenido">
-                 <form name="enroll" class="form-horizontal" ng-submit="user.addUser()" novalidate>
-                    <fieldset>
-                        <legend></legend>
-                        <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">NIS</label>
-                            <div class="col-lg-7 col-md-8">
-                                <input class="form-control" placeholder="Numero Identificador de suministro" ng-model="user.NIS" type="text" required>
+    </aside>
+    <section>
+        <div ng-mouseover="mc.above(-10)">   
+            <div class="separador {{ mc.color(0) }}"></div>
+            <h5><span ng-class="{enfasis:mc.active(), info:mc.info(-10)}">{{ mc.iconName || "Nuevo Cliente" }}</span></h5>
+        </div>
+
+        <div class="tarjeta1">
+            <div id="adduser">
+                <div class="titulo">
+                    <div><i class="icon mdi-social-person-add color-11" ></i><span>Todos los campos son obligatorios</span></div>
+                    <h3>Datos Personales</h3>
+                </div>
+                <div class="contenido">
+                     <form name="enroll" class="form-horizontal" ng-submit="enroll.$valid && user.addUser()" novalidate>
+                        <fieldset>
+                            <legend></legend>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">NIS</label>
+                                <div class="col-lg-7 col-md-8">
+                                    <input class="form-control" placeholder="Numero Identificador de suministro" ng-model="user.NIS" type="text" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">Cliente</label>
-                            <div class="col-lg-7 col-md-8">
-                                <input class="form-control" placeholder="Nombres y apellidos completos" ng-model="user.Nombre" type="text" required>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">Cliente</label>
+                                <div class="col-lg-7 col-md-8">
+                                    <input class="form-control" placeholder="Nombres y apellidos completos" ng-model="user.Nombre" type="text" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">Email</label>
-                            <div class="col-lg-7 col-md-8">
-                                <input class="form-control" placeholder="gmail, hotmail, otros..." ng-model="user.Email" type="email" required>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">Email</label>
+                                <div class="col-lg-7 col-md-8">
+                                    <input class="form-control" placeholder="gmail, hotmail, otros..." ng-model="user.Email" type="email" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">Direccion</label>
-                            <div class="col-lg-7 col-md-8">
-                                <textarea class="form-control" ng-model="user.Direccion" required></textarea>
-                                <span class="help-block">Calle, nro de casa, barrio...</span>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">Direccion</label>
+                                <div class="col-lg-7 col-md-8">
+                                    <textarea class="form-control" ng-model="user.Direccion" required></textarea>
+                                    <span class="help-block">Calle, nro de casa, barrio...</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">Coordenadas</label>
-                            <div class="col-lg-3 col-md-4">
-                                <input class="form-control" placeholder="Latitud" ng-model="user.lat" type="text" required>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">Coordenadas</label>
+                                <div class="col-lg-3 col-md-4">
+                                    <input class="form-control" placeholder="Latitud" ng-model="user.lat" type="text" required>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <input class="form-control" placeholder="Longitud" ng-model="user.lng" type="text" required>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-4">
-                                <input class="form-control" placeholder="Longitud" ng-model="user.lng" type="text" required>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">C.I</label>
+                                <div class="col-lg-7 col-md-8">
+                                    <input class="form-control" placeholder="Documento de Identidad" ng-model="user.CI" type="text" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">C.I</label>
-                            <div class="col-lg-7 col-md-8">
-                                <input class="form-control" placeholder="Documento de Identidad" ng-model="user.CI" type="text" required>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">RUC</label>
+                                <div class="col-lg-7 col-md-8">
+                                    <input class="form-control" placeholder="Registro del contribuyente" ng-model="user.RUC" type="text" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">RUC</label>
-                            <div class="col-lg-7 col-md-8">
-                                <input class="form-control" placeholder="Registro del contribuyente" ng-model="user.RUC" type="text" required>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">Telefono</label>
+                                <div class="col-lg-7 col-md-8">
+                                    <input class="form-control" placeholder="Linea baja o nro de celular" ng-model="user.Telefono" type="text" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">Telefono</label>
-                            <div class="col-lg-7 col-md-8">
-                                <input class="form-control" placeholder="Linea baja o nro de celular" ng-model="user.Telefono" type="text" required>
-                            </div>
-                        </div>
-                         <div class="form-group">
-                            <label class="col-lg-1 col-md-1 control-label">Equipo</label>
-                            <div class="col-lg-7 col-md-8">
-                                <input class="form-control" placeholder="Serial del dispositivo asociado" ng-model="user.Equipo" type="text" required>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="extra bcolor-6 border-top1">
+                             <div class="form-group">
+                                <label class="col-lg-2 col-md-2 control-label">Equipo</label>
+                                <div class="col-lg-7 col-md-8">
+                                    <input class="form-control" placeholder="Serial del dispositivo asociado" ng-model="user.Equipo" type="text" required>
+                                </div>
+                            </div> 
+                        </fieldset>
+                        <button ng-mouseover="mc.hoverSend(enroll.$valid)" ng-mouseleave="mc.defaultIconName()" class="icon" type="submit">
+                            <i class="mdi-content-send {{ mc.valid(enroll.$valid) }}"></i>
+                        </button>
+
+                    </form>
+                </div>
+                <div class="extra bcolor-6 border-top1">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
+

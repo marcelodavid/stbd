@@ -1,126 +1,155 @@
-<aside class="mCustomScrollbar" data-mcs-theme="minimal-dark" ng-controller="miniCardsController as mini">
-	<div class="clear abonados-wrap">
-		<div class="clear" ng-mouseover="mc.above($index, abonado.localidad.coordinates)" ng-repeat="abonado in mc.abonados">
-			<div class="separador {{ mc.color($index) }}"></div>
-		    <h5><span ng-class="{enfasis:mc.active(), info:mc.info($index)}"><a href="/abonados/{{ abonado.NIS }}">{{ abonado.nombre }}</a></span></h5>
-			<div ng-class="{tarjeta:mc.active(), extender:mini.extend($index)}">
-				<h5><icon class="mdi-action-info-outline"></icon>Informacion <span>{{ mini.infoCard($index) }}</span></h5>    
-			    <ul>
-			    	<li><span class="enfasis">NIS</span> {{ abonado.NIS }}</li>
-			    	<li><span class="enfasis">C.I.</span> {{ abonado.ci }}</li>
-			    	<li><span class="enfasis">Direccion</span> {{ abonado.direccion }}</li>
-			    	<li><span class="enfasis">Tel</span> {{ abonado.telefono }}</li>
-			    	<li><span class="enfasis">mail</span> {{ abonado.mail }}</li>
-			    	<li><span class="enfasis">RUC</span> {{ abonado.ruc }} </li>
-			    	<li><span class="enfasis">Equipo</span> {{ abonado.serial }}</li>
-			    </ul>
-			    <a ng-click="mini.selectCard($index)" ng-class="{more:mc.active(), hidden:mini.hidden($index)}"><i class="mdi-navigation-chevron-right"></i></a>
-			</div>
-		</div>
-	</div>
-</aside>
-<section class="main">
-	<div ng-mouseover="mc.above(-4)">	
-		<div class="separador {{ mc.color(2) }}"></div>
-		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-4)}">Geomedicionnes</span></h5>
-	</div>
-	<div class="tarjeta">
-		<div id="googleMap"></div>
-		<!--radio y coordenadas del centro de la cia del mapa-->
-		<form ng-show="mc.visibility" name="centro" class="form-horizontal">
-			<div class="form-group">
-				<div>
-					<label class="col-md-1 color-0">Radio</label>
-					<div class="col-md-3">
-						<input circle-radio class="form-control" type="text" name="radio" placeholder="longitud en metros" ng-model="mc.circle.radius">
-					</div>
-					<label class="col-md-1 color-0">Lat</label>
-					<div class="col-md-3">
-						<input lat-lng coord="latitud" class="form-control" type="text" placeholder="latitud" ng-model="mc.lat">
-					</div>
-					<label class="col-md-1 color-0">Lng</label>
-					<div class="col-md-3">
-						<input lat-lng  coord="longitud" class="form-control" type="text" placeholder="longitud" ng-model="mc.lng">
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
-	<!-- barra de navegacion secundaria -->
-	<div>
+<aside ng-class="{'active':mc.subMenuActive()}" ng-controller="miniCardsController as mini">
+        <!-- secondary-nav --> 
+        <div>
 		<nav class="secondary-nav">
 			<ul>
-				<li class="inline"><i ng-click="mc.clickClose()" ng-mouseover="mc.hoverClose()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showClose" class="mdi-navigation-close color-0 icon"></i></li>
-				<li class="inline"><i ng-click="mc.clickMore(1)" ng-mouseover="mc.hoverMore()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showOthers" class="mdi-action-settings color-0 icon"></i></li>
-				<li class="inline">
-					<form name ="submit" accept-charset="utf-8" ng-submit="guardar.$valid && mc.send()">
-							<button ng-mouseover="mc.hoverSend(guardar.$valid)" ng-mouseleave="mc.defaultIconName()" class="icon" ng-show="mc.showSend" type="submit">
-								<i class="mdi-content-send {{ mc.valid(guardar.$valid) }}"></i>
-							</button>
-					</form>
-				</li>
-				<li class="inline"><i ng-click="mc.toggleVisibility()" ng-mouseover="mc.hoverVisibility()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showOthers" class="{{ mc.visibilityClass }} color-0 icon"></i></li>
-				<li class="inline"><i ng-click="mc.clickEdit(2)" ng-mouseover="mc.hoverEdit()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showEdit" class="mdi-content-create color-0 icon"></i></li>
-				<li class="inline"><i ng-click="mc.clickSave(2)" ng-mouseover="mc.hoverSave()" ng-mouseleave="mc.defaultIconName()" ng-show="mc.showSave" class="mdi-content-save color-0 icon"></i></li>
-			</ul>
+                            <li ng-mouseover="(mc.saveValidate() && mc.selectTab(2))" ng-show="mc.showSave"><i ng-mouseover="mc.hoverSave()" ng-mouseleave="mc.defaultIconName()" class="mdi-content-save color-0 icon"></i><a href="#">Guardar</a></li>
+                            <li ng-mouseover="mc.selectTab(2)" ng-show="mc.showEdit"><i ng-mouseover="mc.hoverEdit()" ng-mouseleave="mc.defaultIconName()" class="mdi-content-create color-0 icon"></i><a href="#">Editar</a></li>
+	
+                            <li ng-mouseover="mc.selectTab(3)"><i ng-mouseover="mc.hoverVisibility()" ng-mouseleave="mc.defaultIconName()" class="{{ mc.visibilityClass }} color-0 icon"></i><a href="#">Detalles</a></li>
+                            <li ng-mouseover="mc.selectTab(5)"><i class="mdi-social-person color-0 icon"></i><a href="#">Usuario</a></li>
+                            <li ng-mouseover="mc.selectTab(6)"><i class="mdi-social-notifications color-0 icon"></i><a href="#">Alertas</a></li>
+                            <li ng-mouseover="mc.selectTab(4)"><i ng-mouseover="mc.hoverMore()" ng-mouseleave="mc.defaultIconName()"  class="mdi-action-settings color-0 icon"></i><a href="#">Ajustes</a></li>
+
+                        </ul>
 		</nav>
-	</div>
-	<!-- Formulario para guardar el perfil de la zona -->
-	<div ng-show="mc.tabs(2)">
-		<div ng-mouseover="mc.above(-2)">
-			<div class="separador {{ mc.color(3) }}"></div>
-			<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-2)}">{{  mc.tabs(2) && mc.iconName || "Zona puesta bajo seguimiento" }}</span></h5>
-		</div>
-		<div class="tarjeta">
+	</div> 
+        <div class="tabs-wrap" ng-class="{'active':mc.tabsActive()}"> 
+
+            <!-- formulario para guardar la zona -->
+            <div ng-show="mc.tabs(1)" class="form-wrap">
+                <h2>
+                    No hay datos de referencia!
+                </h2>
+                <p>
+                    Una zona se guarda con los datos geograficos que se extraen del area que usted selecciono. Asegurece de haber elegido en el mapa un punto central que identifica su zona. 
+                </p>
+            </div>
+            <div ng-show="mc.tabs(2)">
 			<div class="infographics">
-				<img src="/images/map.svg" alt="">
-				<div class="clear"></div>
+                            <img  ng-src="{{mc.photoreference}}"></img>
 			</div>
-			<div class="enfasis">
-				<form name="guardar" class="form-horizontal"
-				ng-submit="mc.send()" novalidate>
+			<div class="form-wrap">
+				<form name="guardar" class="form-horizontal" ng-submit="guardar.$valid && mc.send()" novalidate>
 					<fieldset>
-						<legend class="color-1">Perfil de la Zona</legend>
+						<legend class="color-5">Perfil de la Zona</legend>
 						<div class="form-group">
-							<label class="col-md-2 color-0">Nombre</label>
-							<div class="col-md-10">
+							<label class="col-md-12 col-xs-12 color-0">Nombre</label>
+							<div class="col-md-12 col-xs-12">
 								<input class="form-control" type="text" name="name" ng-model="mc.nombre" placeholder="Ingrese un nombre para la zona" required>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-md-2 color-0" for="description">Descripcion</label>
-							<div class="col-md-10">
+							<label class="col-md-12 col-xs-12 color-0" for="description">Descripcion</label>
+							<div class="col-md-12 col-xs-12">
 								<textarea class="form-control" ng-model="mc.descripcion" name="description" required></textarea>
 								<span class="help-block">Puede identificar mas facilmente la zona, el area que cubre o el comportamiento, etc</span>
-							</div>
+							</div> 
 						</div>
 						<div class="form-group">
-							<label class="col-md-2 color-0">Departamento</label>
-							<div class="col-md-10">
-								<input class="form-control" type="text" name="name" ng-model="mc.departamento" placeholder="Indique el departamento al que pertenece" required>
+							<label class="col-md-12 col-xs-12 color-0">Departamento</label>
+							<div class="col-md-12 col-xs-12">
+								<input class="form-control" type="text" name="name" ng-model="mc.departamento" placeholder="departamento al que pertenece" required>
 							</div>
 						</div>
+                                                <div class="form-group">
+                                                            <label class="col-md-12 col-xs-12 color-0" for="ciudad">Ciudad</label> 
+                                                            <div class="col-md-12 col-xs-12">
+                                                                <input class="form-control" type="text" name="ciudad" ng-model="mc.ciudad" required>
+                                                            </div>
+                                                        </div>
 					</fieldset>
+                                        <input id="PerfilButtom" value="Enviar" class="{{ mc.valid(guardar.$valid) }}" ng-mouseover="mc.hoverSend(guardar.$valid)" ng-mouseleave="mc.defaultIconName()" type="submit"> 
+
 				</form>
 				<div class="clear"></div>
 			</div>
 			<div class="clear"></div>
 		</div>
+
+                <!--radio y coordenadas del centro de la cia del mapa-->
+                <div ng-show="mc.tabs(3)" class="form-wrap">
+                    <div>
+                        <h2>
+                            Area
+                        </h2>
+                        <p>Observe como ocurren los cambios del area al cambiar los valores del formulario.</p>
+                    </div>
+                    <form  name="centro" class="form-horizontal">
+                            <div class="form-group">
+                                    <div>
+                                            <label class="col-md-12 color-0">Radio</label>
+                                            <div class="col-md-12">
+                                                    <input circle-radio class="form-control" type="text" name="radio" placeholder="longitud en metros" ng-model="mc.circle.radius">
+                                            </div>
+                                            <label class="col-md-12 color-0">Lat</label>
+                                            <div class="col-md-12">
+                                                    <input lat-lng coord="latitud" class="form-control" type="text" placeholder="latitud" ng-model="mc.lat">
+                                            </div>
+                                            <label class="col-md-12 color-0">Lng</label>
+                                            <div class="col-md-12">
+                                                    <input lat-lng  coord="longitud" class="form-control" type="text" placeholder="longitud" ng-model="mc.lng">
+                                            </div>
+                                    </div>
+                            </div>
+                    </form>
+                    <div ng-mouseover="mc.above(-3)">
+			<div class="separador {{ mc.color(4) }}"></div>
+			<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-3)}">{{ !mc.tabs(2) && mc.iconName || mc.nombre || mc.altNombre }}</span></h5>
+			<blockquote>
+				<p>{{mc.descripcion || mc.altDescripcion }}</p>
+			</blockquote>
+		    </div>
+                </div>
+
+                <!-- datos personales de los usuarios de la zona -->
+                <div ng-show="mc.tabs(5)" class="clear abonados-wrap">
+                    <div class="clear" ng-mouseover="mc.above($index, abonado.localidad.coordinates)" ng-repeat="abonado in mc.abonados">
+                            <div class="separador {{ mc.color($index) }}"></div>
+                        <h5><span ng-class="{enfasis:mc.active(), info:mc.info($index)}"><a href="/abonados/{{ abonado.NIS }}">{{ abonado.nombre }}</a></span></h5>
+                            <div ng-class="{tarjeta:mc.active(), extender:mini.extend($index)}">
+                                    <h5><icon class="mdi-action-info-outline"></icon>Informacion <span>{{ mini.infoCard($index) }}</span></h5>    
+                                <ul>
+                                    <li><span class="enfasis">NIS</span> {{ abonado.NIS }}</li>
+                                    <li><span class="enfasis">C.I.</span> {{ abonado.ci }}</li>
+                                    <li><span class="enfasis">Direccion</span> {{ abonado.direccion }}</li>
+                                    <li><span class="enfasis">Tel</span> {{ abonado.telefono }}</li>
+                                    <li><span class="enfasis">mail</span> {{ abonado.mail }}</li>
+                                    <li><span class="enfasis">RUC</span> {{ abonado.ruc }} </li>
+                                    <li><span class="enfasis">Equipo</span> {{ abonado.serial }}</li>
+                                </ul>
+                                <a ng-click="mini.selectCard($index)" ng-class="{more:mc.active(), hidden:mini.hidden($index)}"><i class="mdi-navigation-chevron-right"></i></a>
+                            </div>
+                    </div>
+	        </div>
+        </div> 	
+</aside>
+<section ng-class="{'active':mc.tabsActive()}">
+        <div>
+            <h2>Extraiga los datos con el mapa</h2>
+            <p>Con el mapa de google usted puede seleccionar un area de interes y conocer las lecturas de los diferentes medidores suscriptos. Puede guardar esta zona para posteriores analisis. Con este metodo podra conocer la demanda maxima alcanzada dentro de los limmites del circulo de seleccion.</p>
+            <p>Los diferentes parametros captados son asociaciados con el identificador de usuario NIS.</p>
+        </div>
+	<div>
+		<div id="googleMap"></div>	
+	</div>	
+	<div >
+		<div ng-mouseover="mc.above(-2)">
+			<div class="separador {{ mc.color(3) }}"></div>
+			<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-2)}">{{  mc.tabs(2) && mc.iconName || "Zona puesta bajo seguimiento" }}</span></h5>
+		</div>
 	</div>
 	<!--Tabla de Datos del abonado -->
 	<div ng-show="mc.showTable">
-		<div ng-mouseover="mc.above(-3)">
-			<div class="separador {{ mc.color(4) }}"></div>
-			<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-3)}">{{ !mc.tabs(2) && mc.iconName || mc.nombre || mc.altNombre }}</span></h5>
-			<blockquote ng-show="mc.visibility">
-				<p>{{mc.descripcion || mc.altDescripcion }}</p>
-			</blockquote>
-		</div>
-		<div class="table-responsive tarjeta">
+                <blockquote class="blocInfo">
+		    <p>EL registro de Energia Activa es acumulativo. En la tabla este valor no se reajusta para una lectura diaria. Vea el informe de un usuario para tal fin</p>
+		</blockquote>
+		<div class="table-responsive">
 			<table class="table table-hover ">
 				<caption>Parametros de importancia de la red hogar</caption>
 				<thead>
 					<tr>
+                                                <th>NIS</th>
 						<th>Energia Activa</th>
 						<th>Demanda Maxima</th>
 						<th>Corriente L1</th>
@@ -130,16 +159,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="data in mc.abonados" ng-mouseover="mc.above($inde, data.localidad.coordinates)" ng-class="{info:mc.info($index)}">
-						<td>{{ data.parametros["Energia Activa"] }}</td>
+					<tr dir-paginate = "data in mc.abonados | itemsPerPage: mc.pagesize" total-items="mc.total" current-page="mc.pagination.current" ng-mouseover="mc.above($index, data.localidad.coordinates)" ng-class="{info:mc.info($index)}">
+						<td>{{ data.NIS }}</td>
+                                                <td>{{ data.parametros["Energia Activa"] }}</td>
 						<td>{{ data.parametros["Demanda Maxima"] }}</td>
 						<td>{{ data.parametros["Corriente L1"] }}</td>
 						<td>{{ data.parametros["Corriente L2"] }}</td>
 						<td>{{ data.parametros["Corriente L3"] }}</td>
-						<td>{{ data["Fecha"] | date:'dd/MM/yyyy @ h:mm a' }}</td>
+						<td>{{ data.parametros["fecha"] }}</td>
 					</tr>
 				</tbody>
 			</table>
-		</div>
+                        <dir-pagination-controls on-page-change="mc.pageChanged(newPageNumber)"><dir-pagination-controls>
+		</div> 
 	</div>
 </section>
+<!-- javascript -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBwdH0m4m4ucHabeuu5KLwB1jxvCe3pdRg&libraries=places"></script
+

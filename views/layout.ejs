@@ -1,64 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<title>Sistema de Telemedida</title>
+	    <meta charset="utf-8">
+	    <title>Sistema de Telemedida</title>
 
-		<!-- Mobile support -->
+	    <!-- Mobile support -->
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	    <script src="http://maps.googleapis.com/maps/api/js"></script>
-
-		<!-- Twitter Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+ 
+            <!-- Twitter Bootstrap -->
+            <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
 		 <!-- Material Design for Bootstrap --> 
 	    <link href="/bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
 	    <link href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
-	    <link href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+	    <link href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet"> 
 
 		<link rel="icon" href="/images/radio-tower.png" type="image/x-icon">
 		<link rel="stylesheet" href="/stylesheets/style.css" />
-		<link rel="stylesheet" type="text/css" media="only screen and (min-width:1300px) and (min-device-width:1080px)" href="/stylesheets/wide.css">
+		<link rel="stylesheet" type="text/css" media="only screen and (min-width:1300px) and (min-device-width:1300px)" href="/stylesheets/wide.css">
 		<link rel="stylesheet" type="text/css"  href="/stylesheets/scrollbar/jquery.mCustomScrollbar.css">
 	</head>
 
 	<body ng-app="teleApp">
-		<div id="page-wrap" ng-controller="mainController as mc">
-			<header class="main" id="header" ng-controller="navController as nav">
-				<img class="{{ nav.color }}" ng-class="{active: mc.active()}" ng-src="{{ nav.image }}">
-				<form ng-class={hidden:nav.hidden} ng-submit="mc.buscar()" class="inline" accept-charset="utf-8">
-					<input ng-class="{active:mc.active()}" ng-model="mc.query" id="buscar" type="search" value="" placeholder="buscar">
-					<div class="clear"></div>
-				</form>
-				<nav id="primary-nav" role="navigation">
-					<ul>
-						<li class="inline"><a ng-class="{brcolor0:mc.active(), visited:nav.visited(1)}" href="/" title="Pagina principal">Pagina principal</a></li>
-						<li class="inline"><a ng-class="{brcolor1:mc.active(), visited: nav.visited(2)}" href="/mapa/" title="mapa">mapa</a></li>
-						<li class="inline"><a ng-class="{brcolor2:mc.active(), visited:nav.visited(3)}" href="/zonas/" title="zonas">zonas</a></li>
-						<li class="inline"><a ng-class="{brcolor3:mc.active(), visited:nav.visited(4)}" href="/abonados/registrar" title="abonados">abonados</a></li>
-						<div class="clear"></div>
-					</ul>
-				</nav>
-			</header>
-			<main class="mCustomScrollbar" data-mcs-theme="minimal-dark">
-				<%- body %>
-			</main>	
-			<footer class="main">
-			</footer>
+    	    <div id="page-wrap" ng-controller="mainController as mc">
+                    <header class="main" ng-class="{'active':mc.url() && mc.tabsActive()}" id="header" ng-controller="navController as nav">
+                        <a href="#" ng-class="{'active':mc.subMenuActive()}">
+                            <i ng-click="mc.subMenu()" class="mdi-navigation-menu"></i>
+                        </a>
+                        <nav id="primary-nav" role="navigation">
+                                <ul>
+                                        <li class="inline"><a ng-class="{transparent1:mc.active(), visited:nav.visited(1)}" href="/" title="Pagina principal">Home</a></li>
+                                        <li class="inline"><a ng-class="{transparent2:mc.active(), visited: nav.visited(2)}" href="/mapa/" title="mapa">Gestion de las Mediciones</a></li>
+                                        <li class="inline"><a ng-class="{transparent3:mc.active(), visited:nav.visited(3)}" href="/zonas/" title="zonas">Zonas</a></li>
+                                        <li class="inline"><a ng-class="{transparent4:mc.active(), visited:nav.visited(4)}" href="/abonados/registrar" title="abonados">Registrar</a></li>
+                                        <div class="clear"></div>
+                                </ul>
+                        </nav>
+                    </header>
+                    <main>
+			<%- body %>
+		    </main>	
+		    <footer>
+		    </footer>
 		</div>
-	<!--scripts-->
-		<!--google maps api
-	   	<script src="http://maps.googleapis.com/maps/api/js"></script>-->
+	<!--scripts--> 
+	   	
+                <!--jquery necesary for boostrap must load first to angular-->
+	        <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 
-	   	<!--jquery necesary for boostrap must load first to angular-->
-	    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-
-	    <!--angular-->
+	        <!--angular-->
 		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
 
-		<!-- socket client -->
-		<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+                <!-- socket client -->
+                <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
 		<!--modulo-->
 		<script type="text/javascript" src="/javascripts/app.js"></script>
@@ -83,12 +77,12 @@
 		<script src="/javascripts/directives/radio.js" type="text/javascript" charset="utf-8" ></script>
 		<script src="/javascripts/directives/centro.js" type="text/javascript" charset="utf-8" ></script>
 
+                <!-- modulo para la Paginacion-->
+                <script src="/bower_components/angularUtils-pagination/dirPagination.js"></script>
+
 		<!-- Material Design for Bootstrap -->
 	    <script src="/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
 	    <script src="/bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
-
-	     <!--customScrollbar-->
-	    <script src="/javascripts/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8" ></script>
 
 	    <script>
 	    	$.material.init();
