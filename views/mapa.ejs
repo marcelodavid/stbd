@@ -1,19 +1,22 @@
-<aside ng-class="{'active':mc.subMenuActive()}" ng-controller="miniCardsController as mini">
-        <!-- secondary-nav --> 
-        <div>
-		<nav class="secondary-nav">
-			<ul>
-                            <li ng-mouseover="(mc.saveValidate() && mc.selectTab(2))" ng-show="mc.showSave"><i ng-mouseover="mc.hoverSave()" ng-mouseleave="mc.defaultIconName()" class="mdi-content-save color-0 icon"></i><a href="#">Guardar</a></li>
-                            <li ng-mouseover="mc.selectTab(2)" ng-show="mc.showEdit"><i ng-mouseover="mc.hoverEdit()" ng-mouseleave="mc.defaultIconName()" class="mdi-content-create color-0 icon"></i><a href="#">Editar</a></li>
-	
-                            <li ng-mouseover="mc.selectTab(3)"><i ng-mouseover="mc.hoverVisibility()" ng-mouseleave="mc.defaultIconName()" class="{{ mc.visibilityClass }} color-0 icon"></i><a href="#">Detalles</a></li>
-                            <li ng-mouseover="mc.selectTab(5)"><i class="mdi-social-person color-0 icon"></i><a href="#">Usuario</a></li>
-                            <li ng-mouseover="mc.selectTab(6)"><i class="mdi-social-notifications color-0 icon"></i><a href="#">Alertas</a></li>
-                            <li ng-mouseover="mc.selectTab(4)"><i ng-mouseover="mc.hoverMore()" ng-mouseleave="mc.defaultIconName()"  class="mdi-action-settings color-0 icon"></i><a href="#">Ajustes</a></li>
+<div class="submenu-wrap" ng-class="{'active':mc.subMenuActive()}">
+        <a href="#" ng-class="{'active':mc.subMenuActive()}">
+            <i ng-click="mc.subMenu()" class="mdi-navigation-menu"></i>
+        </a>
+        <nav class="secondary-nav">
+                <ul>
+                    <li ng-mouseover="(mc.saveValidate() && mc.selectTab(2))" ng-show="mc.showSave"><i ng-mouseover="mc.hoverSave()" ng-mouseleave="mc.defaultIconName()" class="mdi-content-save color-0 icon"></i><a href="#">Guardar</a></li>
+                    <li ng-mouseover="mc.selectTab(2)" ng-show="mc.showEdit"><i ng-mouseover="mc.hoverEdit()" ng-mouseleave="mc.defaultIconName()" class="mdi-content-create color-0 icon"></i><a href="#">Editar</a></li>
 
-                        </ul>
-		</nav>
-	</div> 
+                    <li ng-mouseover="mc.selectTab(3)"><i ng-mouseover="mc.hoverVisibility()" ng-mouseleave="mc.defaultIconName()" class="{{ mc.visibilityClass }} color-0 icon"></i><a href="#">Detalles</a></li>
+                    <li ng-mouseover="mc.selectTab(5)"><i class="mdi-social-person color-0 icon"></i><a href="#">Usuario</a></li>
+                    <li ng-mouseover="mc.selectTab(6)"><i class="mdi-social-notifications color-0 icon"></i><a href="#">Alertas</a></li>
+                    <li ng-mouseover="mc.selectTab(4)"><i ng-mouseover="mc.hoverMore()" ng-mouseleave="mc.defaultIconName()"  class="mdi-action-settings color-0 icon"></i><a href="#">Ajustes</a></li>
+
+                </ul>
+        </nav>
+</div> 
+<aside ng-controller="miniCardsController as mini">
+        <!-- secondary-nav --> 
         <div class="tabs-wrap" ng-class="{'active':mc.tabsActive()}"> 
 
             <!-- formulario para guardar la zona -->

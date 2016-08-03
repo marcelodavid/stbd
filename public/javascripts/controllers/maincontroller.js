@@ -158,9 +158,18 @@ var socket = io();
         
         // maneja el evento click sobre un enlace del submenu
         var $navLi = angular.element('.secondary-nav li');
-        $navLi.on('click', function(){
+        var lastest = undefined;
+        $navLi.on('click', function(e){
+            var $this = angular.element(this).context.textContent;
             $timeout(function(){
-                self.tabContent = !self.tabContent;
+                if(window.innerWidth > 550)
+                    self.tabContent = !self.tabContent;
+                else if (lastest == $this)
+                    self.tabContent = !self.tabContent;
+                else{
+                    lastest = $this;
+                    self.tabContent = true;
+                }
             });
         });
     

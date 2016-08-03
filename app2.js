@@ -7,6 +7,21 @@ var http =  require('http').Server();
 
 var modelo = require('./model/model');
 
+//  retorna la fecha en formato estandar y en milisegundos sin considerar las horas 
+    var date = function(){
+	var _date = new Date();
+	var _ano = _date.getFullYear();
+	var _mes = _date.getMonth();
+	var _dia = _date.getDate();
+	return {
+		standar: _date,
+		today: function(){ 
+                    return new Date(_ano, _mes, _dia).getTime(); 
+                },
+	};
+    };
+
+
 
 // ejecuta el manejador una vez al dia
 setInterval(function(){
@@ -32,7 +47,7 @@ ee.on('resumen', function(zona, index, db){
 		db.close();
 	}
 	else{
-		var fecha = bitacora().get();
+		var fecha = date().today();
 		var lat = zona[index].centro[1];
 		var lng = zona[index].centro[0];
 		var radio = zona[index].radio;

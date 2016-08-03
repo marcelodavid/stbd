@@ -23,10 +23,7 @@
 
 	<body ng-app="teleApp">
     	    <div id="page-wrap" ng-controller="mainController as mc">
-                    <header class="main" ng-class="{'active':mc.url() && mc.tabsActive()}" id="header" ng-controller="navController as nav">
-                        <a href="#" ng-class="{'active':mc.subMenuActive()}">
-                            <i ng-click="mc.subMenu()" class="mdi-navigation-menu"></i>
-                        </a>
+                    <header class="main" ng-class="{'active':mc.url() && mc.tabsActive()}" id="header" ng-controller="navController as nav"> 
                         <nav id="primary-nav" role="navigation">
                                 <ul>
                                         <li class="inline"><a ng-class="{transparent1:mc.active(), visited:nav.visited(1)}" href="/" title="Pagina principal">Home</a></li>
