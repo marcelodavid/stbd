@@ -1,0 +1,57 @@
+#searching {
+    margin: 0px;
+}
+#searching .form-group{
+    position:relative;
+}
+#searching label{
+    position:absolute;
+    left:0px;
+}
+#searching label i.icon{
+    font-size:44px;
+    color:#e0e0e0;
+}
+#searching .form-group input{
+    padding-left:50px;
+    height:55px;
+    font-size:19px;
+}
+#searching .PerfilButtom{
+    background-color:#e3f2fd;
+    color:#686868;
+}
+#searching .PerfilButtom.active{
+    background-color:#90caf9;
+    color:white;
+}
+#searching .form-control:focus{
+    background-image:linear-gradient(#4bb2d5,#6cb1d2), linear-gradient(#d2d2d2,#d2d2d2);
+}
+#searchInfo{
+    margin-top:20px;
+    margin-bottom:40px;
+}
+#searchInfo > .row{
+    margin:0px;
+}
+#infoAyuda{
+    margin-top:10px;
+    color:#bdbdbd;
+}
+@media screen and (max-width:550px){
+    #searchInfo{
+        margin-top:15px;
+        margin-bottom:30px;
+    }
+    #searchInfo > .row h2{
+        color:#686868;
+        font-size:27px;
+    }
+    #searchInfo > .row p{
+        text-align:center;
+    }
+    #searching .PerfilButtom{
+        margin-bottom:35px;
+    }
+}

@@ -41,7 +41,10 @@ var search = function(req, res){
             assert.equal(err, null, ["can't connect to db"]);
             modelo.abonados.search(db, generico, function(docs){
                 db.close();
-                res.render('abonados', {abonado:docs});
+                if(docs.length)
+                    res.json({path:'/abonados/'+generico});
+                else
+                    res.json({error:"no se encontraron coincidencias"});
             });
     });
 };

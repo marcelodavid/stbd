@@ -4,7 +4,7 @@
 		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-5)}">Informe General</span></h5>
 	</div>
 	
-	<div class="tarjeta1">
+	<div class="tarjeta1" id="UserInfo">
 		<div>
 			<div class="titulo">
 				<div><i class="icon mdi-action-settings-remote color-9" ></i><span>Acceso a los datos</span></div>
@@ -15,19 +15,61 @@
 					<li><span class="enfasis">NIS</span> <%= abonado.NIS %></li>
 					<li><span class="enfasis">C.I.</span> <%= abonado.ci %></li>
 					<li><span class="enfasis">Direccion</span> <%= abonado.direccion %></li>
-					<li><span class="enfasis">Tel</span> <%= abonado.telefono %></li>
+					<li><span class="enfasis">Tel</span> <%= abonado.Telefono %></li>
 					<li><span class="enfasis">mail</span> <%= abonado.mail %></li>
 					<li><span class="enfasis">RUC</span> <%= abonado.ruc %> </li>
 					<li id='serial'><span class="enfasis">Equipo</span> <%= abonado.serial %></li>
 				</ul>
 			</div>
-			<div class="extra bcolor-4 border-top1">
-				<div>
-					<span>Consumo</span><span class="corner-right">{{ user.parametros['Energia Activa'] }}</span>	
-				</div>
-			</div>
 		</div>
 	</div>
+    <div class="mobileBox" id="bg-green"> 
+        <div> 
+            <h3>Consumo</h3>
+            <p>{{ user.parametros['Energia Activa'] }}</p>
+            <span>{{user.parametros['fecha']}}</span>
+        </div>
+        <div><i class="mdi-action-settings-input-component"></i></div>
+        <div class="clear"></div>
+    </div>
+    <div class="mobileBox" id="bg-yellow">
+        <div>
+            <h3>Demanda máxima</h3>
+            <p>{{user.parametros['Demanda Maxima']}}</p>
+            <span>{{user.parametros['fecha']}}</span>
+        </div>
+        <div id="border-burn"><i id="color-burn" class="mdi-device-battery-charging-full"></i></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+
+    <!--Corrientes de las lineas-->
+    <div id="currentCharts" ng-class="{'active':user.seeChart}">
+        <div>
+            <div class="mobileBox">
+                <div>
+                    <h3>Corriente de Linea 1</h3>
+                    <span></span>
+                    <div id="I1"></div>
+                </div>
+            </div>
+            <div class="mobileBox">
+                <div>
+                    <h3>Corriente de Linea 2</h3>
+                    <span></span>
+                    <div id="I2"></div>
+                </div>
+            </div>
+            <div class="mobileBox">
+                <div>
+                    <h3>Corriente de Linea 3</h3>
+                    <span></span>
+                    <div id="I3"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
 
 	<div ng-mouseover="mc.above(-6)">	
 		<div class="separador {{ mc.color(2) }}"></div>
@@ -35,14 +77,14 @@
 	</div>
 	<!--charts de google-->
 	<!-- resumen en dias -->
-	<div class="tarjeta1">
+	<div class="tarjeta-chart">
 		<div>
 			<div class="titulo">
 				<div><i class="icon mdi-action-trending-down color-10" ></i><span>Infografia del consumo</span></div>
 				<h3>Tendencia de los ultimos dias</h3>
 			</div>
-			<div class="contenido">
-				<div id="chart1" style="width:700px"></div>
+			<div class="contenido-chart">
+				<div id="chart1"></div>
 			</div>
 			<div class="control border-top1 bcolor-5">
 				<span class="enfasis">2</span>
@@ -58,14 +100,14 @@
 		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-7)}">Resumen de los ultimos {{ user.slider2 }} meses</span></h5>
 	</div>
 	<!-- resumen en meses -->
-	<div class="tarjeta1">
+	<div class="tarjeta-chart">
 		<div>
 			<div class="titulo">
 				<div><i class="icon mdi-social-poll color-12" ></i><span>Infografia del consumo</span></div>
 				<h3>Tendencia de los ultimos meses</h3>
 			</div>
-			<div class="contenido">
-				<div id="chart2" style="width:700px"></div>
+			<div class="contenido-chart">
+				<div id="chart2"></div>
 			</div>
 			<div class="control border-top1 bcolor-7">
 				<span class="enfasis">2</span>
@@ -82,7 +124,8 @@
         'modules':[{
           'name':'visualization',
           'version':'1.1',
-          'packages':['line', 'corechart']
+          'packages':['line', 'corechart'],
+          'languaje':'es',
         }]}">
    	</script>
 

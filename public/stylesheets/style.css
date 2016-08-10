@@ -17,10 +17,10 @@ header#header{
 }
 nav#primary-nav a.visited{
     background-color: #eee;
-    color:#00acc1 !important;
+    color:#64b5f6 !important;
 }
 nav#primary-nav a:hover{
-    color:#00acc1;
+    color:#64b5f6;
 }
 
 /* menu de navegacion primario*/
@@ -37,10 +37,6 @@ nav#primary-nav a{
 	text-decoration: none;
 	text-align: center;
 }
-nav#primary-nav a.visited{
-    color:  #4D4D4D;
-}
-
 nav#primary-nav{
 	position: absolute;
 	top: 0px;
@@ -152,12 +148,30 @@ tbody tr >td:first-child{
 }
 /***************Estilos de la tarjeta y su contenido*******************/
 .tarjeta, .tarjeta1{
-	margin: 5px;
 	padding-top: 15px;
-	padding-left: 15px;
+	padding-left: 35px;
 	padding-right: 15px;
 	padding-bottom: 1px;
 	position: relative;
+        width:calc(100% - 400px);
+        min-width:300px;
+        float:left;
+}
+.tarjeta-chart{
+    margin:5px;
+    padding-top:15px;
+    padding-left:0px;
+    padding-right:0px;
+    padding-bottom:1px;
+    position:relative;
+    width:calc(100% - 10px);
+    overflow:hidden;
+}
+#chart1, #chart2{
+    width:100%;
+}
+.contenido-chart{
+    padding:0px;
 }
 .tarjeta1{
 	padding: 0px;
@@ -469,14 +483,16 @@ blockquote.blocInfo{
 .control{
 	padding-left: 70px;
 	padding-right: 70px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 0px;
+	padding-bottom:1px;
+        margin-left:70px;
 	position: relative;
-        max-width:800px;
+        max-width:860px;
+        border-radius: 4px;
 }
 .control .enfasis{
 	position: absolute;
-	top: 15px;
+	top: 7px;
 }
 .control > .enfasis:first-child{
 	left: 40px;
@@ -553,9 +569,9 @@ section{
     -moz-transform: translateX(350px);
     transform: translateX(350px);
 }
-#PerfilButtom {
+.PerfilButtom {
     margin-top:5px;
-    margin-left:65px;
+    margin-left:calc(50% - 50px);
     padding:5px;
     width:100px;
     height:40px;
@@ -565,8 +581,93 @@ section{
 #primary-nav ul{
     min-width:455px;
 }
+#currentCharts{
+    margin:0px;
+    padding:0px;
+    visibility:hidden;
+    opacity:0;
+    width:100%;
+    -moz-transition:all .5s; 
+    -webkit-transition: all .5s;
+    -o-transition:all .5s;
+    transition:all .5s;
+}
+#currentCharts.active{
+    visibility:visible;
+    opacity:1;
+}
+#currentCharts .mobileBox div:first-child{
+    width:100%;
+}
+#currentCharts .mobileBox{
+    overflow:hidden;
+}
+.mobileBox{
+    float:left;
+    width:340px;
+    position:relative;
+    margin-bottom:24px;
+    margin-left:10px;
+    margin-right:10px;
+}
+.mobileBox div:first-child{
+    width:270px;
+    float:left;
+    padding-left:20px;
+    padding-bottom:24px;
+}
+.mobileBox div:nth-child(2){
+    position:absolute;
+    right:25px;
+    top: calc(50% - 25px);
+    width:50px;
+    padding-top:13px;
+    padding-bottom:13px;
+    border-radius:50%;
+    border: 1px solid #1e88e5;
+}
+.mobileBox span{
+    font-size:14px;
+    color:#bdbdbd;
+}
+.mobileBox p{
+    font-size:16px;
+}
+.mobileBox div:nth-child(2) i{
+    color:#1e88e5;
+    display:block;
+    text-align:center;
+}
+#color-burn{
+    color:#ffc107;
+}
+#border-burn{
+    border-color:#ffc107;
+}
+#bg-green{
+    background-color:#f8f8f8;
+}
+#bg-blue{
+    background-color:#e3f2fd;
+}
+#bg-yellow{
+    background-color:#fffff7;
+}
+#UserInfo{
+    background-color:#fffbf8;
+}
+#I1, #I2, #I3{
+    width:320px;
+    -moz-transform: translateX(-40px);
+    -webkit-transform: translateX(-40px); 
+    -o-transform: translateX(-40px); 
+    transform: translateX(-40px);
+}
 
 @media screen and (max-width:550px){
+    section{
+        top:60px;
+    }
     #primary-nav{
         position:absolute;
         right:0px;
@@ -668,6 +769,42 @@ section{
         right: 0px;
         height:50px;
         z-index:100;
+    }
+    .mobileBox{
+        width:95%;
+        margin-left:2.5%;
+        margin-bottom:0px;
+    }
+    .tarjeta-chart{
+        overflow:hidden;
+    }
+    .contenido-chart{
+        width:475px;
+        -moz-transform: translateX(-42px);
+        -webkit-transform: translateX(-42px); 
+        -o-transform: translateX(-42px); 
+        transform: translateX(-42px);
+    }
+    .control{
+        margin-left:0px;
+    }
+    #UserInfo{
+        background-color:inherit; 
+    }
+}
+
+@media screen and (min-width:550px) and (max-width:700px){
+    /* rule here */
+    .tarjeta-chart{
+        overflow:auto;
+    }
+    .mobileBox{
+        width:calc(100% - 20px);
+        margin-left:10px;
+        margin-bottom:0px;
+    }
+    #UserInfo{
+        background-color:inherit;
     }
 }
 

@@ -143,13 +143,24 @@ var socket = io();
             self.showEdit= true;
             this.tabSelected = 0;
         };
-        //buscar
+        /*********************************************
+        *               Buscamos un usuario          *
+        *********************************************/
         this.query = "";
+        this.infoAyuda = "Los datos estan asociados al documento de identidad o a el identificador de usuario NIS. Utilicelos para ver un resumen de las lecturas hechas por su medidor";
         this.buscar = function(){
             $abonados().buscar(this.query, function(data){
-                console.log(data);
+                data.path ? window.location = data.path : null;
+                data.error ? this.infoAyuda = data.error: null;
             });
         };
+
+        this.keypress = function(event){
+            if(event.keyCode == 13){    // Enter
+               if(this.query.length)
+                    this.buscar();
+            }
+        }
 
         this.tabContent = false;
         this.tabsActive = function(){

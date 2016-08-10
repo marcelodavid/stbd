@@ -36,6 +36,7 @@ section{
     width: 1100px;
     right: calc(50% - 550px);
 }
+
 @media screen and (max-width:1435px){
     header#header.active{
        right:calc(50% - 645px); 
@@ -53,6 +54,9 @@ section{
     section.active{
         width: 1100px;
         right: calc(50% - 712px);
-    }    
+    }
+    #chart1, #chart2{
+        width:calc(100% - 40px);
+    }
 }
 
