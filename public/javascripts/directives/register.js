@@ -1,9 +1,12 @@
 (function(){
-	var app = angular.module('usercontroller2', []);
+    let app = angular.module('UserRegister', []);
 
-	app.controller('userController2', ['$abonados','$timeout', function($abonados, $timeout){
-		
-		// modelo del formulario que enrolara a los clientes
+    app.directive('userReg', ['$abonados', '$timeout', function($abonados, $timeout){
+        return {
+            restrict: 'E',
+            templateUrl: '../../templates/register.html',
+            controller: function(){
+                // modelo del formulario que enrolara a los clientes
 		this.NIS ="";
 		this.Nombre = "";
 		this.Email = "";
@@ -56,5 +59,8 @@
 		window.onload =  function(){
 			getCurrentPosition();
 		};
-	}]);
+            },
+            controllerAs: 'user'
+        }
+    }]);
 })();

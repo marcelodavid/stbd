@@ -3,6 +3,7 @@
 		<div class="separador {{ mc.color(1) }}"></div>
 		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-5)}">Informe General</span></h5>
 	</div>
+        <div class="spacing"></div>
 	
 	<div class="tarjeta1" id="UserInfo">
 		<div>
@@ -43,9 +44,22 @@
     </div>
     <div class="clear"></div>
 
+    <!-- Opcion para acotar el area de visualizacion de los charts de abajo -->
+    <div id="chartOption">
+        <h3>Para tener en cuenta!</h3>
+        <p>Los graficos que se muestran a continuacion nos presentan las lecturas hechas durante el dia, para acotar el rango de visualizacion, modifique los siguientes campos</p>
+    </div>
+
     <!--Corrientes de las lineas-->
     <div id="currentCharts" ng-class="{'active':user.seeChart}">
         <div>
+            <div class="mobileBox">
+                <div>
+                    <h3>Energia Activa</h3>
+                    <span></span>
+                    <div id="Kw"></div>
+                </div>
+            </div>
             <div class="mobileBox">
                 <div>
                     <h3>Corriente de Linea 1</h3>
@@ -72,7 +86,7 @@
     </div>
 
 	<div ng-mouseover="mc.above(-6)">	
-		<div class="separador {{ mc.color(2) }}"></div>
+		<div class="separador {{ mc.color(1) }}"></div>
 		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-6)}">Resumen de los ultimos {{ user.slider1 }} dias</span></h5>
 	</div>
 	<!--charts de google-->
@@ -83,9 +97,15 @@
 				<div><i class="icon mdi-action-trending-down color-10" ></i><span>Infografia del consumo</span></div>
 				<h3>Tendencia de los ultimos dias</h3>
 			</div>
-			<div class="contenido-chart">
+			<div class="contenido-chart" ng-class="{'active':user.seeChart1}">
 				<div id="chart1"></div>
 			</div>
+                        <div class="popup" ng-class="{'active':!user.seeChart1}">
+                            <div>
+                                <h3>Ops! Faltan datos</h3>
+                                <p>Mueva el slider para ver los datos guardados de los dias anteriores. Si no se encuentran registros de las lecturas, es posible que exista un inconveniente con el dispositivo que extra las informacion del medidor</p>
+                            </div>
+                        </div>
 			<div class="control border-top1 bcolor-5">
 				<span class="enfasis">2</span>
 				<div class="slider shor" id="slider1"></div>
@@ -94,9 +114,11 @@
 		</div>
 	</div>
 
+        <div class="spacing"></div>
+        <div class="spacing"></div>
 
 	<div ng-mouseover="mc.above(-7)">	
-		<div class="separador {{ mc.color(3) }}"></div>
+		<div class="separador {{ mc.color(2) }}"></div>
 		<h5><span ng-class="{enfasis:mc.active(), info:mc.info(-7)}">Resumen de los ultimos {{ user.slider2 }} meses</span></h5>
 	</div>
 	<!-- resumen en meses -->
@@ -106,9 +128,15 @@
 				<div><i class="icon mdi-social-poll color-12" ></i><span>Infografia del consumo</span></div>
 				<h3>Tendencia de los ultimos meses</h3>
 			</div>
-			<div class="contenido-chart">
+			<div class="contenido-chart" ng-class="{'active':user.seeChart2}">
 				<div id="chart2"></div>
 			</div>
+                        <div class="popup" ng-class="{'active':!user.seeChart2}">
+                            <div>
+                                <h3>Ops! Falta algo</h3>
+                                <p>Esta empezando con el servicio, muy pronto se tendra los datos suficientes que detalle su consumo total por mes</p>
+                            </div>
+                        </div>
 			<div class="control border-top1 bcolor-7">
 				<span class="enfasis">2</span>
 				<div class="slider shor" id="slider2"></div>
@@ -124,7 +152,7 @@
         'modules':[{
           'name':'visualization',
           'version':'1.1',
-          'packages':['line', 'corechart'],
+          'packages':['line', 'corechart','bar'],
           'languaje':'es',
         }]}">
    	</script>

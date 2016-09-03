@@ -5,7 +5,6 @@ var router = express.Router();
 var userCtrl = require('../controllers/abonados');
 var resumen_controller = require('../controllers/resumen_controller/resumen');
 router.route('/registrar')
-	.get(userCtrl.form)
 	.post(userCtrl.register);
 router.route('/buscar')
 	.get(userCtrl.search);
