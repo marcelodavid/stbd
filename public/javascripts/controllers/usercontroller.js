@@ -15,20 +15,19 @@
             var Kw = {consumo:[]};
 
             var userDataLoad = function(parametros){
-               console.log(parametros); 
-                    energyConsumption(Kw, parametros, 'Energia Activa');
-                    lastDataForCurrentChart(I1, parametros, 'Corriente L1');
-                    lastDataForCurrentChart(I2, parametros, 'Corriente L2');
-                    lastDataForCurrentChart(I3, parametros, 'Corriente L3');
+                energyConsumption(Kw, parametros, 'Energia Activa');
+                lastDataForCurrentChart(I1, parametros, 'Corriente L1');
+                lastDataForCurrentChart(I2, parametros, 'Corriente L2');
+                lastDataForCurrentChart(I3, parametros, 'Corriente L3');
 
-                    // redibujamos las lines de corriente
-                    drawLine(I1.corrientes,'#I1', 'Linea 1',option1, 'datetime').classic();
-                    drawLine(I2.corrientes,'#I2', 'Linea 2',option1, 'datetime').classic();
-                    drawLine(I3.corrientes,'#I3', 'Linea 3',option1, 'datetime').classic();
+                // redibujamos las lines de corriente
+                drawLine(I1.corrientes,'#I1', 'Linea 1',option1, 'datetime').classic();
+                drawLine(I2.corrientes,'#I2', 'Linea 2',option1, 'datetime').classic();
+                drawLine(I3.corrientes,'#I3', 'Linea 3',option1, 'datetime').classic();
 
-                    // redibujamos el chart del consumo diario
-                    option1.title = 'Ultimas lecturas de Energia Activa';
-                    drawLine(Kw.consumo, '#Kw', 'Consumo', option1, 'datetime').classic();
+                // redibujamos el chart del consumo diario
+                option1.title = 'Ultimas lecturas de Energia Activa';
+                drawLine(Kw.consumo, '#Kw', 'Consumo', option1, 'datetime').classic();
             }
 
             // actualizamos los datos con socket io
@@ -108,7 +107,7 @@
                 title:'Energia consumida en Kwh',
                 legend:{position:"none"},
                 chart:{
-                    title: 'Energia consumida en Kwh',
+                    title: 'Energia consumida por dia',
                     subtitle: 'Energia Activa', 
                 },
                 height: 300,
@@ -123,6 +122,7 @@
                     minValue: 0,
                     format:'decimal',
                 },
+                colors: ['#009688'],
                 bars:'vertical',
                 bar: {groupWidth: "70%"}
             }; 

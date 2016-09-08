@@ -42,10 +42,10 @@
                         <div class="form-group">
                             <label  class="col-xs-1 control-label">Coordenadas</label>
                             <div class="col-xs-12">
-                                <input class="form-control" placeholder="Latitud" ng-model="user.lat" type="text" required>
+                                <input home-point coord="latitud" class="form-control" placeholder="Latitud" ng-model="user.lat" type="text" required>
                             </div>
                             <div class="col-xs-12">
-                                <input class="form-control" placeholder="Longitud" ng-model="user.lng" type="text" required>
+                                <input home-point coord="longitud" class="form-control" placeholder="Longitud" ng-model="user.lng" type="text" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -73,13 +73,8 @@
                             </div>
                         </div> 
                     </fieldset>
-                    <button ng-mouseover="mc.hoverSend(enroll.$valid)" ng-mouseleave="mc.defaultIconName()" class="icon" type="submit">
-                        <i class="mdi-content-send {{ mc.valid(enroll.$valid) }}"></i>
-                    </button>
-
+                    <input ng-mouseover="mc.hoverSend(enroll.$valid)" ng-mouseleave="mc.defaultIconName()" class="PerfilButtom" type="submit" name="some_name" value="Enviar">
                 </form>
-            </div>
-            <div class="extra bcolor-6 border-top1">
             </div>
         </div>
     </div>

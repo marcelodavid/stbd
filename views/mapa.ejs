@@ -10,7 +10,7 @@
                     <li ng-mouseover="mc.selectTab(3)"><i ng-mouseover="mc.hoverVisibility()" ng-mouseleave="mc.defaultIconName()" class="{{ mc.visibilityClass }} color-0 icon"></i><a href="#">Detalles</a></li>
                     <li ng-mouseover="mc.selectTab(5)"><i class="mdi-social-person color-0 icon"></i><a href="#">Usuario</a></li>
                     <li ng-mouseover="mc.selectTab(7)">
-                        <i class="mdi-maps-add-location color-0 icon"></i>
+                        <i class="mdi-maps-beenhere color-0 icon"></i>
                         <a href="">Agregar</a>
                     </li>
                     <li ng-mouseover="mc.selectTab(6)"><i class="mdi-social-notifications color-0 icon"></i><a href="#">Alertas</a></li>
@@ -113,7 +113,6 @@
                     <div class="clear" ng-mouseover="mc.above($index, abonado.localidad.coordinates)" ng-repeat="abonado in mc.abonados">
                             <div class="separador {{ mc.color($index) }}"></div>
                         <h5><span ng-class="{enfasis:mc.active(), info:mc.info($index)}"><a href="/abonados/{{ abonado.NIS }}">{{ abonado.nombre }}</a></span></h5>
-                            <div class="separador {{ mc.color($index) }}"></div>
                             <div ng-class="{tarjeta:mc.active(), extender:mini.extend($index)}">
                                     <h5><icon class="mdi-action-info-outline"></icon>Informacion <span>{{ mini.infoCard($index) }}</span></h5>    
                                 <ul>

@@ -8,6 +8,7 @@ var socket = io();
         var _googleMap = document.getElementById("googleMap");
         if(_googleMap){
             var _image = '/images/map-marker-radius.png';
+            var _home_image = '/images/home-marker.png';
             var _options = {
                 center:new google.maps.LatLng(-25.25463261974944, -57.513427734375),
                 zoom:15,
@@ -31,6 +32,13 @@ var socket = io();
                 strokeOpacity: .5,
                 strokeWeight: 2,
                 editable: true,
+            });
+
+            self.registerMarker = new google.maps.Marker({
+                title: 'Location',
+                map: _map,
+                icon:_home_image,
+                draggable: true
             });
         };
         var markerOnMap = function(coordenadas){
@@ -201,7 +209,6 @@ var socket = io();
 
         socket.on('pagina', function(abonados){
             Serialtable = {};
-            console.log(abonados.docs.length);
             if(abonados.docs.length){
 
                 // guarda en una tabla el valor del NIS y su posicion en el array
@@ -223,16 +230,16 @@ var socket = io();
         });
 
         // actualiza los datos del medidor que corresponde al NIS segun la tabla
-        if(Serialtable){
-            socket.on('update', function(abonado){
+        socket.on('update', function(abonado){
+            if(Serialtable){
                 $timeout(function(){
                     var index = Serialtable[abonado.data.serial];
                     if (index !== undefined){
                         self.abonados[index].parametros = abonado.data.parametros;
                     }
                 });
-            });
-        }
+            }
+        });
         var service;
 
         // anexa una imagen de referencia a la zona

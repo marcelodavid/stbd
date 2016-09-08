@@ -26,9 +26,9 @@
                     <header class="main" ng-class="{'active':mc.url() && mc.tabsActive()}" id="header" ng-controller="navController as nav"> 
                         <nav id="primary-nav" role="navigation">
                                 <ul>
-                                        <li class="inline"><a ng-class="{transparent1:mc.active(), visited:nav.visited(1)}" href="/" title="Pagina principal">Home</a></li>
-                                        <li class="inline"><a ng-class="{transparent2:mc.active(), visited: nav.visited(2)}" href="/mapa/" title="mapa">Gestion de las Mediciones</a></li>
                                         <li class="inline"><a ng-class="{transparent3:mc.active(), visited:nav.visited(3)}" href="/zonas/" title="zonas">Zonas</a></li>
+                                        <li class="inline"><a ng-class="{transparent2:mc.active(), visited: nav.visited(2)}" href="/mapa/" title="mapa">Gestion de las Mediciones</a></li>
+                                        <li class="inline"><a ng-class="{transparent1:mc.active(), visited:nav.visited(1)}" href="/" title="Pagina principal">Home</a></li>
                                         <div class="clear"></div>
                                 </ul>
                         </nav>
@@ -71,6 +71,8 @@
 		<script src="/javascripts/directives/radio.js" type="text/javascript" charset="utf-8" ></script>
 		<script src="/javascripts/directives/centro.js" type="text/javascript" charset="utf-8" ></script>
 		<script src="/javascripts/directives/register.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="/javascripts/directives/home_marker.js" type="text/javascript" charset="utf-8" ></script>
+
 
                 <!-- modulo para la Paginacion-->
                 <script src="/bower_components/angularUtils-pagination/dirPagination.js"></script>

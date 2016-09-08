@@ -5,6 +5,7 @@
         return {
             restrict: 'E',
             templateUrl: '../../templates/register.html',
+            require:'mainController',
             controller: function(){
                 // modelo del formulario que enrolara a los clientes
 		this.NIS ="";
@@ -39,28 +40,8 @@
                                 form = {};
 			});
 		};
-		var self = this;
-		var getCurrentPosition = function(){
-			if(navigator.geolocation){
-				navigator.geolocation.watchPosition(function(position){
-					$timeout(function(){
-						self.lat = position.coords.latitude;
-						self.lng = position.coords.longitude;
-
-						//mostramos el resultado en el mapa
-						var latlon = self.lat + "," + self.lng;
-						self.map_url = "http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false";
-					});
-				});
-			} else{
-				console.log("geolocalizacion no soportada por el browser");
-			};
-		};
-		window.onload =  function(){
-			getCurrentPosition();
-		};
             },
-            controllerAs: 'user'
+            controllerAs: 'user',
         }
     }]);
 })();

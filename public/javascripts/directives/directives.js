@@ -1,3 +1,3 @@
 (function(){
-	var app = angular.module('directives', ['radio', 'centro','UserRegister']);
+	var app = angular.module('directives', ['radio', 'centro','UserRegister', 'homeMarker']);
 })();

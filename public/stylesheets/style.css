@@ -42,7 +42,7 @@ ul{
 }
 nav#primary-nav a{
 	display: block;
-	float: left;
+	float: right;
         height: 80px;
         padding: 15px;
         font-size:  16px;
@@ -167,7 +167,7 @@ tbody tr >td:first-child{
 	padding-bottom: 1px;
 	position: relative;
         width:calc(100% - 400px);
-        min-width:300px;
+        min-width:245px;
         float:left;
 }
 
@@ -352,12 +352,12 @@ button.valid:hover a{
 
 /***************separador y blockquote****************/
 div.separador{
-	width: 80px;
-	margin-left: calc(50% - 40px);
+	width: 60px;
+	margin-left: calc(50% - 30px);
 	height: 2px;
 	z-index: 1;
-	margin-top: 5px;
-	margin-bottom: 0px;
+	margin-top: 15px;
+	margin-bottom: 10px;
 }
 .spacing{
     display:block;
@@ -836,10 +836,6 @@ section{
     }
     #UserInfo{
         background-color:inherit; 
-    }
-    div.separador{
-        width:60%;
-        margin-left:20%;
     }
     .popup.active{
         width:330px;

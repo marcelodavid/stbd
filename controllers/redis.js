@@ -24,7 +24,6 @@ var stick = function(cliente_id, medidor_serial){
 }
 
 var savedSerial = function(Medidor_serial, callback){
-    console.log(Medidor_serial);
     cache.exists(Medidor_serial, function(err, reply){
         callback(reply);
     });
