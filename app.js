@@ -84,9 +84,7 @@ io.on('connection', function(client){
         // reenvia los datos al admin
         if (data.serial){
             cache.savedSerial(data.serial, function(exists){
-                console.log("verificamos si la clave existe");
                 if(exists){
-                    console.log("reenviando");
                     client.to('admin').emit('update',{'data':data}); 
                 }
             });

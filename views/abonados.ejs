@@ -49,7 +49,7 @@
         <h3>Para tener en cuenta!</h3>
         <p>Los graficos que se muestran a continuacion nos presentan las lecturas hechas durante el dia, para acotar el rango de visualizacion, modifique los siguientes campos</p>
         <div class="row">
-            <div class="col-md-2 checkbox color-3"><label><input ng-model="user.allday" type="checkbox"> Dia completo </label></div>
+            <div class="col-md-2 checkbox color-3"><label><input id="allDay" type="checkbox">Dia completo</label></div>
             <div class="col-md-4 color-3">
                 <label for="selecthour1">desde</label>
                 <div>
@@ -82,9 +82,9 @@
                 </div>
             </div>
             <div class="col-md-4 color-3">
-                <label for="selecthour1">hasta</label>
+                <label for="selecthour2">hasta</label>
                 <div>
-                    <select id="selecthour1" class="form-control">
+                    <select id="selecthour2" class="form-control">
                         <option>0</option>
                         <option>1</option>
                         <option>2</option>
@@ -111,8 +111,7 @@
                         <option>23</option>
                     </select>
                 </div>
-            </div>
- 
+            </div> 
         </div>
     </div>
 
@@ -128,23 +127,9 @@
             </div>
             <div class="mobileBox">
                 <div>
-                    <h3>Corriente de Linea 1</h3>
+                    <h3>Consumo</h3>
                     <span></span>
                     <div id="I1"></div>
-                </div>
-            </div>
-            <div class="mobileBox">
-                <div>
-                    <h3>Corriente de Linea 2</h3>
-                    <span></span>
-                    <div id="I2"></div>
-                </div>
-            </div>
-            <div class="mobileBox">
-                <div>
-                    <h3>Corriente de Linea 3</h3>
-                    <span></span>
-                    <div id="I3"></div>
                 </div>
             </div>
             <div class="clear"></div>

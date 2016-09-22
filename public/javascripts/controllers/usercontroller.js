@@ -2,32 +2,29 @@
 	var app = angular.module('usercontroller', []);
 
 	app.controller('userController', ['$interval','$timeout','$resumen', function($interval, $timeout, $resumen){
-            var $userid = angular.element('#serial');
+            let $userid = angular.element('#serial');
+            let $select1 = angular.element("#selecthour1");
+            let $select2 = angular.element("#selecthour2");
             var self = this;
             var userid = $userid.html().match(/[a-zA-Z0-9]*$/)[0]; 
             
-            // inicializamos los valores de las corrientes de linea
-            var I1 = {corrientes:[]};
-            var I2 = {corrientes:[]};
-            var I3 = {corrientes:[]};
+            // inicializamos los valores de energia activa, para el consumo por hora
+            // elimina el efecto del registro acumulativo
+            self.Kwh = {consumo:[]};
 
             // inicializamos la lista de consumo
-            var Kw = {consumo:[]};
+            self.Kw = {consumo:[]};
 
-            var userDataLoad = function(parametros){
-                energyConsumption(Kw, parametros, 'Energia Activa');
-                lastDataForCurrentChart(I1, parametros, 'Corriente L1');
-                lastDataForCurrentChart(I2, parametros, 'Corriente L2');
-                lastDataForCurrentChart(I3, parametros, 'Corriente L3');
+            self.userDataLoad = function(parametros){
+                energyConsumption(self.Kw, parametros, 'Energia Activa').normal();
+                energyConsumption(self.Kw, parametros, 'Energia Activa').fixed(self.Kwh);
 
-                // redibujamos las lines de corriente
-                drawLine(I1.corrientes,'#I1', 'Linea 1',option1, 'datetime').classic();
-                drawLine(I2.corrientes,'#I2', 'Linea 2',option1, 'datetime').classic();
-                drawLine(I3.corrientes,'#I3', 'Linea 3',option1, 'datetime').classic();
+                // redibujamos el chart del consumo con el registro acumulativo
+                drawLine(self.Kwh.consumo,'#I1', 'kwh',self.option1, 'datetime').classic();
 
                 // redibujamos el chart del consumo diario
-                option1.title = 'Ultimas lecturas de Energia Activa';
-                drawLine(Kw.consumo, '#Kw', 'Consumo', option1, 'datetime').classic();
+                self.option1.title = "Ultimas lecturas de Energia Activa";
+                drawLine(self.Kw.consumo, '#Kw', 'kwh',self.option1, 'datetime').classic();
             }
 
             // actualizamos los datos con socket io
@@ -41,7 +38,7 @@
                     self.parametros = parametros; 
                     self.seeChart = true;
                 })
-                userDataLoad(parametros);
+               self.userDataLoad(parametros);
             });
             
             // se actualiza la lectura
@@ -52,30 +49,30 @@
                         self.seeChart = true;
                         self.parametros = parametros;
                     });
-                    userDataLoad(parametros);
+                   self.userDataLoad(parametros);
                 }
             });
 
         /*****************************************************************************
          *                      resumen y graficos                                   *
          *****************************************************************************/
-            let date = new Date();
-            let minView = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-            let maxView = new Date(minView.getFullYear(), minView.getMonth(), minView.getDate() + 1);
+            self.date = new Date();
+            self.minView = new Date(self.date.getFullYear(), self.date.getMonth(), self.date.getDate());
+            self.maxView = new Date(self.minView.getFullYear(), self.minView.getMonth(), self.minView.getDate(), 23, 59);
 
             // opcion1 is for current chart
-            var option1 = {
-                title: 'Corriente de Linea [A]',
+            self.option1 = {
+                title: 'Ultimas lecturas de Potencia Activa en kw',
                 legend:{position: 'in'},
                 height: 300,
                 pointSize: 4,
                 chartArea:{
-                    width:'95%',
+                    width:'90%',
                 },
                 hAxis: {
                     viewWindow: {
-                        min: minView,
-                        max: maxView
+                        min: self.minView,
+                        max: self.maxView
                     },
                     gridlines: {
                         count:-1,
@@ -86,8 +83,8 @@
                     },
                     minorGridlines: {
                         units: {
-                          hours: {format: ['hh:mm:ss a', 'ha']},
-                          minutes: {format: ['HH:mm a Z', ':mm']}
+                          hours: {format: ['hh:mm:ss', 'ha']},
+                          minutes: {format: ['HH:mm a', ':mm']}
                         }
                     }
                 },
@@ -103,7 +100,7 @@
             };
 
             // options is for energy consuption
-            var option2 = {
+            self.option2 = {
                 title:'Energia consumida en Kwh',
                 legend:{position:"none"},
                 chart:{
@@ -155,30 +152,32 @@
                 return campos;                  
             }
 
-            var lastDataForCurrentChart = function(array, data, key){
-                /*
-                 *  Esta funcion retorna un array
-                 *  con la hora y las lecturas de las
-                 *  corrientes de linea.
-                 *  Mantiene actualizado los ultimos diez 
-                 *  valores medidos
-                 */
-                
-                if(array.corrientes.length >= 100)
-                    array.corrientes.shift();
-                array.corrientes.push([new Date (data['fecha']), parseFloat(data[key])]);                
-            }
-
             var energyConsumption = function(array, data, key){
                 /*
                  *  almacena en el array las ultimas
                  *  50 lecturas del consumo de energia 
                  *  hechas
                  */
-                
-                if (array.consumo.length >= 100)
-                    array.consumo.shift();
-                array.consumo.push([new Date(data['fecha']), parseFloat(data[key])]);
+                let date = new Date (data['fecha']);
+                return {
+                    normal: function(){
+                        if (array.consumo.length >= 100)
+                            array.consumo.shift();
+                        array.consumo.push([date, parseFloat(data[key])]);
+                    },
+                    fixed: function(newArray){
+
+                        // get length of the consumption array
+                        let length = array.consumo.length;
+                        if (newArray.consumo.length >= 100)
+                            newArray.consumo.shitf();
+                        if(length > 1){
+                            let deltaKwh = parseFloat(data[key]) - array.consumo[length - 2][1];
+                            console.log("diferencia", deltaKwh);
+                            newArray.consumo.push([date, deltaKwh]);
+                        }
+                    }
+                }
             }
 
             // inicializa los campos de la columna del chart
@@ -235,7 +234,7 @@
                                     self.seeChart1 = true;
                                     self.resumendias = data;
                                     campos_dias = parseAcumulativeForChart(self.resumendias,'Energia Activa', ['dias', 'Consumo']);
-                                    drawBar(campos_dias, '#chart1', option2);
+                                    drawBar(campos_dias, '#chart1', self.option2);
                                 }else
                                     self.seeChart1 = false;
                             });
@@ -268,27 +267,41 @@
                                     self.seeChart2 = true;
                                     self.resumenmeses = data;
                                     campos_meses = parseAcumulativeForChart(self.resumenmeses,'Energia Activa', ['Mes', 'Consumo']);
-                                    drawBar(campos_meses, '#chart2',option2);
+                                    drawBar(campos_meses, '#chart2',self.option2);
                                 }else
                                     self.seeChart2 = false;
                             });
                     });
             });
 
-            // redraw all charts when page is resizing
-            window.addEventListener('resize', function(){
-                // redibujamos las lines de corriente
-                drawLine(I1.corrientes,'#I1', 'Linea 1',option1, 'datetime').classic();
-                drawLine(I2.corrientes,'#I2', 'Linea 2',option1, 'datetime').classic();
-                drawLine(I3.corrientes,'#I3', 'Linea 3',option1, 'datetime').classic();
+            let redrawChart = function(){
+                // redibujamos el chart del consumo acumulativo
+                drawLine(self.Kwh.consumo,'#I1', 'kwh',self.option1, 'datetime').classic();
 
                 // redibujamos el chart del consumo diario
-                option1.title = 'Ultimas lecturas de Energia Activa';
-                drawLine(Kw.consumo, '#Kw', 'Consumo', option1, 'datetime').classic();
+                drawLine(self.Kw.consumo, '#Kw', 'kwh', self.option1, 'datetime').classic();
                 
                 // redibujamos los chart del consumo en dias y meses
-                drawBar(campos_dias, '#chart1', option2);
-                drawBar(campos_meses, '#chart2',option2);
+                if(campos_dias && campos_meses){
+                    drawBar(campos_dias, '#chart1', self.option2);
+                    drawBar(campos_meses, '#chart2',self.option2);
+                }
+            }
+
+            // redraw all charts when page is resizing
+            window.addEventListener('resize', redrawChart);
+
+            // modificamos el rango de vista de los charts
+            $select1.on('change', function(){
+                self.minView.setHours($select1.val());
+                self.option1.hAxis.viewWindow.min = self.minView;
+                redrawChart();
+            });
+
+            $select2.on('change', function(){
+                self.maxView.setHours($select2.val());
+                self.option1.hAxis.viewWindow.max = self.maxView;
+                redrawChart();
             });
     }]);
 })();

@@ -58,5 +58,8 @@ section{
     #chart1, #chart2{
         width:calc(100% - 40px);
     }
+    .tarjeta1{
+        width: calc(100% - 365px);
+    }
 }
 

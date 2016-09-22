@@ -14,7 +14,6 @@
 				ngModel.$commitViewValue = function(){
 					console.log("commiting");
 					if(ngModel.$viewValue){
-						console.log(scope.mc.circle);
 						$timeout(function(){
 							scope.mc.circle.setRadius(+ngModel.$viewValue);
 						});

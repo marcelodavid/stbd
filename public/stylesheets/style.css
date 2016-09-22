@@ -148,7 +148,7 @@ h5 span.enfasis.info, h4 span.enfasis.info{
 }
 .abonados-wrap{
 	overflow-y:auto;
-	max-width: 230px;
+	width: 100%;
 }
 th{
     color:#0277bd;
@@ -166,11 +166,9 @@ tbody tr >td:first-child{
 	padding-right: 15px;
 	padding-bottom: 1px;
 	position: relative;
-        width:calc(100% - 400px);
-        min-width:245px;
+        width:calc(100% - 25px);
         float:left;
 }
-
 .tarjeta-chart{
     margin:5px;
     padding-top:15px;
@@ -199,6 +197,7 @@ tbody tr >td:first-child{
 }
 aside div.tarjeta{
 	height: 100px;
+        margin-bottom:20px;
 	overflow-y:hidden;
 	transition: height 0.3s;
 }
@@ -208,7 +207,8 @@ aside div.tarjeta icon{
 	margin-right: 10px;
 }
 aside div.tarjeta.extender{
-	height: 270px;
+	height: 305px;
+        margin-bottom:20px;
 }
 .tarjeta h5{
 	color: #BDBDBD;
@@ -610,7 +610,7 @@ section{
     background-color:inherit;
 }
 #primary-nav ul{
-    min-width:455px;
+    min-width:365px;
 }
 #currentCharts{
     margin:0px;
@@ -716,6 +716,9 @@ section{
 @media screen and (max-width:550px){
     section{
         top:60px;
+    }
+    #chart1, #chart2{
+        width: 330px;    
     }
     #primary-nav{
         position:absolute;
@@ -846,15 +849,17 @@ section{
     .control{
         margin-left:10px;
     }
+    .contenido-chart{
+        width:100%;
+        margin-left: 5px;
+    }
 }
 
 @media screen and (min-width:550px) and (max-width:800px){
     /* rule here */
-    .tarjeta-chart{
-        overflow:auto;
-    }
     .contenido-chart{
         width:100%;
+        margin-left: 5px;
     }
     .mobileBox, #currentCharts .mobileBox{
         width:calc(100% - 20px);
@@ -881,6 +886,9 @@ section{
     .contenido-chart{
         width:80%;
         margin-left:10%;
+    }
+    .tarjeta1{
+        width: calc(100% - 365px);
     }
 }
 
