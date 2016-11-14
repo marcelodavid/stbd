@@ -19,13 +19,15 @@
                 energyConsumption(self.Kw, parametros, 'Energia Activa').normal();
                 energyConsumption(self.Kw, parametros, 'Energia Activa').fixed(self.Kwh);
 
-                // redibujamos el chart del consumo con el registro acumulativo
-                drawLine(self.Kwh.consumo,'#I1', 'kwh',self.option1, 'datetime').classic();
+                // reajustamos la scala maxValue
+                self.option1.vAxis.viewWindow.max = parseFloat(parametros['Energia Activa']) + 100;
 
                 // redibujamos el chart del consumo diario
-                self.option1.title = "Ultimas lecturas de Energia Activa";
                 drawLine(self.Kw.consumo, '#Kw', 'kwh',self.option1, 'datetime').classic();
-            }
+
+                // redibujamos el chart del consumo con el registro acumulativo
+                drawLine(self.Kwh.consumo,'#I1', 'kw',self.option3, 'datetime').classic();
+            };
 
             // actualizamos los datos con socket io
             // formamos parate del espacio admin
@@ -35,10 +37,11 @@
             socket.on('ultimaLectura', function(user){
                 var parametros = user.data.parametros;
                 $timeout(function(){
-                    self.parametros = parametros; 
+                    self.parametros = parametros;
+                    self.option1.vAxis.viewWindow.min = parseFloat(self.parametros['Energia Activa']) - 100;
                     self.seeChart = true;
-                })
-               self.userDataLoad(parametros);
+                    self.userDataLoad(parametros);
+                });
             });
             
             // se actualiza la lectura
@@ -61,8 +64,9 @@
             self.maxView = new Date(self.minView.getFullYear(), self.minView.getMonth(), self.minView.getDate(), 23, 59);
 
             // opcion1 is for current chart
+            // Energia Activa
             self.option1 = {
-                title: 'Ultimas lecturas de Potencia Activa en kw',
+                title: 'Ultimas lecturas de Energia Activa en kwh',
                 legend:{position: 'in'},
                 height: 300,
                 pointSize: 4,
@@ -89,12 +93,48 @@
                     }
                 },
                 vAxis: {
+                    viewWindowMode:'explicit',
                     viewWindow:{
-                        min: 0
+                        min:0,
+                        max:10000
                     },
                     textPosition:'in',
                     format:'decimal',
-                    minValue: 0
+                },
+                colors: ['#757575']
+            };
+
+            self.option3 = {
+                title: 'Ultimas lecturas de Potencia consumida en kw',
+                legend:{position: 'in'},
+                height: 300,
+                pointSize: 4,
+                chartArea:{
+                    width:'90%',
+                },
+                hAxis: {
+                    viewWindow: {
+                        min: self.minView,
+                        max: self.maxView
+                    },
+                    gridlines: {
+                        count:-1,
+                        units:{
+                            days: {format:['MM dd']},
+                            hours:{format:['HH:mm']},
+                        }
+                    },
+                    minorGridlines: {
+                        units: {
+                          hours: {format: ['hh:mm:ss', 'ha']},
+                          minutes: {format: ['HH:mm a', ':mm']}
+                        }
+                    }
+                },
+                vAxis: {
+                    viewWindowMode:'pretty',
+                    textPosition:'in',
+                    format:'decimal',
                 },
                 colors: ['#757575']
             };
@@ -173,7 +213,6 @@
                             newArray.consumo.shitf();
                         if(length > 1){
                             let deltaKwh = parseFloat(data[key]) - array.consumo[length - 2][1];
-                            console.log("diferencia", deltaKwh);
                             newArray.consumo.push([date, deltaKwh]);
                         }
                     }
@@ -275,10 +314,10 @@
             });
 
             let redrawChart = function(){
-                // redibujamos el chart del consumo acumulativo
-                drawLine(self.Kwh.consumo,'#I1', 'kwh',self.option1, 'datetime').classic();
+                // redibujamos el chart del consumo con diferencia
+                drawLine(self.Kwh.consumo,'#I1', 'kwh',self.option3, 'datetime').classic();
 
-                // redibujamos el chart del consumo diario
+                // redibujamos el chart del consumo del registro acumulativo
                 drawLine(self.Kw.consumo, '#Kw', 'kwh', self.option1, 'datetime').classic();
                 
                 // redibujamos los chart del consumo en dias y meses

@@ -62,4 +62,6 @@ section{
         width: calc(100% - 365px);
     }
 }
-
+.tarjeta1{
+        width: calc(100% - 365px);
+}
