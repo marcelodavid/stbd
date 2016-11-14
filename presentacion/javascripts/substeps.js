@@ -86,6 +86,10 @@ var psoc = document.getElementById('psoc');
 var mesh = document.getElementById('mesh');
 var gabeta = document.getElementById('gabeta');
 var image_presupuesto = document.getElementById('image_presupuesto');
+var lector = document.getElementById('lector');
+var lector_video = document.getElementById('lector_video');
+var video3 = document.getElementById('video3');
+var marcamovil = document.getElementById('marcamovil');
 function javascriptsAnimation(){
     var animationHandler = function(e){
         var bandera = e.target.id;
@@ -139,6 +143,14 @@ function javascriptsAnimation(){
                     diagrama[i].classList.add('visible');
                 }
                 break;
+            case 'lector':
+                lector_video.classList.remove('hidden');
+                video3.play();
+                break;
+            case 'psoc':
+                lector.classList.add('hidden');
+                lector_video.classList.add('hidden');
+                break;
             case 'mesh':
                 for(var i=0; i<diagrama.length; i++){
                     diagrama[i].classList.add('fadeOut');
@@ -151,7 +163,7 @@ function javascriptsAnimation(){
                 diseño.classList.add('pos2');
                 mesh.classList.add('hidden');
                 break;
-            case 'webapp':
+            case 'arquitecturaView1':
                 diseño.classList.remove('pos2');
                 diseño.classList.add('pos3');
                 break;
@@ -162,6 +174,27 @@ function javascriptsAnimation(){
                 image_presupuesto.classList.remove('rot1');
                 image_presupuesto.classList.add('rot2');
                 break;
+            case 'conclusion1':
+                marcamovil.classList.add('pos1');
+                break;
+            case 'conclusion2':
+                marcamovil.classList.remove('pos1');
+                marcamovil.classList.add('pos2');
+                break;
+            case 'conclusion3':
+                marcamovil.classList.remove('pos2');
+                marcamovil.classList.add('pos3');
+                break;
+            case 'conclusion4':
+                marcamovil.classList.remove('pos3');
+                marcamovil.classList.add('pos4');
+                break;
+            case 'conclusion5':
+                marcamovil.classList.remove('pos4');
+                marcamovil.classList.add('pos5');
+                break;
+            case 'webapp':
+                document.getElementById("APP").play();
             default:
                 if(bandera=='portada'){
                     logo.classList.add('visible');
