@@ -72,10 +72,14 @@ function automatedPresentationWithSubsteps() {
 
 var fixedBackground = document.querySelector('.cd-fixed-bg');
 var innovaciones = document.querySelector('#innovaciones');
-var logo = document.querySelector('#fp-logo img');
 var video1 = document.getElementById('video1');
 var videogrid = document.getElementById('grid');
 var intro = document.getElementById('introduccion');
+var arregloT = document.getElementById('arregloT');
+var iec72602 = document.getElementById('IEC72602');
+var iec72702 = document.getElementById('IEC72702');
+var iec72901 = document.getElementById('IEC72901');
+var placaI = document.getElementById('placaI');
 var esquema = document.getElementById('esquema');
 var eventLoop = document.getElementById('eventLoop');
 var dbs = document.getElementById('dbs');
@@ -127,6 +131,24 @@ function javascriptsAnimation(){
             case 'videogrid':
                 videogrid.currentTime = 0;
                 videogrid.play();
+                break;
+            case 'driver':
+                arregloT.classList.add('color_title');
+                break;
+            case 'cto1':
+                arregloT.classList.remove('color_title');
+                placaI.classList.add('color_title');
+                break;
+            case 'carcasa1':
+                iec72602.classList.add('color_title');
+                break;
+            case 'carcasa2':
+                iec72602.classList.remove('color_title');
+                iec72702.classList.add('color_title');
+                break;
+            case 'diametro':
+                iec72702.classList.remove('color_title');
+                iec72901.classList.add('color_title');
                 break;
             case 'dbs':
                 eventLoop.classList.add('hidden');
@@ -196,9 +218,7 @@ function javascriptsAnimation(){
             case 'webapp':
                 document.getElementById("APP").play();
             default:
-                if(bandera=='portada'){
-                    logo.classList.add('visible');
-                }
+                null;
         }
     }
     document.addEventListener("impress:stepenter", animationHandler, false);

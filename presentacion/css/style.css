@@ -83,6 +83,9 @@
     table tbody tr td:first-child{
         background-color:#f3f3f3;
     }
+    .titulo_tabla{
+        color:#1565c0;
+    }
     .substep.future .upRow,.substep.present .upRow td,.substep.present .upRow th{
         visibility:visible;
         -moz-transition:all .4s 2s; 
@@ -305,6 +308,39 @@
 
     .impress-not-supported .fallback-message {
         display: block;
+    } 
+    .step .number-page{
+        visibility:hidden;
+        width: 25px;
+        height: 30px;
+        line-height: 1;
+        color: #212121;
+        position:absolute;
+        bottom: 10px;
+        right: 10px;
+        cursor:pointer;
+        text-align:center;
+        font-size: 30px;
+        font-style:oblique;
+        -webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;
+        -ms-animation-fill-mode:both;-o-animation-fill-mode:both;
+        animation-fill-mode:both;
+        -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+        -ms-animation-duration:1s;
+        -o-animation-duration:1s;
+        animation-duration:1s;
+    }
+    .number-page:hover{
+        font-style:normal;
+        color:#4A148C;
+    }
+    .step:not(.future) .number-page{
+        visibility:visible;
+        -webkit-animation-name: bounceIn;
+        -moz-animation-name: bounceIn;
+        -o-animation-name: bounceIn;
+        animation-name: bounceIn;
     }
 
 /*******************************Animaciones de transicion *************************************/
@@ -395,6 +431,9 @@
         background-color: #e7e7e7;
         text-align:center;
         color:#212121;
+    }
+    .color_title{
+        color: #0277BD;
     }
     .subtitle{
         font-size: 1.6rem;
@@ -512,10 +551,11 @@
         color: #686868;
     }
     h3{
-        font-size: 30px;
+        font-size: 27px;
         text-align: left;
         color:#616161;
         padding-left: 15px;
+        margin-top: 5px;
     }
     #fp-logo{
         width: 100%;
@@ -653,46 +693,77 @@
         -webkit-box-shadow: 1px 1px 10px 1px #A1A1A1;
         box-shadow: 1px 1px 10px 1px #A1A1A1;
     }
+    body{
+        background-color: white;
+    }
 
 /**************** slide 1 Portada ******************/
+    #logo{
+        height: 300px;
+        width: auto;
+        position: absolute;
+        top: 50px;
+        left: 100px;
+    }
     #portada{
         padding: 0px;
     }
-    #portada div:nth-child(1), #portada div:nth-child(2){
-        width: 1080px;
+    #portada #FPUNA{
+        position: absolute;
+        top: 73px;
+        left: 365px;
+    }
+    #portada div:nth-child(3){
+        width: 1140px;
         height: 280px;
         position: absolute;
-        left: calc(50% - 540px);
-        bottom: 140px;
+        left: calc(50% - 570px);
+        bottom: 205px;
     }
-    #portada div:nth-child(1){
-        opacity: 1;
-        -moz-transition: all 1s;
-        -webkit-transition: all 1s;
-        transition: all 1s;
-    }
-    #portada div:nth-child(1).past{
-        opacity: 0;
-    }
-    #portada div:nth-child(1) h1, #portada div:nth-child(2) h1{
-        color: #0D47A1;
-        margin-bottom: 30px;
+    #portada div:nth-child(2) h1, #portada div:nth-child(3) h1{
+        color: #333;
+        margin-bottom: 20px;
         margin-left: 0px;
-        text-align: center;
+        text-align: left;
         border: none;
-        font-size: 44px;
+        font-size: 40px;
+    }
+    #portada div:nth-child(2) .title3{
+        text-align: left;
+    }
+    #portada div:nth-child(3) h1{
+        color: #01579b;
+        text-align: justify;
     }
     #portada .title3{
         font-size:38px
     }
-    #portada.past{
-        opacity: 0;
+    #divisoria.substep{
+        width: 0px;
+        transition: all 1s;
+    }
+    #divisoria.substep:not(.future){
+        position: absolute;
+        top: 189px;
+        left: 368px;
+        height: 4px;
+        width: 735px;
+        background-color: #0277bd;
+    }
+    #autor1, #autor2{
+        color: #212121;
+    }
+    #autor2{
+        margin-bottom: 40px;
+    }
+    #portada{
+        border: solid 1px #bdbdbd;
     }
 
 /*************** slide 2 Contenido *******************/
    #contenido h3{
        font-size: 39px;
-       color: black
+       color: black;
    }
     #contenido.step.past{
         opacity: 1;
@@ -707,9 +778,6 @@
         font-size: 30px;
         color: #686868;
     }
-    #contenido:not(.present){
-        opacity: 0;
-    }
     #contenido > ul{
         margin-top: 35px;
         margin-left: 50px;
@@ -719,7 +787,7 @@
         margin-bottom: 10px;
     }
     #contenido > ul > li > ul{
-        width: 491px;
+        width: 595px;
         padding-left: 15px;
         padding-right: 40px;
     }
@@ -733,7 +801,10 @@
         padding-bottom: 5px;
         margin-bottom: 30px;
     }
-
+    #contenido{
+        background: url(../images/UNAbg.png) left bottom;
+        background-size: cover;
+    }
 /*************** slide 3 Introduccion *******************/
     #introduccion h1{
         position:absolute;
@@ -1001,6 +1072,49 @@
 #situacionActual{
     overflow: hidden;
 }
+#esquema_ande{
+    overflow: hidden;
+    width: 1280px;
+    height: 650px;
+    padding: 0px;
+}
+#esquema_ande h1{
+    width: 830px;
+    color: #212121;
+    text-align: center;
+    padding: 10px;
+}
+#esquema_ande.past h1{
+    visibility: hidden;
+}
+#esquema_ande > div:nth-child(2).substep img{
+    opacity: .7;
+    -webkit-transform: translateY(100%);
+    transform: translateY(120%);
+    -webkit-transition: all .8s;
+    transition: all .8s;
+}
+#esquema_ande > div:nth-child(2).substep.present img{
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+}
+#esquema_ande img{
+    width: 850px;
+    margin-left: calc(50% - 425px);
+}
+#esquema_ande .referencia{
+    visibility: hidden;
+    position: absolute;
+    bottom: 10px;
+    left: 220px;
+    font-size: 16px;
+    transition: all .1.5s;
+}
+
+#esquema_ande > div:nth-child(2).present + .referencia{
+    visibility: visible !important;
+}
 
 /**************** slide 4 expertos ****************/
     #expertos{
@@ -1021,11 +1135,11 @@
         text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
     }
     #expertos .substep h2#hjm{
-        top: 140px;
+        top: 44px;
         font-size: 32px;
     }
     #expertos .substep h2#hjj{
-        top: 190px;
+        top: 113px;
         font-size: 32px;
     }
     #expertos .substep h2#hte{
@@ -1175,8 +1289,14 @@
         right: 55px;
         top: 115px
     }
+    #problema1.past{
+        opacity: 1;
+    }
 
 /***************** slide 6 obras   *************************/
+    #distribucionIntro:not(.future){
+        opacity:1;
+    }
     #obras{
         width: 900px;
         height: 600px;
@@ -1337,6 +1457,9 @@
    #reaccion{
         width:590px;
         height:800px;
+    }
+    #reaccion:not(.future){
+        opacity:1;
     }
     #noticias1{
         width: 570px;
@@ -1716,14 +1839,14 @@
     }
     #internet{
         visibility:visible !important;
-        background:url(../images/internet.png) center center;
+        background:url(../images/internet.jpg) center center;
         background-size:cover;
         border-radius:5px;
         position:absolute;
-        width:400px;
-        height:280px;
-        bottom:250px;
-        right:170px;
+        width:450px;
+        height:450px;
+        bottom:145px;
+        right:140px;
         opacity:.6;
         -moz-transform: scale(.3);
         -webkit-transform: scale(.3); 
@@ -1736,16 +1859,16 @@
         transition-delay:1s;
     }
     #internet:not(.future){
-        -moz-transform: scale(.6);
-        -webkit-transform: scale(.6); 
-        -o-transform: scale(.6); 
-        transform: scale(.6);
+        -moz-transform: scale(.5);
+        -webkit-transform: scale(.5); 
+        -o-transform: scale(.5); 
+        transform: scale(.5);
     }
     #internet + div{
         display:inline-block;
         position:absolute;
         bottom:365px;
-        right:330px;
+        right: 320px;
     }
     #internet + div p{
         font-size:30px;
@@ -1916,13 +2039,34 @@
     #nube_xbee{
         position:absolute;
         top:285px;
-        left:340px;
-        width:400px;
+        left:240px;
+        width:480px;
         height:400px;
         overflow:hidden;
-        border-radius:50%;
-        border:dashed 2px #bdbdbd;
-        background: url(../images/fondo_nube.jpg) no-repeat center center;
+    }
+    #nube_xbee > img:first-child{
+        position: absolute;
+        left: 117px;
+        top: 100px;
+        width: 320px;
+    }
+    #nube_arriba{
+        position: absolute;
+        z-index: 5;
+        left: 235px;
+        top: 176px;
+        width: 144px;
+    }
+    #flecha_nube, #flecha_nube2{
+        position: absolute;
+        z-index: 3;
+        width: 125px;
+        left: 251px;
+        top: 178px;
+    }
+    #flecha_nube2{
+        left: 243px;
+        top: 176px;
     }
     #nube_xbee_view{
         width:800px;
@@ -1931,12 +2075,13 @@
     #nube_xbee + div{
         display:inline-block;
         position:absolute;
-        left:480px;
+        left: 475px;
         bottom:320px;
         -moz-transform: rotateZ(-15deg);
-        -webkit-transform: rotateZ(-15deg); 
-        -o-transform: rotateZ(-15deg); 
-        transform: rotateZ(-15deg);
+        -webkit-transform: rotateZ(-15deg);
+        -o-transform: rotateZ(-15deg);
+        transform: rotateZ(-20deg);
+        z-index: 10;
     }
     #nube_xbee + div p{
         font-size:25px;
@@ -2122,16 +2267,16 @@
         z-index:30;
         display: block;
         padding: 15px;
-        background-color: #C51162;
+        background-color: #333;
         color: white;
-        padding-right: 130px;
-        padding-left: 130px;
+        padding-right: 155px;
+        padding-left: 180px;
     }
     #proTitle{
         background-color:#bdbdbd;
         left: 50%;
-        padding-left:100px;
-        padding-right:100px;
+        padding-left: 135px;
+        padding-right: 135px;
     }
     #transTitle{
         right:50%;
@@ -2419,7 +2564,7 @@
     }
     #entornoTitles h2{
         padding-top: 50px;
-        font-size: 50px;
+        font-size: 47px;
         margin-bottom:50px;
     }
     #supervision > div:first-child{
@@ -2905,12 +3050,12 @@
     }
     #diagrama_title{
         position:absolute;
-        top:-5px;
+        top: 4px;
         left:170px;
         line-height:1.1;
     }
     #diagrama_title h2{
-        font-size:27px;
+        font-size: 25px;
     }
     #diagrama_title h3{
         font-size: 18px;
@@ -3506,20 +3651,42 @@
     }
 /**************** web app *********************/
     #webapp #APP{
-        width: 1200px;
-        height:1500px;
+        width: 1099px;
+        height: 1539px;
         margin-top:-400px;
+        margin-left: 55px;
+    }
+    #webapp.future{
+        opacity: 0;
     }
 /*************** presupuesto *****************/
+    #costo_hardware div#costowrap{
+        display:inline-block;
+        margin-top:30px;
+        padding:15px;
+    }
+    #costohardware{
+        width:700px;
+        height:600px;
+    }
+    #costohardware th{
+        padding:5px;
+    }
+    #costohardware tbody th{
+        background-color:#f8f8f8;
+    }
+    #costohardware td{
+        text-align:center;
+    }
     #presupuesto{
         padding: 0px;
     }
     #presupuesto > div{
         position:absolute;
-        top: 150px;
-        left: 150px;
-        width: 420px;
-        height: 530px;
+        top: 218px;
+        left: 164px;
+        width: 400px;
+        height: 400px;
     }
     #presupuesto h2{
         display: block;
@@ -3528,25 +3695,26 @@
         font-size: 22px;
     }
     #presupuesto h2:first-child{
-        top:220px;
-        left:400px;
+        top: 40px;
+        left: 373px;
         z-index:2;
     }
     #presupuesto h2:nth-child(2){
-        top:450px;
-        left:170px;
+        top: 315px;
+        left: -16px;
         z-index:2;
     }
     #presupuesto h2:nth-child(3){
-        top: -20px;
-        left: 130px;
+        top: -40px;
+        left: -10px;
         z-index:2;
     }
     #presupuesto > div > img{
         width: 100%;
     }
     #presupuesto > div:first-child >img{
-        width:600px;
+        width: 400px;
+        height: 400px;
         /* position: absolute; */
         left: -10px;
     }
@@ -3566,7 +3734,7 @@
     #presupuesto > div:nth-child(3), #presupuesto > div:nth-child(4){
         position:absolute;
         top: 400px;
-        left: 615px;
+        left: 657px;
     }
     #presupuesto table{
         width:440px;
