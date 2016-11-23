@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=1024" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Soluciones TICs para mejora del sistema de monitoreo de una red electrica</title>
+	<title>Soluciones TICs para mejora del sistema de monitoreo de una red eléctrica</title>
 	<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="css/substeps.css">
@@ -58,12 +58,12 @@
 	    -->
 	    	<!-- slide 1 -->
 	    	<div id="portada" class="step size1" data-x="-1000" data-y="-74400" data-scale="40">
-	    		<img id="logo" src="images/fp_symbol_only.png" alt="fp-una">
+	    		<img class="substep rollIn" id="logo" src="images/fp_symbol_only.png" alt="fp-una" data-duration="600">
 	    		<div id="FPUNA">
     				<h2 class="title3">UNIVERSIDAD NACIONAL DE ASUNCIÓN</h2>
     				<h1>FACULTAD POLITÉCNICA</h1>
-    				<h2 class="title3">INGENIERIA EN ELECTRÓNICA</h2>
-    				<h2 class="title3">Teleprocesamiento de la Informacion</h2>
+    				<h2 class="title3">INGENIERÍA EN ELECTRÓNICA</h2>
+    				<h2 class="title3">Teleprocesamiento de la Información</h2>
     			</div>
 	    		<div>
 	    			<h1>Sistema de telemedida de parámetros eléctricos de usuarios domiciliarios aplicando tecnologías de la información y comunicación</h1>
@@ -73,7 +73,9 @@
 	    			<h2 class="title3">Prof. Ing. Lucas Frutos</h2>
 	    			<h2 class="title3">Diciembre - 2016</h2>
     			</div>
-    			<div class="substep" id="divisoria"></div>
+                        <div class="substep" id="divisoria" data-duration="200"></div>
+                        <div class="substep scaleIn" data-duration="200"  id="bgportada"></div>
+                        <div class="substep fadeIn" id="bgportada2"></div>
                         <div class="number-page">1</div>
 	    	</div>
 	    	<!-- slide 2-->
@@ -86,7 +88,7 @@
 			    				<h3><a class="substep scaleIn" href="#situacionActual" title="">Introducción</a></h3>
 			    			</li>
 			    			<li>
-			    				<h3><a class="substep scaleIn" href="#revisionBibliografica" title="">Revision Bibliográfica</a></h3>
+			    				<h3><a class="substep scaleIn" href="#revisionBibliografica" title="">Revisión Bibliográfica</a></h3>
 			    			</li>
 			    			<li>
 			    				<h3><a class="substep scaleIn" href="#revisionBibliografica" title="">Resumen Ejecutivo</a></h3>
@@ -128,17 +130,56 @@
                 </div>
             </div>
             <div class="step" id="problema1" data-x="-10500" data-y="-2840" data-scale="20">
-	    		<img src="images/ANDE.png" alt="">
-	    		<h2>Administracion Nacional de Distribucion de Energia</h2>
+	    		<img class="substep scaleIn" src="images/ANDE.png" alt="">
+	    		<h2>Administración Nacional de Electricidad</h2>
 	    		<div class="divider horizontal1"></div>
 	    		<p>La distribución de la energía eléctrica en el Paraguay se encuentra a cargo de la institución pública ANDE</p>
                         <div class="number-page">4</div>
 	    	</div>
-	    	<div class="step" id="esquema_ande" data-x="-10500" data-y="-3840" data-scale="15" data-rotate-x="-90" data-z="5000">
-	    		<h1>Esquema de la red Eléctrica</h1>
-	    		<div class="substep">
+	    	<div class="step" id="esquema_ande" data-x="-10500" data-y="-3840" data-scale="15" data-rotate-x="-90" data-z="6000">
+	    		<h1 class="substep scaleIn">Esquema de la red Eléctrica</h1>
+                        <p class="substep scaleIn">Se encarga de la Generación, transmisón y distribución de la energía eléctrica donde su red se alimenta principalmente de las centrales hidroeléctricas</p>
+	    		<div class="substep fadeIn">
 	    			<img src="images/GenTransDis.png" alt="">
 	    		</div>
+                        <div id="generacion" class="substep fadeIn" data-duration="150">
+                            <p class="writeEffect" data-text="Generación"></p>
+                        </div>
+                        <div id="gen_flecha1">
+                            <div class="substep expand">
+                                <img src="images/flecha_indicadora2.png" alt="">
+                            </div>
+                        </div>
+                        <div id="transporte" class="substep fadeIn" data-duration="150">
+                            <p class="writeEffect" data-text="Transporte"></p>
+                        </div>
+                        <div id="trans_flecha1">
+                            <div class="substep expand">
+                                <img src="images/flecha_indicadora1.png" alt="">
+                            </div>
+                        </div>
+                        <div id="distribucion" class="substep fadeIn" data-duration="150">
+                            <p class="writeEffect" data-text="Distribución"></p>
+                        </div>
+                        <div id="dis_flecha1">
+                            <div class="substep expand">
+                                <img src="images/flecha_indicadora1.png" alt="">
+                            </div>
+                        </div>
+
+                        <div id="domesticos">
+                            <div class="substep expand"></div>
+                        </div>
+                        
+                        <div id="alcance" class="substep fadeIn" data-duration="150">
+                            <p class="writeEffect" data-text="Alcance"></p>
+                        </div>
+                        <div id="alc_flecha1">
+                            <div class="substep expand">
+                                <img src="images/flecha_indicadora2.png" alt="">
+                            </div>
+                        </div>
+
 	    		<p class="referencia">
 	                <span>Fuente:</span>
 	                http://www.ande.gov.py
@@ -157,17 +198,24 @@
                             http://www.ande.gov.py
                         </p>
 	    	</div>
-            <div id="inconvenientes3" class="step" data-x="-6500" data-y="6410" data-scale="15">
+            <div id="inconvenientes3" class="step" data-x="-6500" data-y="6100" data-scale="12">
 	    		<img class="border" src="images/Oferta_demanda.png" alt=""> 
                         <p class="referencia"><span>Fuente:</span>http://www.ande.gov.py/generacion.php</p>
                         <div id="demcrece" class="substep fadeIn">
-                            <p class="writeEffect" data-text="Aumento de la demanda">
-
-                            </p>
+                            <p class="writeEffect" data-text="Aumento de la demanda"></p>
+                        </div>
+                        <div id="mon_poblacion" class="substep scaleIn">
+                            <div id="mark_poblacion">
+                                <div class="substep expand"></div>
+                            </div>
+                            <p>El sistema de monitoreo obtiene los datos de la demanda de toda la población</p>
+                        </div>
+                        <div id="flecha_poblacion">
+                            <div class="substep expand"><img src="images/flecha_indicadora3.png" alt=""></div>
                         </div>
 	    	</div>
 	    	<div id="inconvenientes" class="step" data-x="-10200" data-y="17960" data-scale="19">
-	    		<h1 class="title6">Inconvenientes en el sistema de medicion</h1>
+	    		<h1 class="title6">Inconvenientes en el sistema de medición</h1>
                         <ul id="problemas">
 	    			<li><img src="images/list.png" alt="">Carencia de un sistema de análisis y supervisión en comunicación con una central de control y los abonados</li>
 	    			<li><img src="images/list.png" alt="">El usuario final  no supervisa su consumo de forma continua</li>
@@ -202,25 +250,29 @@
 	    	<div id="enParaguayOverview" class="step size1" data-x="-1000" data-y="9960" data-z="-1" data-scale="40"></div>
                 <!-- el medidor -->
                 <div id="medidores" class="step size1" data-x="-1000" data-y="46460" data-scale="40">
-                    <h1 class="title6">El medidor MT-174</h1>
+                    <h1 class="title7">El medidor MT-174</h1>
                     <div id="MT174">
                         <img src="images/medidorISKRA.png" alt="">
                     </div>
                     <ul id="medidordetalles">
-                        <li>
+                        <li class="substep scaleIn">
                             Cumple con los estandares<br> <strong>IEC 62056-21</strong> e <strong>IEC62056-61</strong>
                         </li>
                         <li>
                             <div id="indicadorPuerto">
-                                <div class="substep bounceIn"></div>
-                                <div></div>
+                                <div class="substep bounceIn" data-duration="800"></div>
+                                <div id="flecha_puerto">
+                                    <div class="substep expand" data-duration="200">
+                                       <img src="images/flecha_indicadora1.png" alt="">
+                                    </div>
+                                </div>
                             </div>
-                            Interfaz de Comunicacion
+                            <span class="substep scaleIn" >Interfaz de Comunicación</span>
                             <a class="substep fadeIn">
                                 <em class="writeEffect" data-text="(Puerto Óptico)"></em>
                             </a><br>
                             <a class="substep fadeIn">
-                                <span class="writeEffect" data-text="RS-485 (bajo demanda)"></span>
+                                <span style="color:#bdbdbd;" class="writeEffect" data-text="RS-485 (bajo demanda)"></span>
                             </a>
                         </li>
                         <li id="parametros" class="substep fadeIn">
@@ -255,7 +307,7 @@
 	    				<div id="bgJhonMc"></div>
 	    			</div>
 	    			<div class="content-wrap">
-	    				<p><i>Las TIC's traen consigo desafíos y ventajas, éstas seran las aliadas para la producción de energia a nivel global</i></p>
+	    				<p><i>Las TIC's traen consigo desafíos y ventajas, éstas seran las aliadas para la producción de energía a nivel global</i></p>
                                         <p class="referencia mg-l3">
                                             <span>Fuente:</span>
                                             http://enterprise.huawei.com/topic/2015powersummit_LA/
@@ -269,7 +321,7 @@
 	    				<div id="bgJerryJi"></div>
 	    			</div>
 	    			<div class="content-wrap">
-	    				<p><i>El construir una red eléctrica completamente conectada es prerrequisito para proveer mas seguridad, confianza y mejor calidad de equipos electricos</i></p>
+	    				<p><i>El construir una red eléctrica completamente conectada es prerrequisito para proveer más seguridad, confianza y mejor calidad de equipos elétricos</i></p>
                                         <p class="referencia mg-l3">
                                             <span>Fuente:</span>
                                             http://enterprise.huawei.com/topic/2015powersummit_LA/
@@ -315,14 +367,14 @@
 	    	<!-- slide 13 -->
             <div id="justificacion" class="step size2 bg-justificacion" data-x="-1000" data-y="145000" data-scale="40">
                 <h1 class="substep rollOut center">JUSTIFICACIÓN</h1>
-                <p class="substep fadeInLeft center p1">La inexistencia de un sistema capaz de monitorear el consumo y detectar los inconvenientes citados, produce un déficit en el control energético con un tiempo muy prolongado de reacción en la resolución de problemas, por parte de la entidad encargada del suministro eléctrico.</p>
+                <p class="substep fadeInLeft center p1">La inexistencia de un sistema capaz de monitorear de forma remota y continua los párametros eléctricos y el consumo de la energía eléctrica.</p>
 
                 <div style="color:white;" class="number-page">11</div>
 	    	</div>
 	    	<!-- slide 14 -->
 	    	<div id="finalidad" class="step size2 bg-finalidad" data-x="-1000" data-y="155500" data-scale="40">
 	    		<h1 class="substep rollOutLeft center">FINALIDAD</h1>
-                        <p class="substep fadeInRight center p1">Este proyecto tiene como finalidad proporcionar a la empresa proveedora de  electricidad y a sus abonados, una herramienta de monitoreo, con el propósito de acceder en tiempo real al consumo y la demanda de energía eléctrica en cada hogar.</p>
+                        <p class="substep fadeInRight center p1">Este proyecto tiene como finalidad proporcionar a la empresa proveedora de  electricidad y a sus usuarios, una herramienta de monitoreo, con el propósito de acceder en forma continua a los parámetros eléctricos y al consumo de energía eléctrica en cada hogar.</p>
 
                     <div style="color:white;" class="number-page">12</div>
 	    	</div>
@@ -338,7 +390,7 @@
 	    	<div id="objetivoGeneral" class="step" data-x="-1000" data-y="190000" data-scale="28">
 	    		<div>
 	    			<h1 class="title">Objetivo General</h1>
-		    		<p>Desarrollar un sistema  de telemedida que facilite el control de la demanda y el consumo de la energía eléctrica  de usuarios domiciliarios.</p>
+		    		<p>Desarrollar un sistema  de telemedida que facilite la supervisión de los parámetros eléctricos y el consumo de la energía eléctrica de usuarios domiciliarios.</p>
 	    		</div>
 	    	</div>
 	    	<div id="objetivoEspecifico1" class="step " data-x="7100" data-y="192170" data-scale="15" data-rotate="15">
@@ -386,10 +438,16 @@
                 <div id="antecedentes" class="step" data-x="-1000" data-y="223500" data-scale="40">
                     <h2>ANTECEDENTES</h2>
                     <h2 style="color:#607D8B;">Sistemas existentes en el mercado</h2>
-                    <div id="openEneInfo">
-                        <p>Herramienta de monitoreo de energía de codigo abierto. Implementa modulos basados en <strong>Raspberry Pi</strong>, <strong>Arduino</strong>.</p>
+                    <div class="substep scaleIn" id="openEneInfo">
+                        <p>Herramienta de monitoreo de energía de código abierto. Implementa módulos basados en <strong>Raspberry Pi</strong>, <strong>Arduino</strong>.</p>
                     </div>
-                    <div id="aamInfo">
+                    <div class="substep scaleIn" id="aamInfo">
+                        <div id="markaam1">
+                            <div class="substep expand"></div>
+                        </div>
+                        <div id="markaam2">
+                            <div class="substep expand"></div>
+                        </div>
                         <p>Plataforma Iskra. Los medidores se conectan al concentrador mediante una red cableada</p>
                     </div>
                     <p class="referencia mg-l10">
@@ -421,7 +479,7 @@
                 <div id="antecedentes2" class="step" data-x="9600" data-y="227500" data-scale="21">
                     <img src="images/iskraemeko-amm.jpg">
                     <div>
-                        <h3>Iskraemeco AAM</h3>
+                        <h3>Iskraemeco AMM</h3>
                     </div>
                 </div> 
                 <div id="antecedentesView" class="step size1" data-x="-1000" data-y="223200" data-scale="40"></div>
@@ -436,15 +494,11 @@
                                 Esquema general del sistema
                             </h1>
                             <h2>
-                                Analisis de las opciones de Diseño <br>
+                                Análisis de las opciones de Diseño <br>
                                 <span>Propuesta Técnica</span>
                     	    </h2>
                             <div class="clear"></div>
                         </div>	
-                        <p class="referencia">
-                            <span>Fuente:</span>
-                            Elaboraión propia
-                        </p>
                     </div>
                     <div id="medidor" class="substep fadeIn">
                         <p class="writeEffect" data-text="Medidor Inteligente"></p>
@@ -454,19 +508,30 @@
                     </div>
                     <div id="nube_xbee">
                     	<img src="images/nube_abajo.png" alt="">
-                    	<div class="substep fadeIn">
-	                    	<img id="flecha_nube" src="images/flecha1_azul.png" alt="">
-	                    	<img id="flecha_nube2" src="images/flecha2_azul.png" alt="">
-	                    </div>
-                    	<img id="nube_arriba" src="images/nube_arriba.png" alt="">
+                         <img id="nube_arriba" src="images/nube_arriba.png" alt="">
                     </div>
-                    <div class="substep fadeIn">
+                    <div id="IEEE_flecha1">
+                        <div class="substep expand"><img src="images/flecha_indicadora2.png" alt=""></div>
+                    </div>
+                    <div id="IEEE_protocol" class="substep fadeIn">
                         <p class="writeEffect" data-text="IEEE 802.15.4"></p>
+                    </div>
+                    <div id="IEEE_flecha2">
+                        <div class="substep expand"><img src="images/flecha_indicadora2.png" alt=""></div>
+                    </div>
+                    <div id="discon_flecha">
+                        <div class="substep expand"><img src="images/flecha_indicadora6.png" alt=""></div>
                     </div>
                     <div class="substep" id="internet"></div>
                     <div class="substep fadeIn">
                         <p class="writeEffect" data-text="internet"></p>
                     </div>
+                    <div id="internet_flecha1">
+                        <div class="substep expand"><img src="images/flecha_indicadora2.png" alt=""></div>
+                    </div>
+                    <div id="internet_flecha2">
+                        <div class="substep expand"><img src="images/flecha_indicadora2.png" alt=""></div>
+                    </div> 
                     <div class="footer">
                         <div><a href="">FP-UNA Ingeniería en Electrónica - Teleprocesamiento de la Información</a></div>
                         <div>
@@ -487,9 +552,10 @@
                			<img src="images/flecha1.png">
                		</div>
                         <div id="arrow_med">
-                            <img  src="images/flecha1_azul.png" alt="">
-                            <img  src="images/flecha2_azul.png" alt="">
+                            <img  src="images/flecha_indicadora4.png" alt="">
+                            <img  src="images/flecha_indicadora5.png" alt="">
                         </div> 
+                        <div class="number-page">16</div>
                	</div>
                	<div id="interfazOptica" class="step size1 shadow" data-x="-16400" data-y="275200" data-scale="2">
                         <div class="previa substep">
@@ -530,6 +596,7 @@
                                                     </tbody>
                                             </table>
                                         </div>
+                                        <div class="number-page">17</div>
                			</div>
                                 <div class="substep right-slide">
                                     <img class="only" src="images/sonda.png">
@@ -558,7 +625,7 @@
                                                         <td>5  V</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Transmision de datos</td>
+                                                        <td>Transmisión de datos</td>
                                                         <td>19200 bit/s</td>
                                                     </tr>
                                                     <tr>
@@ -573,6 +640,7 @@
                                             </thead>
                                         </table>
                                     </div>
+                                    <div class="number-page">18</div>
                                 </div>
                                 <div  class="substep right-slide last">
                                     <h2 id="transTitle">Transductor Óptico</h2>
@@ -621,6 +689,7 @@
                                             </p>
                                         </div>
                                     </div>
+                                    <div class="number-page">19</div>
                                 </div>
                		</div>
                	</div>
@@ -674,6 +743,7 @@
                                         <h3>PicClicker</h3>
                                     </div>
                                 </div>
+                                <div class="number-page">20</div>
                             </div>
                		    <div class="substep right-slide">
                			<table>
@@ -719,39 +789,15 @@
 	                                <td></td>
 	                                <td>14 V</td>
 	                                <td></td>
-	                            </tr>                            
-	                            <tr class="upRow">
-	                                <th>GPIO</th>
-	                                <td></td>
-	                                <td></td>
-	                                <td>36</td>
-	                                <td>10</td>
-	                                <td></td>
-	                            </tr>                            
+	                            </tr>                                                       
 	                            <tr>
 	                                <th>Entradas y Salidas</th>
 	                                <td>23</td>
 	                                <td>86</td>
-	                                <td></td>
-	                                <td></td>
+	                                <td>36</td>
+	                                <td>10</td>
 	                                <td>35</td>
-	                            </tr>                            
-	                            <tr>
-	                                <th>E/S Digitales</th>
-	                                <td>14 (de los cuales 6 proveen PWM)</td>
-	                                <td>54 (de los cuales 14 proveen PWM)</td>
-	                                <td></td>
-	                                <td></td>
-	                                <td></td>
-	                            </tr>                            
-	                            <tr>
-	                                <th>Entradas Analógicas</th>
-	                                <td>6</td>
-	                                <td>16</td>
-	                                <td></td>
-	                                <td></td>
-	                                <td></td>
-	                            </tr>                            
+	                            </tr>                                                      
 	                            <tr>
 	                                <th>Corrientes DC por pines de E/S</th>
 	                                <td>40 mA</td>
@@ -813,8 +859,8 @@
 	                                <td>AVR 8 bits</td>
 	                                <td>AVR 8 bits</td>
 	                                <td>ARM 32 bits</td>
-	                                <td>RISC 16 bits</td>
-	                                <td>RISC 8 bits</td>
+	                                <td>MSP 16 bits</td>
+	                                <td>PIC 8 bits</td>
 	                            </tr>                            
 	                            <tr class="upRow">
 	                                <th>Largo</th>
@@ -842,6 +888,7 @@
 	                            </tr>                            
 	                            </tbody>
 	                        </table>
+                                <div class="number-page">21</div>
                		    </div>
                             <div class="substep right-slide last">
                                 <img src="images/cypress.jpg" alt="">
@@ -849,6 +896,7 @@
                                     <span>Fuente:</span>
                                     http://eleshop.jp/shop/g/gE7A124/
                                 </p>
+                                <div class="number-page">22</div>
                             </div>
                		</div>
                	</div>	
@@ -907,14 +955,15 @@
 		                                <td>Standby 200 &micro;A</td>
 		                                <td>Standby 20 mA</td>
 		                            </tr>
-		                            <tr class="upRow">
+		                            <tr>
                                                 <td>Cantidad de Nodos</td>
 		                                <td>Soporta 254 nodos por subred, con capacidad de formar hasta 255 subredes</td>  
 		                                <td>Soporta 8 nodos</td>  
-		                                <td>Soporta gran cantidad de nodos conectando puntos de acceso</td>  
+		                                <td>Depende de las características del módulo WiFi, generalmente soporta 10 a 20 dispositivos</td>  
 		                            </tr>
 		                        </tbody>
-	                    	</table>
+	                    	    </table>
+                                    <div class="number-page">23</div>
                			</div>
 	                    <!-- Comparativa modulos zigbe-->
 	                    <div class="substep right-slide">
@@ -937,15 +986,7 @@
 		                                <td>Fabricante: Freescale, Transmisor: MC13192, Microcontrolador: MC9S08GT60</td>
 		                            </tr>
 		                            <tr>
-		                                <th>Alcance en interiores</th>
-		                                <td></td>
-		                                <td></td>
-		                                <td>30 m (Xbee), 100 m (Xbee Pro)</td>
-		                                <td>hasta 30 m (ETRX1), hasta 60 m (ETRX2)</td>
-		                                <td></td>
-		                            </tr>
-		                            <tr>
-		                                <th>Alcance en exteriores</th>
+		                                <th>Alcance</th>
 		                                <td>4 km (M02/04)</td>
 		                                <td>120 m</td>
 		                                <td>100 m (Xbee), 1,2km (Xbee Pro)</td>
@@ -1026,82 +1067,15 @@
 		                            </tr>
 		                        </tbody>
 		                    </table>
-	                    </div>
-	                    <div class="substep right-slide">
-	                    	<!-- comparacion d modulos xbee -->
-			                <table id="table4" class="miniTable">
-		                        <thead>
-		                            <tr>
-		                                <th></th>
-		                                <th>Xbee</th>
-		                                <th>Xbee Pro</th>
-		                            </tr> 
-		                        </thead>
-		                        <tbody>
-		                            <tr>
-		                                <th>Alncance en espacios interiores</th>
-		                                <td>hasta 30m</td>
-		                                <td>hasta 100m</td>
-		                            </tr>
-		                            <tr>
-		                                <th>Alcance en espacios exteriores</th>
-		                                <td>hasta 100 m</td>
-		                                <td>hasta 1,2 km</td>
-		                            </tr>
-		                            <tr class="upRow">
-		                                <th>Potencia de salida en transmisión</th>
-		                                <td>2 mW (3 dbm)</td>
-		                                <td>60 mW (18 dbm), 100 mW</td>
-		                            </tr>
-		                            <tr>
-		                                <th>Voltaje de Alimentación</th>
-		                                <td>2,8 - 3,4 V</td>
-		                                <td>2,8 - 3,4 V</td>
-		                            </tr>
-		                            <tr>
-		                                <th>Corriente de transmisión</th>
-		                                <td>45 mA @ 3,3 V</td>
-		                                <td>270 mA @ 3,3 V</td>
-		                            </tr>
-		                            <tr>
-		                                <th>Corriente de recepción</th>
-		                                <td>50 mA @ 3,3 V</td>
-		                                <td>55 mA @ 3,3 V</td>
-		                            </tr>
-		                            <tr>
-		                                <th>Corriente Power Down</th>
-		                                <td>&lt; 10 &micro;A</td>
-		                                <td>&lt; 10 &micro;A</td>
-		                            </tr>
-		                            <tr>
-		                                <th>Frecuencia</th>
-		                                <td>ISM 2,4 GHz</td>
-		                                <td>ISM 2,4 GHz</td>
-		                            </tr>
-		                            <tr>
-		                                <th>Dimensiones</th>
-		                                <td>2,438 cm x 2,671 cm</td>
-		                                <td>2,438 cm x 3,294 cm</td>
-		                            </tr>
-		                            <tr>
-		                                <th>Topologías permitidas en la red</th>
-		                                <td>Punto a punto, punto a multipunto, igual a igual y mesh</td>
-		                                <td>Punto a punto, punto a multipunto, igual a igual y mesh</td>
-		                            </tr>
-                                            <tr class="upRow">
-                                                <th>Precio</th>
-                                                <td>27$</td>
-                                                <td>60$</td>
-                                            </tr>
-		                        </tbody>
-		                    </table>
-	                    </div>
+                                    <div class="number-page">24</div>
+	                    </div> 
                             <div class="substep right-slide last">
                                 <img id="xbeeseries" src="images/xbeeSeries.png" alt="">
                                 <p>
                                     <span>Fuente:</span>
                                     https://en.wikipedia.org/wiki/XBee#/media/File:Pair_of_XBee_Series_2s_with_Whip_Antennas.jpg
                                 </p>
+                                <div class="number-page">25</div>
                             </div>
                		</div>
                	</div>
@@ -1120,6 +1094,7 @@
                             <div id="adaptTitle">
                                 <p>Adaptador-regulador xbee 5 a 3.3v</p>
                             </div>
+                            <div class="number-page">26</div>
                         </div>
                     </div>
                	</div>
@@ -1128,7 +1103,7 @@
                 </div>
                	<div id="comunicador" class="step" data-x="3000" data-y="272600" data-scale="10">
                         <div>   
-                            <h1 class="center2">Comunicador</h1>
+                            <h1 class="center2">Concentrador</h1>
                         </div>
                		<div class="dc">
                			<h3>Alimentación</h3>
@@ -1144,6 +1119,7 @@
                			<h3>Sensor Inalámbrico</h3>
                			<img src="images/doble_flecha.png">
                		</div>
+                        <div class="number-page">27</div>
                	</div>
                	<div id="CCSC" class="step size1 shadow" data-x="4800" data-y="274550" data-scale="2">
                		<img src="" alt="">
@@ -1224,6 +1200,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="number-page">28</div>
                             </div>
                             <div class="substep right-slide">
                                 <!-- Tabla comparativa CCSC -->
@@ -1263,7 +1240,7 @@
                                             <th>SoC</th>
                                             <td>Broadcom BCM2835</td>
                                             <td>AllWinner A20</td>
-                                            <td>AM3359AZCZ100 1 GHz</td>
+                                            <td>AM3359AZCZ100</td>
                                             <td>AllWinner A20</td>
                                             <td>Exynos 5410 Octacore</td>
                                             <td>Basado en la microarquitectura Pentium P54C</td>
@@ -1275,12 +1252,12 @@
                                             <th>CPU</th>
                                             <td>700 MHz ARM1176JZF-S</td>
                                             <td>1 GHz ARM Cortex A7</td>
-                                            <td>ARM Cortex A8</td>
+                                            <td>ARM Cortex A8 1GHz</td>
                                             <td>ARM Cortex A8 a 1GHz</td>
                                             <td>ARM Cortex A15 de 1.6 GHz y ARM Cortex A7 de 13 GHz</td>
-                                            <td>AMD A55E</td>
+                                            <td>AMD A55E 1GHz</td>
                                             <td>Intel Quark x1000 a 400 MHz basado en sus procesadores x86</td>
-                                            <td>i2ex</td>
+                                            <td>i2ex 1GHz</td>
 
                                         </tr>
                                         <tr>
@@ -1356,6 +1333,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="number-page">29</div>
                             </div>
                             <div class="substep right-slide last">
                                 <img src="images/raspberryBplus.png" alt="">
@@ -1363,14 +1341,16 @@
                                     <span>Fuente:</span>
                                     http://www.cnet.com/products/raspberry-pi-model-b-plus/
                                 </p>
+                                <div class="number-page">30</div>
                             </div>
                		</div>
                	</div>
                 <div class="step" style="width:880px; height:1020px;" data-x="3000" data-y="272600" data-scale="10"></div>
                	<div id="supervision" class="step" data-x="17500" data-y="272600" data-scale="10">
                     <div>
-                        <h2 class="center2">Centro de Supervision</h2>
+                        <h2 class="center2">Centro de Supervisión</h2>
                     </div> 
+                    <div class="number-page">31</div>
                	</div>
                 <div id="entornoSupervision" class="step" data-x="17500" data-y="274800" data-scale="10">
                     <div id="entornoTitles" class="substep">
@@ -1391,7 +1371,6 @@
                             <img class="substep fadeIn" src="images/completa.png" alt="">
                             <img class="substep fadeIn" src="images/flecha_curva_4.png" alt="" data-duration="400">
                             <img class="substep fadeIn" src="images/triggerCallback.png" alt="">
-
                         </div>
                         <div id="dbs" class="substep fadeIn">
                             <div class="substep fadeInRight">
@@ -1399,6 +1378,9 @@
                                     <span></span>
                                     <div class="cd-content right">
                                         <img id="opciondb" src="images/opciondb.png" alt="">
+                                        <div class="substep bounceIn" id="choice1"><img src="images/select_ok.png" alt=""></div>
+                                        <div id="choice2" class="substep bounceIn"><img src="images/select_ok.png" alt=""></div>
+                                        <div class="number-page">32</div>
                                     </div>
                                 </div>
                             </div>
@@ -1409,7 +1391,9 @@
                             <img src="images/pcs.png" alt="">
                         </div> 
                 </div>
-               	<div id="centroDatos" class="step size1" data-x="13200" data-y="276295" data-scale="0.36"></div>
+               	<div id="centroDatos" class="step size1" data-x="13200" data-y="276295" data-scale="0.36">
+                    <div class="number-page">33</div>
+                </div>
                	<div id="server" class="step size1" data-x="14190" data-y="276295" data-scale="0.36">
                		<table id="serverTable">
                			<tr>
@@ -1452,9 +1436,10 @@
                				<td>2740$</td>
                			</tr>
                		</table>
+                        <div class="number-page">34</div>
                		<div class="cd-single-step substep fadeIn">
                         <span></span>
-                        <div class="cd-content left">
+                        <div style="overflow:hidden;" class="cd-content left">
                             <div><img src="images/calcDatos.png" alt=""></div>
                         </div>
                     </div>
@@ -1488,6 +1473,7 @@
                             <a href="">Marcelo Arévalos</a>
                         </div>
                     </div>
+                    <div class="number-page">35</div>
                 </div>
                 <div id="lector" class="step size1" data-x="-1000" data-y="309000" data-scale="40">
                 	<div class="substep" id="indicador" data-duration="10"></div>
@@ -1495,7 +1481,6 @@
                         <div class="substep fadeIn" id="prototipoInfo">
                             <p>Puesta en marcha del prototipo</p>
                         </div>
-
                 </div>
                 <div id="lector_video" class="step hidden" data-x="-19300" data-y="309500" data-scale="25">
                 	<video id="video3" width="800" height="700">
@@ -1514,6 +1499,7 @@
                                     <h2>Software del Microcontrolador</h2>
                                     <h3><strong>IDE</strong> PSoC Creator 3.3 (Lenguaje C)</h3>
                                 </div>
+                                <div class="number-page">36</div>
                             </div>
                         </div>
                     </div> 
@@ -1686,7 +1672,7 @@
                     </div>
                 </div>
                 <div id="psocOverview" class="step size1" data-x="-10000" data-y="307750" data-scale="28"></div>
-                <div id="mesh" class="step size1" data-x="-10000" data-y="310500" data-scale="40">
+                <div id="mesh" class="step" data-x="500" data-y="302000" data-scale="40">
                     <div class="cd-single-step substep fadeIn">
                         <span></span>
                         <div class="cd-content top">
@@ -1715,11 +1701,11 @@
                         <img src="images/raspberry-pi-schem.png" alt="">
                     </div>
                     <div class="raspberry">
-                        <h3>Inicializacion</h3>
+                        <h3>Inicialización</h3>
                         <div><img src="images/extraccion.png" alt=""></div>
                     </div>
                     <div class="raspberry substep fadeIn">
-                        <h3>Solicitud a los diferentes nodos</h3>
+                        <h3>Reenvío de los datos al Centro de Supervisión</h3>
                         <div><img src="images/socketIO.png" alt=""></div>
                     </div>
                     <div class="raspberry substep fadeIn">
@@ -1727,6 +1713,7 @@
                         <div><img src="images/notificacion.png" alt=""></div>
                     </div>
                     <div class="substep break" data-duration="100"></div>
+                    <div class="number-page">37</div>
                 </div>
                 <div id="arquitecturaView1" class="step size1" data-x="-1000" data-y="309000" data-scale="40"></div>
                 <div id="webapp" class="step size1" data-x="3850" data-y="298500" data-scale="2.5">
@@ -1806,12 +1793,13 @@
                            </tbody>
                        </table>
                     </div>
+                    <div class="number-page">38</div>
                 </div>
                 <div id="presupuesto" class="step size1" data-x="-1000" data-y="377500" data-scale="40">
                     <div id="image_presupuesto">
                     	<h2>Iskraemeco $62406</h2>
                     	<h2>Open Energy Monitor $85978</h2>
-                    	<h2>Prototipo $25000</h2>
+                    	<h2>Prototipo $42.909</h2>
                     	<img src="images/presupuesto.png" alt="">
                     </div>
                      <!-- P2CC -->
@@ -1833,23 +1821,23 @@
 			                            </tr>
 			                            <tr>
 			                                <td>Licencia Software</td>
-			                                <td>31364</td>
+			                                <td>31.364</td>
 			                            </tr>
 			                            <tr>
 			                                <td>P2CC Gateway (x8)</td>
-			                                <td>12000</td>
+			                                <td>12.000</td>
 			                            </tr>
 			                            <tr>
 			                                <td>Cable coaxial RS-485 (10560 metros)</td>
-			                                <td>3642</td>
+			                                <td>3.642</td>
 			                            </tr>
                                                     <tr>
                                                         <td>costo de instalación</td>
-                                                        <td>15400</td>
+                                                        <td>15.400</td>
                                                     </tr>
 			                            <tr>
 			                                <td>Total</td>
-			                                <td>62406</td>
+			                                <td>62.406</td>
 			                            </tr>
 			                        </tbody>
 			                    </table>
@@ -1878,27 +1866,27 @@
                                 </tr>
                                 <tr>
                                     <td>emonTx</td>
-                                    <td>3665</td>
+                                    <td>3.665</td>
                                 </tr>
                                 <tr>
                                     <td>emonPi</td>
-                                    <td>51630</td>
+                                    <td>51.630</td>
                                 </tr>
                                 <tr>
                                     <td>emonBase</td>
-                                    <td>18796</td>
+                                    <td>18.796</td>
                                 </tr>
                                 <tr>
                                     <td>sensores de corriente</td>
-                                    <td>9601</td>
+                                    <td>9.601</td>
                                 </tr>
                                 <tr>
                                     <td>Sensor de tensión</td>
-                                    <td>2286</td>
+                                    <td>2.286</td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
-                                    <td>85978</td>
+                                    <td>85.978</td>
                                 </tr>
                             </tbody>
                         		</table>
@@ -1925,7 +1913,7 @@
 		                                </tr>
 		                                <tr>
 		                                    <td>Dispositivo de lectura</td>
-		                                    <td>12954</td>
+		                                    <td>12.954</td>
 		                                </tr>
 		                                <tr>
 		                                    <td>Licencia de Software</td>
@@ -1933,11 +1921,11 @@
 		                                </tr>
 		                                <tr>
 		                                    <td>Horas Hombre(Ingeniero Junior)</td>
-		                                    <td>9000</td>
+		                                    <td>15.000</td>
 		                                </tr>
                                                 <tr>
                                                     <td>Costos de instalación</td>
-                                                    <td>220</td>
+                                                    <td>2.790</td>
                                                 </tr>
 		                                <tr>
 		                                    <td>Dispositivo Concentrador</td>
@@ -1945,11 +1933,11 @@
 		                                </tr>
                                                 <tr>
                                                     <td>servidor</td>
-                                                    <td>2740</td>
+                                                    <td>12.080</td>
                                                 </tr>
 		                                <tr>
 		                                    <td>Total</td>
-		                                    <td>25000</td>
+		                                    <td>42.909</td>
 		                                </tr>
 		                            </tbody>
 		                        </table>
@@ -1957,7 +1945,7 @@
 		                </div>
                     </div>
                     <div><img src="images/comparativa_title.png"></div>
-                    <h1 style="position:absolute; top: 20px; z-index:10; width:100%; padding:0px;" class="title6">Análisis Financiero</h1>
+                    <h1 style="position:absolute; top: 20px; z-index:10; width:100%; padding:0px;" class="title7">Análisis Financiero</h1>
                 </div>
                 <div id="conclusiones" class="step size1" data-x="-1000"  data-y="409500" data-scale="40">
                 	<h1 class="title6">CONCLUSIONES</h1>
@@ -2020,21 +2008,23 @@
     				</div>   
     				<div id="conclusion_gral">
     					<div>
-    						<p>Se desarrolló un sistema  de telemedida que facilita el control de la demanda y el consumo de la energía eléctrica  de usuarios domiciliarios.</p>
+    						<p>Se desarrolló un sistema  de telemedida que facilita la supervisión de los parámetros eléctricos y el consumo de la energía eléctrica  de usuarios domiciliarios.</p>
     					</div>
     				</div>
+                    <div class="number-page">40</div>
                 </div>
                 <div id="recomendaciones" class="step size1" data-x="-1000" data-y="441500" data-scale="40">
                     <h1 class="title6">Recomendaciones</h1>
                     <ul class="substep fadeIn">
-                        <li class="substep table-divider">Reemplazar el modulo RF Xbee serie 2 por el módulo NRF24l01+. </li>
-                        <li class="substep table-divider">Prever un sistema de backup para la alimentacion de los equipos</li>
+                        <li class="substep table-divider">Reemplazar el módulo RF Xbee serie 2 por el módulo NRF24l01+. </li>
+                        <li class="substep table-divider">Prever un sistema de backup para la alimentación de los equipos</li>
                         <li class="substep table-divider">
                             Actualizar la aplicación web con mayores funcionalidades.
                         </li>
                         <li class="substep table-divider">Estudiar otros esquemas de comunicaciones entre los nodos y el dispositivo concentrador</li>
 
                     </ul>
+                    <div class="number-page">41</div>
                 </div>
 	<!--
         This element introduces rotation.

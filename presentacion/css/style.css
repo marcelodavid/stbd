@@ -83,6 +83,12 @@
     table tbody tr td:first-child{
         background-color:#f3f3f3;
     }
+    #numero_39{
+        width:none;
+        height:none;
+        right:-300px !important;
+        bottom:-500px !important;
+    }
     .titulo_tabla{
         color:#1565c0;
     }
@@ -401,7 +407,7 @@
         color: #757575;
         border: none;
     }
-    .title2, .title6{
+    .title2, .title6, .title7{
         margin-left: 95px;
         font-size: 40px;
         border-bottom-style: solid;
@@ -412,6 +418,10 @@
     }
     .title6{
         margin-left:0px;
+    }
+    .title7{
+        margin-left:40px;
+        margin-right:40px;
     }
     .title3{
         text-align: center;
@@ -488,7 +498,7 @@
     .center2{
         top: 20px;
         color: #333;
-        font-size: 150px;
+        font-size: 140px;
         line-height:1.2;
     }
     .center.p1{
@@ -707,6 +717,27 @@
     }
     #portada{
         padding: 0px;
+        overflow:hidden;
+    }
+    #portada > div#bgportada{
+        width:480px;
+        height:440px;
+        position:absolute;
+        right:-70px;
+        bottom:-40px;
+        z-index:-50;
+        background:url('../images/portada_bg1.png') right top no-repeat;
+        background-size:cover;
+    }
+    #portada >div#bgportada2{
+        width:520px;
+        height:300px;
+        position:absolute;
+        left:-120px;
+        bottom:-10px;
+        background:url('../images/portada_bg.png') left bottom no-repeat;
+        background-size:cover;
+        z-index:-50;
     }
     #portada #FPUNA{
         position: absolute;
@@ -726,7 +757,7 @@
         margin-left: 0px;
         text-align: left;
         border: none;
-        font-size: 40px;
+        font-size: 37px;
     }
     #portada div:nth-child(2) .title3{
         text-align: left;
@@ -755,9 +786,6 @@
     }
     #autor2{
         margin-bottom: 40px;
-    }
-    #portada{
-        border: solid 1px #bdbdbd;
     }
 
 /*************** slide 2 Contenido *******************/
@@ -1075,38 +1103,109 @@
 #esquema_ande{
     overflow: hidden;
     width: 1280px;
-    height: 650px;
+    height: 750px;
     padding: 0px;
+}
+#esquema_ande > p:nth-child(2){
+    font-size:22px;
+    position:absolute;
+    padding:10px;
+    width:900px;
 }
 #esquema_ande h1{
     width: 830px;
     color: #212121;
-    text-align: center;
+    text-align: left;
     padding: 10px;
 }
 #esquema_ande.past h1{
     visibility: hidden;
 }
-#esquema_ande > div:nth-child(2).substep img{
-    opacity: .7;
-    -webkit-transform: translateY(100%);
-    transform: translateY(120%);
-    -webkit-transition: all .8s;
-    transition: all .8s;
+#esquema_ande div:nth-child(3).substep img{
+    -webkit-transform: translateY(20%);
+    transform: translateY(20%);
 }
-#esquema_ande > div:nth-child(2).substep.present img{
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-}
-#esquema_ande img{
+#esquema_ande >div:nth-child(3) img{
     width: 850px;
     margin-left: calc(50% - 425px);
+}
+#generacion >p, #transporte >p, #distribucion > p, #alcance > p{
+    color:#4A148C;
+    font-size:27px;
+    position:absolute;
+    top:180px;
+    left:10px;
+}
+#alcance > p{
+    top: 478px;
+    left: 87%;
+}
+#alc_flecha1{
+    width: 150px;
+    position:absolute;
+    right: 90px;
+    bottom: 128px;
+    transform: rotateY(180deg) rotatez(45deg);
+}
+#alc_flecha1 img{
+    width: 115px;
+}
+#transporte > p{
+    top:425px;
+}
+#distribucion > p{
+    top:580px;
+}
+#gen_flecha1{
+    width:140px;
+    position:absolute;
+    top:260px;
+    left:60px;
+    -moz-transform: rotateZ(30deg);
+    -webkit-transform: rotateZ(30deg); 
+    -o-transform: rotateZ(30deg); 
+    transform: rotateZ(30deg);
+}
+#gen_flecha1 img{
+    width:140px;
+    height:auto;
+}
+#trans_flecha1{
+    width:360px;
+    position:absolute;
+    top:413px;
+    left:140px;
+}
+#trans_flecha1 img{
+    width:360px;
+}
+#dis_flecha1{
+    width:360px;
+    position:absolute;
+    left:180px;
+    top:570px;
+}
+#dis_flecha1 img{
+    width:360px;
+}
+#domesticos{
+    width:250px;
+    height:200px;
+    position:absolute;
+    right:210px;
+    bottom:50px;
+}
+#domesticos div{
+    animation-duration:1s !important;
+    border-radius:10px;
+    border:solid 1px rgba(213,0,0,.1);
+    height:200px;
+    background-color:rgba(213,0,0,.1);
 }
 #esquema_ande .referencia{
     visibility: hidden;
     position: absolute;
-    bottom: 10px;
+    bottom: 70px;
     left: 220px;
     font-size: 16px;
     transition: all .1.5s;
@@ -1271,6 +1370,7 @@
     }
     #problema1 h2{
         text-align:left;
+        top:60px;
         width: 600px;
         position: absolute;
         right: 50px;
@@ -1370,17 +1470,55 @@
         top: 0px;
     }
     #inconvenientes3{
-        width: 650px;
-        height:600px;
+        width: 820px;
+        height: 700px;
     }
     #demcrece{
         position:absolute;
-        bottom:140px;
-        left:170px;
+        bottom: 163px;
+        left: 252px;
     }
     #demcrece p{
         font-size:30px;
         color:#607D8B;
+    }
+    #mon_poblacion{
+        padding:10px;
+        position:absolute;
+        bottom:80px;
+        left:0px;
+        background-color:#0D47A1;
+    }
+    #mark_poblacion{
+        position:absolute;
+        right:5px;
+        width:140px;
+        height:30px;
+        z-index:-1;
+    }
+    #mark_poblacion > div{
+        animation-duration:1.2s !important;
+        border-radius:4px;
+        height:30px;
+        background-color:#607D8B;
+    }
+    #flecha_poblacion{
+        position:absolute;
+        bottom: 86px;
+        right: -20px;
+        width:300px;
+        height: 290px;
+        transform: rotateZ(-75deg);
+    }
+    #flecha_poblacion .expand{
+        height:290px;
+    }
+    #flecha_poblacion img{
+        width:300px !important;
+        height:auto;
+    }
+    #mon_poblacion > p{
+        color:white;
     }
     #inconvenientes3.future{
         opacity:.6;;
@@ -1389,15 +1527,15 @@
         opacity:1;
     }
     #inconvenientes3 img{
-        width:640px;
+        width: 817px;
         position:absolute;
         left:0px;
         top:0px;
     }
     #inconvenientes3 img + p{
         position:absolute;
-        top:350px;
-        left:125px;
+        top: 440px;
+        left: 212px;
         font-size:19px;
     }
     #inconvenientes4{
@@ -1499,7 +1637,7 @@
         position:absolute;
         width: 700px;
         top:130px;
-        right:100px;
+        right:60px;
     }
     #medidordetalles li{
         font-size:25px;
@@ -1519,14 +1657,22 @@
     #indicadorPuerto{
         position:absolute;
     }
-    #indicadorPuerto div:first-child{
+    #indicadorPuerto > div:first-child{
         width:100px;
         height: 100px;
         border-radius:50%;
         border:solid 2px #FF1744;
         position:absolute;
-        left:-220px;
+        left:-260px;
         top:-30px;
+    }
+    #flecha_puerto img{
+        width:150px;
+    }
+    #flecha_puerto{
+        width:150px;
+        position:absolute;
+        left:-155px;
     }
     #parametros .cd-single-step{
         bottom:-220px;
@@ -1801,6 +1947,26 @@
         margin-top:20px;
         margin-left:35px;
         float:left;
+        position:relative;
+    }
+    #markaam1, #markaam2{
+        position:absolute;
+        width:35px;
+        height:30px;
+        z-index:-1;
+    }
+    #markaam1 > div, #markaam2 > div{
+        height:30px;
+        background-color:white;
+    }
+    #markaam1{
+        top:48px;
+        right:15px;
+    }
+    #markaam2{
+        top:75px;
+        left:15px;
+        width:78px;
     }
     #aamInfo p{
         color:#212121;
@@ -1845,14 +2011,14 @@
         position:absolute;
         width:450px;
         height:450px;
-        bottom:145px;
+        bottom: -88px;
         right:140px;
         opacity:.6;
         -moz-transform: scale(.3);
-        -webkit-transform: scale(.3); 
-        -o-transform: scale(.3); 
+        -webkit-transform: scale(.3);
+        -o-transform: scale(.3);
         transform: scale(.3);
-        -moz-transition:all 1s; 
+        -moz-transition:all 1s;
         -webkit-transition: all 1s;
         -o-transition:all 1s;
         transition:all 1s;
@@ -1867,7 +2033,7 @@
     #internet + div{
         display:inline-block;
         position:absolute;
-        bottom:365px;
+        bottom: 132px;
         right: 320px;
     }
     #internet + div p{
@@ -1958,7 +2124,7 @@
         animation-name: fadeInLeft;
     }
     #arrow_med img{
-        width:400px;
+        width:150px;
         position:absolute;
         left: -180px;
     }
@@ -2038,8 +2204,8 @@
     }
     #nube_xbee{
         position:absolute;
-        top:285px;
-        left:240px;
+        top: 530px;
+        left: 260px;
         width:480px;
         height:400px;
         overflow:hidden;
@@ -2064,6 +2230,44 @@
         left: 251px;
         top: 178px;
     }
+    #IEEE_flecha1, #IEEE_flecha2, #internet_flecha1, #internet_flecha2{
+        position:absolute;
+        width:100px;
+    }
+    #IEEE_flecha1{
+        bottom: 161px;
+        left: 334px;
+        transform: rotateZ(30deg);
+    }
+    #IEEE_flecha2{
+        bottom: 157px;
+        left: 636px;
+        transform: rotateZ(-55deg);
+    }
+    #internet_flecha1{
+        bottom:161px;
+        right: 462px;
+        transform: rotateZ(35deg);
+    }
+    #internet_flecha2{
+        bottom: 161px;
+        right: 168px;
+        transform: rotateZ(-50deg);
+    }
+    #IEEE_flecha1 img, #IEEE_flecha2 img, #internet_flecha1 img, #internet_flecha2 img{
+        width:100px;
+    }
+    #discon_flecha{
+        width: 145px;
+        position:absolute;
+        bottom: 359px;
+        left: 481px;
+        z-index: 193;
+    }
+    #discon_flecha img{
+        width: 144px;
+        height: 13px;
+    }
     #flecha_nube2{
         left: 243px;
         top: 176px;
@@ -2072,18 +2276,18 @@
         width:800px;
         height:800px;
     }
-    #nube_xbee + div{
+    #IEEE_protocol{
         display:inline-block;
         position:absolute;
-        left: 475px;
-        bottom:320px;
+        left: 410px;
+        bottom: 115px;
         -moz-transform: rotateZ(-15deg);
         -webkit-transform: rotateZ(-15deg);
         -o-transform: rotateZ(-15deg);
-        transform: rotateZ(-20deg);
+        transform: rotateZ(-47deg);
         z-index: 10;
     }
-    #nube_xbee + div p{
+    #IEEE_protocol p{
         font-size:25px;
         color:#4A148C;
     }
@@ -2675,8 +2879,22 @@
         height:100%;
         width:auto;
     }
-    #dbs .substep.past{
-        visibility: hidden;
+    #choice1, #choice2{
+        position:absolute;
+    }
+    #choice1{
+        left: 254px;
+        bottom: 136px;
+    }
+    #choice2{
+        right: 107px;
+        bottom: 136px;
+    }
+    #dbs .substep .number-page{
+        visibility:hidden !important;
+    }
+    #dbs .substep:not(.future) .number-page{
+        visibility:visible !important;
     }
 
     #centroDatos{
@@ -3519,6 +3737,10 @@
         animation-delay:10s;
     }
 /************* caracteristicas del mesh  ***************/
+    #mesh{
+        width:600px;
+        height: 493px;
+    }
     #mesh.step.future{
         opacity:0;
     }
@@ -3552,6 +3774,10 @@
         -webkit-transform: translateX(-430%); 
         -o-transform: translateX(-430%); 
         transform: translateX(-430%);
+    }
+    #mesh .number-page{
+    right: 164px;
+    bottom: -135px;
     }
     #mesh .cd-single-step:not(.future) .cd-content li.substep{
         visibility:visible;

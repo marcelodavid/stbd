@@ -1869,11 +1869,60 @@
 @-webkit-keyframes scaleIn{
   0%{
     opacity: 0;
-    -webkit-transform:scale(0.9);
+    -webkit-transform:scale(0.6);
   }
   100%{
-    opacity: 1;
+   1 opacity: 1;
     -webkit-transform:scale(1);
   }
+}
+
+@-webkit-keyframes expand{
+    0%{
+    opacity:0;
+    }
+    100%{
+    opacity:1;
+    width:100%;
+    }
+}
+@-moz-keyframes expand{
+    0%{
+    opacity:0;    
+    }
+    100%{
+    opacity:1;
+    width:100%;
+    }
+}
+@-o-keyframes expand{
+    0%{
+    opacity:0;
+    }
+    100%{
+    opacity:1;
+    width:100%;
+    }
+}
+@keyframes expand{
+    0%{
+    opacity:0;
+    width:0%;
+    }
+    100%{
+    opacity:1;
+    width:100%;
+    }
+}
+
+.substep.expand{
+    overflow:hidden;
+    animation-duration:.5s;
+}
+.substep.present.expand{
+    -webkit-animation-name: expand;
+    -moz-animation-name: expand;
+    -o-animation-name: expand;
+    animation-name: expand;
 }
 
