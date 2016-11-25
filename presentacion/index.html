@@ -137,9 +137,9 @@
                         <div class="number-page">4</div>
 	    	</div>
 	    	<div class="step" id="esquema_ande" data-x="-10500" data-y="-3840" data-scale="15" data-rotate-x="-90" data-z="6000">
-	    		<h1 class="substep scaleIn">Esquema de la red Eléctrica</h1>
+	    		<h1 class="substep scaleIn" data-duration="250">Esquema de la red Eléctrica</h1>
                         <p class="substep scaleIn">Se encarga de la Generación, transmisón y distribución de la energía eléctrica donde su red se alimenta principalmente de las centrales hidroeléctricas</p>
-	    		<div class="substep fadeIn">
+	    		<div class="substep fadeIn" data-duration="600">
 	    			<img src="images/GenTransDis.png" alt="">
 	    		</div>
                         <div id="generacion" class="substep fadeIn" data-duration="150">
@@ -168,7 +168,7 @@
                         </div>
 
                         <div id="domesticos">
-                            <div class="substep expand"></div>
+                            <div class="substep expand" data-duration="800"></div>
                         </div>
                         
                         <div id="alcance" class="substep fadeIn" data-duration="150">
@@ -204,9 +204,9 @@
                         <div id="demcrece" class="substep fadeIn">
                             <p class="writeEffect" data-text="Aumento de la demanda"></p>
                         </div>
-                        <div id="mon_poblacion" class="substep scaleIn">
+                        <div id="mon_poblacion" class="substep scaleIn" data-duration="700">
                             <div id="mark_poblacion">
-                                <div class="substep expand"></div>
+                                <div class="substep expand" data-duration="1000"></div>
                             </div>
                             <p>El sistema de monitoreo obtiene los datos de la demanda de toda la población</p>
                         </div>
@@ -217,7 +217,7 @@
 	    	<div id="inconvenientes" class="step" data-x="-10200" data-y="17960" data-scale="19">
 	    		<h1 class="title6">Inconvenientes en el sistema de medición</h1>
                         <ul id="problemas">
-	    			<li><img src="images/list.png" alt="">Carencia de un sistema de análisis y supervisión en comunicación con una central de control y los abonados</li>
+	    			<li><img src="images/list.png" alt="">Carencia de un sistema de análisis y supervisión en comunicación con una central de control y los usuarios.</li>
 	    			<li><img src="images/list.png" alt="">El usuario final  no supervisa su consumo de forma continua</li>
 	    		</ul>
                         <div class="number-page">6</div>
@@ -234,6 +234,11 @@
 	    	</div>
 	    	<div id="inconvenientes2" class="step" data-x="-5600" data-y="14940" data-scale="9">
                     <img src="images/recolector.png" alt="">
+                    <div id="pa700_flecha">
+                        <div class="substep expand">
+                            <img src="images/flecha_indicadora8.png" alt="">
+                        </div>
+                    </div>
 	    	</div>	
 	    	<!-- slide 8 -->
 	    	<div id="reaccion" class="step" data-x="12000" data-y="9760" data-scale="38">
@@ -262,13 +267,13 @@
                             <div id="indicadorPuerto">
                                 <div class="substep bounceIn" data-duration="800"></div>
                                 <div id="flecha_puerto">
-                                    <div class="substep expand" data-duration="200">
-                                       <img src="images/flecha_indicadora1.png" alt="">
+                                    <div class="substep expand" data-duration="300">
+                                       <img src="images/flecha_indicadora7.png" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <span class="substep scaleIn" >Interfaz de Comunicación</span>
-                            <a class="substep fadeIn">
+                            <span class="substep scaleIn" data-duration="800">Interfaz de Comunicación</span>
+                            <a class="substep fadeIn" data-duration="2000">
                                 <em class="writeEffect" data-text="(Puerto Óptico)"></em>
                             </a><br>
                             <a class="substep fadeIn">
@@ -282,9 +287,15 @@
                                     <h3>Registra un gran número de parámetros</h3>
                                     <img src="images/obisLectura.png" alt="">
                                 </div>
-                            </div>
+                            </div> 
                         </li>
                     </ul>
+                    <div id="param_flecha">
+                        <div class="substep expand" data-duration="400"><img src="images/flecha_indicadora9.png" alt=""></div>
+                    </div>
+                    <div id="mark_IEC61">
+                        <div class="substep expand"></div>
+                    </div>
                     <div class="footer">
                         <div>
                             <a>FP-UNA Ingeniería en Electrónica - Teleprocesamiento de la Información</a>
@@ -297,7 +308,7 @@
                     <div class="number-page">8</div>
                 </div>
                 <!-- slide 4 Tics en las industrias electricas -->
-	    	<div id="expertos" class="step" data-x="-1000" data-y="84810" data-scale="40">
+	    	<div id="expertos" class="step" data-x="-1000" data-y="84180" data-scale="40">
 	    		<div id="sidecolor"></div>
                 
 	    		<div class="substep">
@@ -307,7 +318,7 @@
 	    				<div id="bgJhonMc"></div>
 	    			</div>
 	    			<div class="content-wrap">
-	    				<p><i>Las TIC's traen consigo desafíos y ventajas, éstas seran las aliadas para la producción de energía a nivel global</i></p>
+	    				<p><i>Las TIC traen consigo desafíos y ventajas, éstas seran las aliadas para la producción de energía a nivel global</i></p>
                                         <p class="referencia mg-l3">
                                             <span>Fuente:</span>
                                             http://enterprise.huawei.com/topic/2015powersummit_LA/
@@ -332,7 +343,7 @@
                     <div class="number-page">9</div>
 	    	</div>
 	    	<!-- slide 12 -->
-	    	<div id="telemedida" class="step size1" data-x="-1000" data-y="121110" data-scale="40">
+	    	<div id="telemedida" class="step size1" data-x="-1000" data-y="120480" data-scale="40">
 	    		<div>
 	    			<h1 class="title">Sistemas de Telemedida</h1>
 					<p class="bIn">
@@ -345,7 +356,7 @@
 		    		<ul>
 		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="#sensores" title="Sensores o Tadructores" class="writeEffect" data-text="Sensores o Transductores."></a></li>
 		    			<li class="substep fadeIn" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Terminal Remota."></a></li>
-		    			<li class="substep fadeIn colours" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Sistemas de Comunicaciones."></a></li>
+		    			<li class="substep fadeIn colours" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Sistemas de Comunicación."></a></li>
 		    			<li class="substep fadeIn colours" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Centro de Control y Supervisión."></a></li>
 		    			<li class="substep fadeIn colours" data-duration="800"><img src="images/list.png" alt=""><a href="" title="Sensores o Tadructores" class="writeEffect" data-text="Software de Supervisión."></a></li>
                                         <li class="substep"><li>
@@ -438,13 +449,10 @@
                 <div id="antecedentes" class="step" data-x="-1000" data-y="223500" data-scale="40">
                     <h2>ANTECEDENTES</h2>
                     <h2 style="color:#607D8B;">Sistemas existentes en el mercado</h2>
-                    <div class="substep scaleIn" id="openEneInfo">
+                    <div class="substep scaleIn" data-duration="300" id="openEneInfo">
                         <p>Herramienta de monitoreo de energía de código abierto. Implementa módulos basados en <strong>Raspberry Pi</strong>, <strong>Arduino</strong>.</p>
                     </div>
-                    <div class="substep scaleIn" id="aamInfo">
-                        <div id="markaam1">
-                            <div class="substep expand"></div>
-                        </div>
+                    <div class="substep scaleIn" data-duration="500" id="aamInfo">
                         <div id="markaam2">
                             <div class="substep expand"></div>
                         </div>
@@ -511,9 +519,9 @@
                          <img id="nube_arriba" src="images/nube_arriba.png" alt="">
                     </div>
                     <div id="IEEE_flecha1">
-                        <div class="substep expand"><img src="images/flecha_indicadora2.png" alt=""></div>
+                        <div class="substep expand" data-duration="200"><img src="images/flecha_indicadora2.png" alt=""></div>
                     </div>
-                    <div id="IEEE_protocol" class="substep fadeIn">
+                    <div id="IEEE_protocol" class="substep fadeIn" data-duration="400">
                         <p class="writeEffect" data-text="IEEE 802.15.4"></p>
                     </div>
                     <div id="IEEE_flecha2">
@@ -522,12 +530,12 @@
                     <div id="discon_flecha">
                         <div class="substep expand"><img src="images/flecha_indicadora6.png" alt=""></div>
                     </div>
-                    <div class="substep" id="internet"></div>
-                    <div class="substep fadeIn">
+                    <div class="substep" id="internet" data-duration="400"></div>
+                    <div class="substep fadeIn" data-duration="500">
                         <p class="writeEffect" data-text="internet"></p>
                     </div>
                     <div id="internet_flecha1">
-                        <div class="substep expand"><img src="images/flecha_indicadora2.png" alt=""></div>
+                        <div class="substep expand" data-duration="200"><img src="images/flecha_indicadora2.png" alt=""></div>
                     </div>
                     <div id="internet_flecha2">
                         <div class="substep expand"><img src="images/flecha_indicadora2.png" alt=""></div>
@@ -596,6 +604,9 @@
                                                     </tbody>
                                             </table>
                                         </div>
+                                        <div id="wrong_rs485">
+                                            <img src="images/wrong.png" alt="">
+                                        </div>
                                         <div class="number-page">17</div>
                			</div>
                                 <div class="substep right-slide">
@@ -639,6 +650,9 @@
                                                 </tbody>
                                             </thead>
                                         </table>
+                                    </div>
+                                    <div id="wrong_sonda">
+                                        <img src="images/wrong.png" alt="">
                                     </div>
                                     <div class="number-page">18</div>
                                 </div>
@@ -688,6 +702,9 @@
                                             di = 13mm +/- 1mm, da = 28mm
                                             </p>
                                         </div>
+                                    </div>
+                                    <div id="select_transductor" class="substep bounceIn">
+                                        <img src="images/select_ok.png" alt="">
                                     </div>
                                     <div class="number-page">19</div>
                                 </div>
@@ -888,6 +905,11 @@
 	                            </tr>                            
 	                            </tbody>
 	                        </table>
+                                <div class="marcador_tabla" id="mark_psoc">
+                                    <div>
+                                        <div></div>
+                                    </div>
+                                </div>
                                 <div class="number-page">21</div>
                		    </div>
                             <div class="substep right-slide last">
@@ -943,7 +965,7 @@
 		                                <td>1 Mbps</td>
 		                                <td>Hasta 54 Mbps</td>
 		                            </tr>
-		                            <tr> 
+		                            <tr class="upRow"> 
                                                 <td>Consumo</td>
 		                                <td>TX 35 mA</td>
 		                                <td>TX 40 mA</td>
@@ -955,7 +977,7 @@
 		                                <td>Standby 200 &micro;A</td>
 		                                <td>Standby 20 mA</td>
 		                            </tr>
-		                            <tr>
+		                            <tr class="upRow">
                                                 <td>Cantidad de Nodos</td>
 		                                <td>Soporta 254 nodos por subred, con capacidad de formar hasta 255 subredes</td>  
 		                                <td>Soporta 8 nodos</td>  
@@ -963,6 +985,11 @@
 		                            </tr>
 		                        </tbody>
 	                    	    </table>
+                                    <div class="marcador_tabla" id="mark_zigbee">
+                                        <div>
+                                            <div></div>
+                                        </div>
+                                    </div>
                                     <div class="number-page">23</div>
                			</div>
 	                    <!-- Comparativa modulos zigbe-->
@@ -1067,6 +1094,11 @@
 		                            </tr>
 		                        </tbody>
 		                    </table>
+                                    <div class="marcador_tabla" id="mark_maxstream">
+                                        <div>
+                                            <div></div>
+                                        </div>
+                                    </div>
                                     <div class="number-page">24</div>
 	                    </div> 
                             <div class="substep right-slide last">
@@ -1254,7 +1286,7 @@
                                             <td>1 GHz ARM Cortex A7</td>
                                             <td>ARM Cortex A8 1GHz</td>
                                             <td>ARM Cortex A8 a 1GHz</td>
-                                            <td>ARM Cortex A15 de 1.6 GHz y ARM Cortex A7 de 13 GHz</td>
+                                            <td>ARM Cortex A15 de 1.6 GHz y ARM Cortex A7 de 1.3 GHz</td>
                                             <td>AMD A55E 1GHz</td>
                                             <td>Intel Quark x1000 a 400 MHz basado en sus procesadores x86</td>
                                             <td>i2ex 1GHz</td>
@@ -1333,6 +1365,11 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="marcador_tabla" id="mark_rasp">
+                                        <div>
+                                            <div></div>
+                                        </div>
+                                    </div>
                                 <div class="number-page">29</div>
                             </div>
                             <div class="substep right-slide last">
@@ -1932,7 +1969,7 @@
 		                                    <td>85</td>
 		                                </tr>
                                                 <tr>
-                                                    <td>servidor</td>
+                                                    <td>Servidor</td>
                                                     <td>12.080</td>
                                                 </tr>
 		                                <tr>
