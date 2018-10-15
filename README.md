@@ -17,3 +17,5 @@ Dispositivo IOT que sincroniza los registros de los medidores capaces de soporta
 
 ## Funcionalidades
 Busquedas a traves del **NIS** de Usuario: El usuario tiene acceso en tiempo real a parámetros como potencia activa, demanda maxima y las corrientes de linea. La visualización de otro tipo de parametros está restringida en las configuraciones del MCU - ver `psoc branch`
+
+<img src="https://user-images.githubusercontent.com/10373447/46982495-c739a500-d0b2-11e8-94f6-8f46e1c221b5.gif" width="90%"></img>
