@@ -24,3 +24,5 @@ Busquedas a traves del **NIS** de Usuario: El usuario tiene acceso en tiempo rea
 Busquedas por geolocalización: Marque un punto y arrastre sobre el mapa para acceder a los datos de una zona. Útil para analizar la demanda por regiones, generar reportes y estudios para crecimientos a futuro. Al guardar la zona, el sistema recolecta la información periodicamente para luego generar graficos estadisticos. Otra utilizad posible sería la de relacionar los medidores a un transformador, para evaluar los picos y la sobrecarga de la maquina electrica.
 
 <img src="https://user-images.githubusercontent.com/10373447/46985162-4af98e80-d0bf-11e8-8633-84ec963cc12c.gif" width="90%"></img> 
+
+<img src="https://user-images.githubusercontent.com/10373447/46985600-a9277100-d0c1-11e8-9174-65234dacecc6.gif" width="90%"></img> 
